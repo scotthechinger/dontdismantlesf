@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't Kill What Keeps Us Safe — SF Pretrial</title>
+<meta name="description" content="San Francisco's most effective public safety program is being dissolved on July 1, 2026. 93% safety rate. 5× cheaper than probation. A national model — about to be killed in the bluest city in the bluest state.">
+<meta property="og:title" content="Don't Kill What Keeps Us Safe — SF Pretrial">
+<meta property="og:description" content="San Francisco's most effective public safety program — proven, audited, 50 years old, 5× cheaper than probation, one of only two of its kind in the U.S. — is being dissolved July 1. Quietly.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700;1,900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper: #F6F3EC;
+  --paper-warm: #EDE8DC;
+  --paper-deep: #E4DECD;
+  --navy: #1F2336;
+  --navy-2: #2A2E45;
+  --ink: #14141E;
+  --ink-soft: #22222F;
+  --ink-mid: #4A4A5C;
+  --ink-light: #7A7A8C;
+  --ink-lighter: #A8A8B8;
+  --accent: #E25A2E;
+  --accent-hot: #FF6B3D;
+  --accent-deep: #B8421E;
+  --accent-warm: #E8B84B;
+  --teal: #2C5F5D;
+  --line: #D4CFC0;
+  --line-soft: #E3DECF;
+  --line-dark: #2F3349;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ─── TOP BAR ─── */
+.top-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(246,243,236,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 12px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+}
+.top-mark {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.top-mark span { color: var(--accent); }
+.top-right { display: flex; align-items: center; gap: 10px; }
+.top-evidence {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  padding: 8px 14px;
+  border-radius: 100px;
+  border: 1.5px solid var(--line);
+  transition: all .2s;
+}
+.top-evidence:hover { color: var(--ink); border-color: var(--ink); background: rgba(0,0,0,0.03); }
+.top-evidence::before { content: '↓'; margin-right: 6px; color: var(--accent); font-weight: 900; }
+.top-cta {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 9px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: background .2s, transform .2s;
+}
+.top-cta:hover { background: var(--accent-hot); transform: translateY(-1px); }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  background: var(--navy);
+  color: var(--paper);
+  padding: 48px 28px 56px;
+  overflow: hidden;
+  border-bottom: 4px solid var(--accent);
+  min-height: calc(100vh - 50px);
+  display: flex; align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 85% 15%, rgba(226,90,46,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 80% at 10% 95%, rgba(232,184,75,0.10) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  opacity: 0.55;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.eyebrow-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border: 1px solid rgba(232,184,75,0.45);
+  border-radius: 100px;
+  background: rgba(232,184,75,0.10);
+}
+.eyebrow-pill .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-warm);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(232,184,75,0.7); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(232,184,75,0); }
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2.1rem, 5.2vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--paper);
+  margin-bottom: 20px;
+  max-width: 1000px;
+}
+.hero h1 em { font-style: italic; color: var(--accent-hot); font-weight: 900; }
+.hero h1 .strike {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.hero h1 .strike::after {
+  content: '';
+  position: absolute;
+  left: -2%; right: -2%;
+  top: 52%;
+  height: 5px;
+  background: var(--accent);
+  transform: rotate(-2deg);
+}
+
+.hero-sub {
+  font-size: clamp(15.5px, 1.7vw, 18px);
+  color: rgba(246,243,236,0.85);
+  max-width: 740px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.hero-sub strong { color: var(--paper); font-weight: 600; }
+
+.countdown {
+  display: flex; gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.cd-block {
+  background: rgba(246,243,236,0.08);
+  border: 1px solid rgba(246,243,236,0.18);
+  border-radius: 10px;
+  padding: 10px 16px;
+  min-width: 72px;
+  text-align: center;
+}
+.cd-num {
+  font-family: var(--mono);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  color: var(--accent-hot);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.cd-lbl {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(246,243,236,0.6);
+  margin-top: 6px;
+}
+.cd-caption {
+  flex: 1; min-width: 200px;
+  align-self: center;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(246,243,236,0.65);
+  line-height: 1.5;
+}
+.cd-caption strong { color: var(--paper); }
+
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: none;
+  transition: all .2s;
+}
+.btn-primary { background: var(--accent); color: var(--paper); }
+.btn-primary:hover { background: var(--accent-hot); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(226,90,46,0.32); }
+.btn-ghost { background: transparent; color: var(--paper); border: 1.5px solid rgba(246,243,236,0.35); }
+.btn-ghost:hover { border-color: var(--paper); transform: translateY(-2px); }
+.btn::after { content: '→'; font-size: 16px; }
+
+/* ─── TICKER (positives only) ─── */
+.ticker {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 14px 28px;
+  overflow: hidden;
+  position: relative;
+}
+.ticker-track {
+  display: flex; gap: 48px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: scroll 60s linear infinite;
+  width: max-content;
+}
+.ticker-track strong { color: var(--ink); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 100px 28px; scroll-margin-top: 60px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.container-narrow { max-width: 820px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  display: block;
+}
+.section-title {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+.section-title em { color: var(--accent); font-style: italic; }
+.section-lede {
+  font-size: 19px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  max-width: 740px;
+  margin-bottom: 48px;
+}
+
+/* ─── EVIDENCE MARKER (top of Premise) ─── */
+.evidence-marker {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 56px;
+  padding-top: 0;
+}
+.evidence-marker-line {
+  flex: 1; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent));
+}
+.evidence-marker-line.right {
+  background: linear-gradient(90deg, var(--accent), var(--accent), transparent);
+}
+.evidence-marker-text {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  padding: 0 8px;
+}
+.evidence-marker-main {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1;
+}
+.evidence-marker-main em { color: var(--accent); font-style: normal; }
+.evidence-marker-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-top: 8px;
+}
+
+/* ─── PREMISE ─── */
+.safest-section {
+  background: var(--paper);
+  padding: 90px 28px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.safest-pull {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 1000px;
+  margin-bottom: 30px;
+}
+.safest-pull em { color: var(--accent); font-style: italic; }
+.safest-pull .highlight {
+  background: linear-gradient(180deg, transparent 60%, rgba(232,184,75,0.45) 60%);
+  padding: 0 2px;
+}
+.safest-attribution {
+  display: flex; gap: 18px; align-items: flex-start;
+  border-left: 3px solid var(--accent);
+  padding-left: 18px;
+  max-width: 740px;
+}
+.safest-attribution p {
+  font-size: 17px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+.safest-attribution strong { color: var(--ink); display: block; margin-top: 6px; }
+.opening-eyebrow { color: var(--ink-light); }
+
+/* ─── EXHIBIT A (Record · INK dark) ─── */
+.numbers-section { background: var(--ink); color: var(--paper); padding: 110px 28px; position: relative; overflow: hidden; }
+.numbers-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(226,90,46,0.10) 0%, transparent 60%);
+  pointer-events: none;
+}
+.numbers-section .container { position: relative; z-index: 1; }
+.numbers-section .section-eyebrow { color: var(--accent-hot); }
+.numbers-section .section-title { color: var(--paper); }
+.numbers-section .section-title em { color: var(--accent-hot); }
+.numbers-section .section-lede { color: rgba(246,243,236,0.7); }
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(246,243,236,0.14);
+  border: 1px solid rgba(246,243,236,0.14);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.num-cell {
+  background: var(--ink);
+  padding: 44px 32px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.num-big {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  line-height: 1;
+  color: var(--accent-hot);
+  letter-spacing: -0.03em;
+}
+.num-big .unit { font-size: 0.45em; vertical-align: super; margin-left: 2px; }
+.num-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--paper);
+  line-height: 1.3;
+}
+.num-context {
+  font-size: 13.5px;
+  color: rgba(246,243,236,0.65);
+  line-height: 1.55;
+}
+.num-context em { color: var(--accent-hot); font-style: normal; font-weight: 700; }
+.numbers-stamp {
+  margin-top: 56px;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--paper);
+  max-width: 780px;
+  margin-left: auto; margin-right: auto;
+  line-height: 1.35;
+}
+.numbers-stamp em { color: var(--accent-hot); font-style: italic; }
+
+/* ─── EXHIBIT B (Math · paper-warm) ─── */
+.math-section { background: var(--paper-warm); padding: 110px 28px; border-bottom: 1px solid var(--line-soft); }
+.cost-headline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin: 48px 0 48px;
+}
+.cost-block {
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+}
+.cost-block.sfp {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(226,90,46,0.10), rgba(226,90,46,0.02));
+}
+.cost-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 18px;
+}
+.cost-block.sfp .cost-tag { color: var(--accent); }
+.cost-big {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.cost-block.sfp .cost-big { color: var(--accent); }
+.cost-sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 18px;
+}
+.cost-detail { font-size: 13px; color: var(--ink-light); line-height: 1.55; }
+.cost-arrow {
+  align-self: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  color: var(--accent);
+  text-align: center;
+  line-height: 1;
+}
+.cost-arrow span {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-top: 10px;
+}
+
+.savings-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.savings-cell {
+  background: var(--paper);
+  padding: 28px 24px;
+  text-align: center;
+}
+.savings-num {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.savings-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.math-stamp {
+  margin-top: 56px;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  line-height: 1.25;
+  color: var(--ink);
+  max-width: 880px;
+}
+.math-stamp em { color: var(--accent); font-style: italic; }
+
+/* ─── EXHIBIT C (Head to Head · NAVY) ─── */
+.head2head { background: var(--navy); color: var(--paper); padding: 110px 28px; position: relative; overflow: hidden; }
+.head2head::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 10% 100%, rgba(232,184,75,0.10) 0%, transparent 60%);
+  pointer-events: none;
+}
+.head2head .container { position: relative; z-index: 1; }
+.head2head .section-eyebrow { color: var(--accent-hot); }
+.head2head .section-title { color: var(--paper); }
+.head2head .section-title em { color: var(--accent-hot); }
+.head2head .section-lede { color: rgba(246,243,236,0.78); }
+
+.compare-table {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(246,243,236,0.18);
+  margin-top: 40px;
+}
+.compare-header {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  background: rgba(0,0,0,0.4);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.compare-header > div {
+  padding: 18px 22px;
+  border-right: 1px solid rgba(246,243,236,0.12);
+}
+.compare-header > div:last-child { border-right: none; }
+.compare-header .ch-sfp { color: var(--accent-warm); }
+.compare-header .ch-apd { color: rgba(246,243,236,0.62); }
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  border-top: 1px solid rgba(246,243,236,0.10);
+  background: rgba(246,243,236,0.025);
+}
+.compare-row:nth-child(odd) { background: rgba(246,243,236,0.05); }
+.compare-row > div {
+  padding: 18px 22px;
+  border-right: 1px solid rgba(246,243,236,0.10);
+  font-size: 14.5px;
+  display: flex; align-items: center;
+  line-height: 1.4;
+}
+.compare-row > div:last-child { border-right: none; }
+.cr-label { color: rgba(246,243,236,0.7); font-weight: 500; }
+.cr-good { font-family: var(--mono); color: var(--paper); font-weight: 700; }
+.cr-good::before { content: '✓'; color: var(--accent-hot); margin-right: 10px; font-weight: 700; flex-shrink: 0; }
+.cr-bad { font-family: var(--mono); color: rgba(246,243,236,0.55); font-weight: 500; }
+.cr-bad::before { content: '—'; color: rgba(246,243,236,0.3); margin-right: 10px; flex-shrink: 0; }
+
+/* ─── EXHIBIT D (Model · paper) ─── */
+.national-band { background: var(--paper); color: var(--ink); padding: 100px 28px; border-bottom: 1px solid var(--line-soft); }
+.national-band-inner { max-width: 1100px; margin: 0 auto; }
+.national-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 24px;
+}
+.national-card {
+  background: var(--paper-warm);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 30px 28px;
+  transition: all .2s;
+}
+.national-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.national-card .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+.national-card h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.national-card p {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+/* ─── EXHIBIT E (Casualty · INK) ─── */
+.dead-section { background: var(--ink); padding: 110px 28px; color: var(--paper); }
+.dead-section .section-eyebrow { color: var(--accent-hot); }
+.dead-section .section-title { color: var(--paper); }
+.dead-section .section-title em { color: var(--accent-hot); }
+.dead-section .section-lede { color: rgba(246,243,236,0.7); }
+.dead-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 32px;
+  border-top: 1px solid rgba(246,243,236,0.15);
+}
+.dead-row {
+  display: flex; align-items: flex-start; gap: 18px;
+  padding: 20px 4px;
+  border-bottom: 1px solid rgba(246,243,236,0.12);
+  font-size: 16.5px;
+  line-height: 1.45;
+  color: var(--paper);
+}
+.dead-row .x {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent-hot);
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+.dead-row strong { font-weight: 600; color: var(--paper); }
+
+/* ─── EXHIBIT F (Law · paper-warm) ─── */
+.carveout { background: var(--paper-warm); padding: 110px 28px; border-bottom: 1px solid var(--line-soft); }
+.carveout .section-eyebrow { color: var(--accent); }
+.carveout-headline {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 900px;
+}
+.carveout-headline em { color: var(--accent); font-style: italic; }
+.carveout-doc {
+  margin: 36px 0 28px;
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  padding: 28px 32px;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 24px rgba(26,26,38,0.06);
+  max-width: 900px;
+}
+.carveout-doc-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 12px;
+  display: block;
+}
+.carveout-doc-quote {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.carveout-doc-source {
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 16px;
+  color: var(--ink-mid);
+  letter-spacing: 0.04em;
+}
+.carveout-stamp {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  color: var(--ink);
+  line-height: 1.3;
+  max-width: 820px;
+  margin-top: 24px;
+}
+.carveout-stamp span { color: var(--accent); }
+
+/* ─── EXHIBIT G (Room · NAVY) ─── */
+.room-section { background: var(--navy); color: var(--paper); padding: 110px 28px; position: relative; overflow: hidden; }
+.room-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 100%, rgba(226,90,46,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.room-section .container { position: relative; z-index: 1; }
+.room-section .section-eyebrow { color: var(--accent-hot); }
+.room-section .section-title { color: var(--paper); }
+.room-section .section-title em { color: var(--accent-hot); }
+.room-section .section-lede { color: rgba(246,243,236,0.72); }
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 24px;
+}
+.room-col {
+  background: rgba(246,243,236,0.04);
+  border: 1.5px solid rgba(246,243,236,0.18);
+  border-radius: 16px;
+  padding: 36px 32px;
+}
+.room-col.absent {
+  border-color: var(--accent);
+  background: rgba(226,90,46,0.10);
+}
+.room-col h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(246,243,236,0.65);
+  margin-bottom: 22px;
+}
+.room-col.absent h3 { color: var(--accent-hot); }
+.room-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.room-col li {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  color: var(--paper);
+  line-height: 1.25;
+}
+.room-col.absent li { color: var(--accent-hot); }
+
+/* ─── ACT (orange) ─── */
+.act-section {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 110px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.act-section::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.10'/%3E%3C/svg%3E");
+  opacity: 0.5; pointer-events: none;
+}
+.act-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+.act-section .section-eyebrow { color: rgba(246,243,236,0.9); }
+.act-headline {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin-bottom: 12px;
+}
+.act-headline em { font-style: italic; color: var(--paper); }
+.act-sub { color: rgba(246,243,236,0.92); font-size: 17px; line-height: 1.5; max-width: 720px; margin-bottom: 40px; }
+
+.clock-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 56px;
+}
+.clock-cell {
+  background: rgba(0,0,0,0.16);
+  border: 1px solid rgba(246,243,236,0.22);
+  border-radius: 14px;
+  padding: 24px 24px;
+}
+.clock-cell.next { border-color: var(--paper); background: rgba(0,0,0,0.28); }
+.clock-date {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(246,243,236,0.85);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.clock-cell.next .clock-date { color: var(--paper); }
+.clock-cell.next .clock-date::after {
+  content: '· NEXT'; margin-left: 8px;
+  background: var(--paper); color: var(--accent);
+  padding: 2px 8px; border-radius: 100px;
+  font-size: 10px; letter-spacing: 0.16em;
+}
+.clock-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--paper);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.clock-desc { font-size: 13.5px; color: rgba(246,243,236,0.85); line-height: 1.5; }
+
+.act-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 36px;
+}
+.act-card {
+  background: rgba(246,243,236,0.96);
+  border: 1.5px solid rgba(246,243,236,0.4);
+  border-radius: 14px;
+  padding: 26px 24px;
+  display: flex; flex-direction: column;
+  transition: all .2s;
+  cursor: pointer;
+}
+.act-card:hover { background: var(--paper); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0,0,0,0.20); }
+.act-card-num {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.act-card h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.act-card p { font-size: 14px; color: var(--ink-mid); line-height: 1.55; margin-bottom: 18px; flex-grow: 1; }
+.act-link {
+  font-family: var(--sans); font-weight: 700; font-size: 13px;
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: gap .2s;
+}
+.act-link::after { content: '→'; }
+.act-card:hover .act-link { gap: 10px; }
+
+.share-block {
+  background: var(--ink); color: var(--paper);
+  border-radius: 14px; padding: 30px 32px;
+  display: flex; flex-wrap: wrap; gap: 22px;
+  align-items: center; justify-content: space-between;
+}
+.share-block h3 { font-family: var(--serif); font-weight: 700; font-size: 1.3rem; color: var(--paper); margin-bottom: 4px; }
+.share-block p { color: rgba(246,243,236,0.7); font-size: 13.5px; }
+.share-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.share-btn {
+  background: rgba(246,243,236,0.08);
+  border: 1px solid rgba(246,243,236,0.22);
+  color: var(--paper);
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-weight: 600; font-size: 13px;
+  cursor: pointer; transition: all .2s;
+}
+.share-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+/* ─── PRESS (paper) ─── */
+.press-section { background: var(--paper); padding: 110px 28px; }
+.press-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: start;
+}
+.press-row .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.press-list { display: flex; flex-direction: column; gap: 12px; }
+.press-item {
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px;
+  transition: all .2s;
+}
+.press-item:hover { border-color: var(--accent); transform: translateX(4px); }
+.press-item-text strong {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.press-item-text span { color: var(--ink-mid); font-size: 13px; }
+.press-item-arrow { font-family: var(--mono); color: var(--accent); font-size: 18px; flex-shrink: 0; }
+.press-contact {
+  margin-top: 28px; padding-top: 28px;
+  border-top: 1px solid var(--line);
+  font-size: 14px; color: var(--ink-mid); line-height: 1.7;
+}
+.press-contact a { color: var(--accent); font-weight: 700; }
+
+/* ─── FOOTER (navy) ─── */
+footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px; }
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;
+  align-items: center;
+}
+.footer-mark {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.footer-mark span { color: var(--accent-hot); }
+.footer-meta {
+  font-size: 12px;
+  color: rgba(246,243,236,0.55);
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+.footer-meta a { color: var(--paper); border-bottom: 1px solid rgba(246,243,236,0.25); }
+.footer-meta a:hover { color: var(--accent-hot); border-color: var(--accent-hot); }
+
+/* ─── SUB-NAV (Evidence Skipper) ─── */
+.sub-nav {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+  background: linear-gradient(180deg, rgba(31,35,54,0.97), rgba(15,18,30,0.99));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.4);
+  padding: 14px 20px;
+  display: none;
+  transform: translateY(100%);
+  transition: transform .4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sub-nav.show { display: block; transform: translateY(0); }
+.sub-nav.show::after {
+  content: '';
+  position: absolute;
+  top: -3px; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 24px rgba(226,90,46,0.8), 0 0 8px rgba(255,107,61,1);
+  animation: sn-glow 2s ease-out 0.2s 1;
+}
+@keyframes sn-glow {
+  0%   { box-shadow: 0 0 0 rgba(226,90,46,0); }
+  35%  { box-shadow: 0 0 32px rgba(226,90,46,1), 0 0 12px rgba(255,107,61,1); }
+  100% { box-shadow: 0 0 24px rgba(226,90,46,0.5), 0 0 8px rgba(255,107,61,0.6); }
+}
+
+.sub-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.sn-evidence-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 14px 4px 4px;
+  border-right: 1px solid rgba(246,243,236,0.2);
+  flex-shrink: 0;
+}
+.sn-evidence-main {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-hot);
+  line-height: 1;
+}
+.sn-evidence-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(246,243,236,0.55);
+  margin-top: 5px;
+}
+
+.sn-arrow {
+  background: rgba(246,243,236,0.06);
+  border: 1px solid rgba(246,243,236,0.22);
+  color: var(--paper);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  font-size: 20px; line-height: 1;
+  font-family: var(--mono);
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+  flex-shrink: 0;
+  padding-bottom: 2px;
+}
+.sn-arrow:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.sn-arrow:disabled { opacity: 0.25; cursor: not-allowed; }
+
+.sn-letters {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background: rgba(246,243,236,0.04);
+  border-radius: 10px;
+  padding: 2px;
+  border: 1px solid rgba(246,243,236,0.10);
+}
+.sn-letters::-webkit-scrollbar { display: none; }
+
+.sn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(246,243,236,0.65);
+  white-space: nowrap;
+  transition: all .2s;
+  flex-shrink: 0;
+  position: relative;
+}
+.sn-link::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 22%; bottom: 22%;
+  width: 1px;
+  background: rgba(246,243,236,0.18);
+}
+.sn-link:last-of-type::after { display: none; }
+.sn-link:hover { color: var(--paper); background: rgba(246,243,236,0.07); }
+.sn-link:hover::after { display: none; }
+.sn-link.active {
+  color: var(--paper);
+  background: var(--accent);
+  box-shadow: 0 4px 14px rgba(226,90,46,0.4);
+}
+.sn-link.active::after { display: none; }
+.sn-link:has(+ .sn-link.active)::after { display: none; }
+.sn-link .ltr {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--accent-hot);
+}
+.sn-link.active .ltr { color: var(--paper); }
+
+.sub-nav-cta {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 11px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 6px;
+  transition: all .2s;
+}
+.sub-nav-cta:hover { background: var(--accent-hot); transform: translateY(-1px); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .sn-link .lbl { display: none; }
+  .sn-link { padding: 8px 11px; }
+}
+@media (max-width: 880px) {
+  section { padding: 70px 22px; }
+  .hero { padding: 36px 22px 48px; min-height: calc(100vh - 50px); }
+  .top-bar { padding: 10px 18px; }
+  .top-evidence { display: none; }
+  .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .cost-headline { grid-template-columns: 1fr; gap: 14px; }
+  .cost-arrow { padding: 4px 0; }
+  .savings-strip { grid-template-columns: 1fr; }
+  .compare-header, .compare-row { grid-template-columns: 1fr; }
+  .compare-header > div, .compare-row > div { border-right: none; border-bottom: 1px solid rgba(246,243,236,0.08); }
+  .compare-header > div:last-child, .compare-row > div:last-child { border-bottom: none; }
+  .compare-row > div { padding: 12px 20px; }
+  .cr-label { padding-bottom: 4px !important; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(246,243,236,0.55); font-weight: 700; }
+  .cr-good, .cr-bad { padding-top: 0 !important; }
+  .national-grid { grid-template-columns: 1fr; }
+  .dead-list { grid-template-columns: 1fr; }
+  .room-grid { grid-template-columns: 1fr; }
+  .clock-strip { grid-template-columns: 1fr; }
+  .act-grid { grid-template-columns: 1fr; }
+  .press-row { grid-template-columns: 1fr; gap: 32px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; text-align: left; }
+  .sub-nav { padding: 10px 12px; }
+  .sub-nav-inner { gap: 8px; }
+  .sn-evidence-sub { display: none; }
+  .sn-link { padding: 7px 9px; font-size: 10px; }
+  .sn-link .ltr { font-size: 13px; }
+  .evidence-marker { gap: 12px; margin-bottom: 36px; }
+  .evidence-marker-sub { display: none; }
+}
+@media (max-width: 480px) {
+  .numbers-grid { grid-template-columns: 1fr; }
+  .cd-block { padding: 10px 14px; min-width: 64px; }
+  .hero h1 .strike::after { height: 4px; }
+  .sub-nav-cta { padding: 9px 14px; font-size: 11px; }
+  .sn-evidence-main { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ───────────── TOP BAR ───────────── -->
+<header class="top-bar">
+  <a href="#top" class="top-mark">Don't Kill <span>What Keeps Us Safe</span></a>
+  <div class="top-right">
+    <a href="#exhibit-a" class="top-evidence">See the Evidence</a>
+    <a href="#act" class="top-cta">Take Action</a>
+  </div>
+</header>
+
+<!-- ───────────── HERO ───────────── -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow-pill"><span class="dot"></span> Live · Decision pending May 27</span>
+
+    <h1>
+      On <span class="strike">July 1</span>, San Francisco kills its <em>most effective public safety program.</em>
+    </h1>
+
+    <p class="hero-sub">
+      <strong>50 years. A 93% public safety rate. A 96% court appearance rate. One-fifth the cost of probation.</strong> SF Pretrial is one of only two community-based pretrial programs of its kind in the country — a proven national model — and the city is quietly handing it to an armed law enforcement agency. In the bluest city in the bluest state.
+    </p>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-block"><div class="cd-num" id="cdDays">—</div><div class="cd-lbl">Days</div></div>
+      <div class="cd-block"><div class="cd-num" id="cdHours">—</div><div class="cd-lbl">Hours</div></div>
+      <div class="cd-block"><div class="cd-num" id="cdMin">—</div><div class="cd-lbl">Min</div></div>
+      <div class="cd-block"><div class="cd-num" id="cdSec">—</div><div class="cd-lbl">Sec</div></div>
+      <div class="cd-caption">until <strong>July 1, 2026</strong> — the day SF Pretrial dissolves.</div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#act" class="btn btn-primary">Take action now</a>
+      <a href="#exhibit-a" class="btn btn-ghost">See the evidence</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── TICKER (positives only) ───────────── -->
+<div class="ticker">
+  <div class="ticker-track">
+    <strong>93%</strong> public safety rate &nbsp;·&nbsp;
+    <strong>96%</strong> court appearance rate &nbsp;·&nbsp;
+    <strong>630,394</strong> jail bed days saved in 2023 &nbsp;·&nbsp;
+    <strong>19,000+</strong> court dates attended &nbsp;·&nbsp;
+    <strong>1,800</strong> people served daily &nbsp;·&nbsp;
+    <strong>1,500+</strong> therapeutic referrals a year &nbsp;·&nbsp;
+    <strong>200+</strong> community partnerships &nbsp;·&nbsp;
+    <strong>50</strong> years &nbsp;·&nbsp;
+    NAPSA-accredited &nbsp;·&nbsp;
+    A national model &nbsp;·&nbsp;
+    <strong>93%</strong> public safety rate &nbsp;·&nbsp;
+    <strong>96%</strong> court appearance rate &nbsp;·&nbsp;
+    <strong>630,394</strong> jail bed days saved in 2023 &nbsp;·&nbsp;
+    <strong>19,000+</strong> court dates attended &nbsp;·&nbsp;
+    <strong>1,800</strong> people served daily &nbsp;·&nbsp;
+    <strong>1,500+</strong> therapeutic referrals a year &nbsp;·&nbsp;
+    <strong>200+</strong> community partnerships &nbsp;·&nbsp;
+    <strong>50</strong> years &nbsp;·&nbsp;
+    NAPSA-accredited &nbsp;·&nbsp;
+    A national model &nbsp;·&nbsp;
+  </div>
+</div>
+
+<!-- ───────────── PREMISE / OPENING STATEMENT ───────────── -->
+<section class="safest-section" id="premise">
+  <div class="container">
+
+    <div class="evidence-marker">
+      <div class="evidence-marker-line"></div>
+      <div class="evidence-marker-text">
+        <span class="evidence-marker-main">The <em>Evidence</em></span>
+        <span class="evidence-marker-sub">Seven Exhibits · Read every one</span>
+      </div>
+      <div class="evidence-marker-line right"></div>
+    </div>
+
+    <span class="section-eyebrow opening-eyebrow">Opening Statement</span>
+    <p class="safest-pull">
+      The single agency doing more to keep San Franciscans safe — <em>and at a fraction of the price</em> — is the one the city is <span class="highlight">about to dissolve.</span>
+    </p>
+    <div class="safest-attribution">
+      <p>
+        "[SF Pretrial is] the greatest thing no one's ever really heard of."
+        <strong>— Toney Chaplin, Former Assistant Chief, SFPD (30 years)</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── EXHIBIT A · THE RECORD (ink) ───────────── -->
+<section class="numbers-section" id="exhibit-a">
+  <div class="container">
+    <span class="section-eyebrow">Exhibit A · The Record</span>
+    <h2 class="section-title">This is what "safer" <em>actually looks like.</em></h2>
+    <p class="section-lede">Not opinions. Not anecdotes. Audited outcomes from 2023 — the kind decision-makers should have been seeing for years, and somehow haven't.</p>
+
+    <div class="numbers-grid">
+      <div class="num-cell">
+        <div class="num-big">93<span class="unit">%</span></div>
+        <div class="num-label">Public safety rate</div>
+        <div class="num-context">No new charges while enrolled (2023). No probation department in California consistently matches this. SF Pretrial has held it year after year.</div>
+      </div>
+      <div class="num-cell">
+        <div class="num-big">96<span class="unit">%</span></div>
+        <div class="num-label">Court appearance rate</div>
+        <div class="num-context">Across 19,000+ scheduled court dates. The whole point of pretrial supervision — and the program is exceptional at it.</div>
+      </div>
+      <div class="num-cell">
+        <div class="num-big">630K</div>
+        <div class="num-label">Jail bed days saved</div>
+        <div class="num-context">In 2023 alone. People kept out of cages, working, parenting, getting care — and not adding to recidivism risk.</div>
+      </div>
+      <div class="num-cell">
+        <div class="num-big">50<span style="font-size:0.5em;">&nbsp;yrs</span></div>
+        <div class="num-label">Continuously serving SF</div>
+        <div class="num-context">Founded 1976. NAPSA-accredited. Survived six prior takeover attempts. Not an experiment — a 50-year proof of concept.</div>
+      </div>
+      <div class="num-cell">
+        <div class="num-big">1,800</div>
+        <div class="num-label">People served daily</div>
+        <div class="num-context">Roughly 70% of everyone released from SF County Jail. The highest-needs population in the system, served better than anywhere else.</div>
+      </div>
+      <div class="num-cell">
+        <div class="num-big">$11.5M</div>
+        <div class="num-label">vs. $58M for probation</div>
+        <div class="num-context">Comparable probation cost for the same population is roughly 5× more. SF Pretrial is <em>also</em> cheaper. By a lot.</div>
+      </div>
+    </div>
+
+    <p class="numbers-stamp">
+      The data on SF Pretrial is <em>exceptional and unchallenged.</em><br>The decision to dissolve it is not about outcomes.
+    </p>
+  </div>
+</section>
+
+<!-- ───────────── EXHIBIT B · THE MATH (paper-warm) ───────────── -->
+<section class="math-section" id="exhibit-b">
+  <div class="container">
+    <span class="section-eyebrow">Exhibit B · The Math</span>
+    <h2 class="section-title">Five times cheaper. <em>To do better work.</em></h2>
+    <p class="section-lede">Apples-to-apples — community-based pretrial vs. probation supervision — SF Pretrial costs the city a fifth of what comparable probation supervision would.</p>
+
+    <div class="cost-headline">
+      <div class="cost-block sfp">
+        <div class="cost-tag">SF Pretrial</div>
+        <div class="cost-big">$6,389</div>
+        <div class="cost-sub">per person · per year</div>
+        <div class="cost-detail">$11.5M annual budget ÷ 1,800 active cases.</div>
+      </div>
+      <div class="cost-arrow">5×<span>more expensive</span></div>
+      <div class="cost-block">
+        <div class="cost-tag">Comparable probation cost</div>
+        <div class="cost-big">$32,222</div>
+        <div class="cost-sub">per person · per year</div>
+        <div class="cost-detail">~$58M comparable probation cost for the same population. (Source: SF Pretrial budget analysis, 2024.)</div>
+      </div>
+    </div>
+
+    <div class="savings-strip">
+      <div class="savings-cell">
+        <div class="savings-num">~$46.5M</div>
+        <div class="savings-lbl">Saved every year vs. comparable probation supervision</div>
+      </div>
+      <div class="savings-cell">
+        <div class="savings-num">630,394</div>
+        <div class="savings-lbl">Jail bed days kept off the city's tab in 2023 alone</div>
+      </div>
+      <div class="savings-cell">
+        <div class="savings-num">$3.5M+</div>
+        <div class="savings-lbl">In federal &amp; private grants matching every city dollar — terminates on transfer</div>
+      </div>
+    </div>
+
+    <p class="math-stamp">
+      A program that produces <em>better safety outcomes</em> at <em>one-fifth the cost</em> is the kind of result governments are supposed to be looking for, not killing.
+    </p>
+  </div>
+</section>
+
+<!-- ───────────── EXHIBIT C · HEAD TO HEAD (navy) ───────────── -->
+<section class="head2head" id="exhibit-c">
+  <div class="container">
+    <span class="section-eyebrow">Exhibit C · Head to Head</span>
+    <h2 class="section-title">More money. Fewer people. <em>Worse safety.</em></h2>
+    <p class="section-lede">The city is being asked to pay more, to hire fewer people, to deliver worse safety outcomes, on the same population SF Pretrial is already serving better than any probation department in California.</p>
+
+    <div class="compare-table">
+      <div class="compare-header">
+        <div>Dimension</div>
+        <div class="ch-sfp">SF Pretrial</div>
+        <div class="ch-apd">Adult Probation</div>
+      </div>
+      <div class="compare-row"><div class="cr-label">Annual cost (same caseload)</div><div class="cr-good">$11.5M</div><div class="cr-bad">~$58M</div></div>
+      <div class="compare-row"><div class="cr-label">Cost per person / year</div><div class="cr-good">$6,389</div><div class="cr-bad">$32,222</div></div>
+      <div class="compare-row"><div class="cr-label">Public safety rate</div><div class="cr-good">93%</div><div class="cr-bad">Lower</div></div>
+      <div class="compare-row"><div class="cr-label">Court appearance rate</div><div class="cr-good">96% across 19,000+ dates</div><div class="cr-bad">Lower</div></div>
+      <div class="compare-row"><div class="cr-label">Coverage</div><div class="cr-good">24 / 7 / 365</div><div class="cr-bad">TBD · business hours</div></div>
+      <div class="compare-row"><div class="cr-label">Staffing for ~1,800 caseload</div><div class="cr-good">96 full-time</div><div class="cr-bad">27 full-time</div></div>
+      <div class="compare-row"><div class="cr-label">Approach</div><div class="cr-good">Community-based, voluntary</div><div class="cr-bad">Armed law enforcement</div></div>
+      <div class="compare-row"><div class="cr-label">Walk-in center</div><div class="cr-good">J:HUB · open to anyone, no charge required</div><div class="cr-bad">None</div></div>
+      <div class="compare-row"><div class="cr-label">Staff with lived experience</div><div class="cr-good">Yes — by design</div><div class="cr-bad">No</div></div>
+      <div class="compare-row"><div class="cr-label">Therapeutic referrals / yr</div><div class="cr-good">1,500+</div><div class="cr-bad">—</div></div>
+      <div class="compare-row"><div class="cr-label">Direct route into housing</div><div class="cr-good">Justice Involved Housing Access Point</div><div class="cr-bad">None</div></div>
+      <div class="compare-row"><div class="cr-label">Primary Caregiver Diversion</div><div class="cr-good">Keeps families together</div><div class="cr-bad">No</div></div>
+      <div class="compare-row"><div class="cr-label">Neighborhood Courts (restorative justice)</div><div class="cr-good">Yes</div><div class="cr-bad">Ends</div></div>
+      <div class="compare-row"><div class="cr-label">Case-management software</div><div class="cr-good">OpenJustice — other counties want to adopt it</div><div class="cr-bad">Internal / legacy</div></div>
+      <div class="compare-row"><div class="cr-label">Federal &amp; private grants leveraged</div><div class="cr-good">$3.5M+ matching city dollars</div><div class="cr-bad">Terminate on transfer</div></div>
+      <div class="compare-row"><div class="cr-label">Years operating in SF</div><div class="cr-good">50 · NAPSA-accredited</div><div class="cr-bad">New to pretrial</div></div>
+      <div class="compare-row"><div class="cr-label">Community partnerships</div><div class="cr-good">200+</div><div class="cr-bad">Built from scratch</div></div>
+      <div class="compare-row"><div class="cr-label">Jail bed days saved (2023)</div><div class="cr-good">630,394</div><div class="cr-bad">—</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── EXHIBIT D · MODEL (paper) ───────────── -->
+<section class="national-band" id="exhibit-d">
+  <div class="national-band-inner">
+    <span class="section-eyebrow">Exhibit D · A Model for the Country</span>
+    <h2 class="section-title">Other jurisdictions are flying in to study this program. <em>San Francisco is killing it.</em></h2>
+    <p class="section-lede">SF Pretrial isn't just exceptional in San Francisco — it's one of the most-studied community-based pretrial programs in the country. Counties from elsewhere are reaching out to adopt the model. The city that built it is about to dismantle it.</p>
+    <div class="national-grid">
+      <div class="national-card">
+        <div class="tag">1 of 2</div>
+        <h3>Community-based pretrial programs at this scale in the U.S.</h3>
+        <p>SF Pretrial and NYC's Criminal Justice Agency. That's the list. Every other jurisdiction runs either a government-administered program or a far smaller operation.</p>
+      </div>
+      <div class="national-card">
+        <div class="tag">OpenJustice</div>
+        <h3>Software other counties are asking to adopt</h3>
+        <p>SF Pretrial built the case-management platform the field didn't have — outcomes-first, wraparound-integrated. Counties across California and other states are already reaching out.</p>
+      </div>
+      <div class="national-card">
+        <div class="tag">The trend line</div>
+        <h3>The country is moving toward this model</h3>
+        <p>Nationally, pretrial services are shifting toward community-based, independent supervision. SF Pretrial has been operating it for 50 years — long enough to have answered questions the field is only beginning to ask.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── EXHIBIT E · CASUALTY (ink) ───────────── -->
+<section class="dead-section" id="exhibit-e">
+  <div class="container">
+    <span class="section-eyebrow">Exhibit E · The Casualty List</span>
+    <h2 class="section-title">What dies on <em>July 1</em>.</h2>
+    <p class="section-lede">Not "an organization." Concrete things. Specific things. Things that took fifty years to build.</p>
+
+    <div class="dead-list">
+      <div class="dead-row"><span class="x">×</span><div><strong>SF Pretrial</strong> — dissolves as an independent nonprofit after 50 years.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>~100 jobs</strong> — many staff with lived experience in the system they now serve.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>1,800 presumed-innocent people</strong> — transferred mid-case to probation supervision.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>The J:HUB walk-in center</strong> — the only walk-in center in SF for justice-involved people. Closes.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>OpenJustice</strong> — the case-management platform other counties are asking to adopt loses its home.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>Primary Caregiver Diversion</strong> — keeps parents with their kids. Ends.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>Medi-Cal Enhanced Care Management</strong> — for justice-involved Medi-Cal recipients. Ends.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>Justice Involved Housing Access Point</strong> — direct route into housing. Ends.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>$3.5M in Crankstart funding</strong> — forced voluntary termination.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>Two federal / MacArthur housing grants</strong> — forced voluntary termination.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>Federal pass-through grant with UCSF Citywide</strong> — terminated.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>Neighborhood Courts</strong> — the SF restorative-justice diversion model. Ends.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>1,500+ therapeutic referrals annually</strong> — pipeline severed.</div></div>
+      <div class="dead-row"><span class="x">×</span><div><strong>200+ community partnerships</strong> — built over a half-century. Gone.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── EXHIBIT F · LAW (paper-warm) ───────────── -->
+<section class="carveout" id="exhibit-f">
+  <div class="container">
+    <span class="section-eyebrow">Exhibit F · The Law They're Citing Doesn't Apply</span>
+    <h2 class="carveout-headline">SB 129 <em>explicitly exempts</em> San Francisco.</h2>
+    <p style="font-size: 17px; color: var(--ink-mid); max-width: 820px; line-height: 1.6;">
+      The law being used to justify moving pretrial services into probation departments across California carved San Francisco out by name — because the program already exceeded the standard.
+    </p>
+
+    <div class="carveout-doc">
+      <span class="carveout-doc-tag">Footnote 6 · Year 3 Report to the Legislature</span>
+      <p class="carveout-doc-quote">
+        "San Francisco and Santa Clara counties are excluded from this program because their pretrial programs were established prior to, and operate at a level exceeding, the requirements of SB 129."
+      </p>
+      <p class="carveout-doc-source">— Judicial Council of California, Pretrial Pilot Program Report</p>
+    </div>
+
+    <p class="carveout-stamp">
+      The Superior Court is invoking a law that, by its <span>own administrative body's reading, doesn't apply</span> here.
+    </p>
+  </div>
+</section>
+
+<!-- ───────────── EXHIBIT G · WHO DECIDED (navy) ───────────── -->
+<section class="room-section" id="exhibit-g">
+  <div class="container">
+    <span class="section-eyebrow">Exhibit G · Who Decided</span>
+    <h2 class="section-title">A backroom call. <em>Without the people in it.</em></h2>
+    <p class="section-lede">SF Pretrial was not invited into substantive discussions. The decision was reached through informal channels and reiterated as final before any formal data request was even made.</p>
+
+    <div class="room-grid">
+      <div class="room-col">
+        <h3>In the room</h3>
+        <ul>
+          <li>Superior Court of San Francisco</li>
+          <li>Adult Probation Department</li>
+          <li>The Mayor's Office</li>
+          <li>SEIU</li>
+          <li>Judicial Council</li>
+        </ul>
+      </div>
+      <div class="room-col absent">
+        <h3>Not in the room</h3>
+        <ul>
+          <li>SF Pretrial</li>
+          <li>The 96 staff</li>
+          <li>The 1,800 clients</li>
+          <li>Community partners</li>
+          <li>You</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── CLOCK + ACT (orange) ───────────── -->
+<section class="act-section" id="act">
+  <div class="act-inner">
+    <span class="section-eyebrow">The Clock · Take Action</span>
+    <h2 class="act-headline">There is a window. <em>It closes May 27.</em></h2>
+    <p class="act-sub">Three dates that decide whether SF Pretrial survives. Four things you can do to keep it alive.</p>
+
+    <div class="clock-strip">
+      <div class="clock-cell next">
+        <div class="clock-date">May 15, 2026</div>
+        <div class="clock-title">Mayor's final budget</div>
+        <p class="clock-desc">The line item for SF Pretrial is decided here, then submitted to the Board.</p>
+      </div>
+      <div class="clock-cell">
+        <div class="clock-date">May 27, 2026</div>
+        <div class="clock-title">Board of Supervisors hearing</div>
+        <p class="clock-desc">The Board votes on the SF Pretrial contract. Public comment is on the record. Show up.</p>
+      </div>
+      <div class="clock-cell">
+        <div class="clock-date">July 1, 2026</div>
+        <div class="clock-title">Transition takes effect</div>
+        <p class="clock-desc">SF Pretrial dissolves. Cases transfer to Adult Probation. The walk-in center closes.</p>
+      </div>
+    </div>
+
+    <div class="act-grid">
+      <a href="#may27" class="act-card">
+        <div class="act-card-num">01 · Highest impact</div>
+        <h3>Show up May 27 at City Hall</h3>
+        <p>Public comment at the Board hearing on the SF Pretrial contract. Two minutes on the record. People's Budget Coalition is mobilizing.</p>
+        <span class="act-link">Get hearing details</span>
+      </a>
+
+      <a href="mailto:?subject=Don't%20kill%20SF's%20most%20effective%20public%20safety%20program&body=Dear%20Supervisor%2C%0A%0AI'm%20writing%20to%20urge%20you%20to%20protect%20the%20San%20Francisco%20Pretrial%20Diversion%20Project's%20contract%20in%20the%20FY2026%20budget.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20single%20most%20effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20rate%20of%20no%20new%20charges%20while%20enrolled.%2096%25%20court%20appearance%20rate%20across%2019%2C000%2B%20court%20dates.%20630%2C394%20jail%20bed%20days%20saved%20in%202023%20—%20at%20one-fifth%20the%20cost%20of%20comparable%20probation.%20It%20is%20a%20national%20model%2C%20one%20of%20only%20two%20community-based%20pretrial%20programs%20in%20the%20country%20at%20this%20scale.%0A%0ASB%20129%20explicitly%20exempts%20San%20Francisco%20(see%20Judicial%20Council%20Year%203%20Report%2C%20footnote%206).%20There%20is%20no%20legal%20mandate%20to%20do%20this.%0A%0APlease%20vote%20to%20preserve%20SF%20Pretrial's%20contract%20on%20May%2027.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
+        <div class="act-card-num">02 · 2 minutes</div>
+        <h3>Email the Budget &amp; Finance Committee</h3>
+        <p>Five supervisors hold the vote. We've drafted the email — safety case, cost case, legal carve-out. You add your name and send.</p>
+        <span class="act-link">Open pre-written email</span>
+      </a>
+
+      <a href="mailto:MayorLurie@sfgov.org?subject=Don't%20dissolve%20SF's%20most%20effective%20public%20safety%20program&body=Dear%20Mayor's%20Office%2C%0A%0AI'm%20writing%20to%20urge%20the%20Mayor%20to%20protect%20the%20San%20Francisco%20Pretrial%20Diversion%20Project's%20funding%20in%20the%20FY2026%20budget%20being%20submitted%20May%2015.%0A%0ASF%20Pretrial%20is%20the%20single%20most%20cost-effective%20public%20safety%20program%20in%20the%20city.%2093%25%20safety%20rate.%2096%25%20court%20appearance%20rate.%20630%2C394%20jail%20bed%20days%20saved%20in%202023.%20One-fifth%20the%20cost%20of%20comparable%20probation.%20Dissolving%20it%20and%20handing%20pretrial%20services%20to%20Adult%20Probation%20at%20essentially%20the%20same%20budget%20with%20one-third%20the%20staff%20will%20cost%20the%20city%20money%20and%20cost%20San%20Franciscans%20safety.%0A%0ASB%20129%20explicitly%20exempts%20San%20Francisco%20(see%20Judicial%20Council%20Year%203%20Report%2C%20footnote%206).%20The%20legal%20premise%20being%20cited%20doesn't%20apply%20here.%0A%0APlease%20preserve%20SF%20Pretrial's%20funding%20in%20the%20final%20budget.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
+        <div class="act-card-num">03 · 2 minutes</div>
+        <h3>Email the Mayor's Office</h3>
+        <p>Budget locks May 15. Three of the Mayor's senior staff are named in the transition memo. They are the people to write. Pre-drafted — open and send.</p>
+        <span class="act-link">Open pre-written email</span>
+      </a>
+
+      <a href="#share" class="act-card">
+        <div class="act-card-num">04 · 30 seconds</div>
+        <h3>Share this page</h3>
+        <p>Most San Franciscans have never heard of this. Most journalists haven't either. Make sure people know it's about to die.</p>
+        <span class="act-link">Share now</span>
+      </a>
+    </div>
+
+    <div class="share-block" id="share">
+      <div>
+        <h3>Send this to one person who votes in San Francisco.</h3>
+        <p>Forty seconds. That's the whole ask.</p>
+      </div>
+      <div class="share-buttons">
+        <button class="share-btn" onclick="shareTo('twitter')">Post on X</button>
+        <button class="share-btn" onclick="shareTo('bluesky')">Bluesky</button>
+        <button class="share-btn" onclick="shareTo('linkedin')">LinkedIn</button>
+        <button class="share-btn" onclick="shareTo('email')">Email</button>
+        <button class="share-btn" id="copyBtn" onclick="copyLink()">Copy link</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── PRESS (paper) ───────────── -->
+<section class="press-section">
+  <div class="container">
+    <div class="press-row">
+      <div>
+        <span class="section-eyebrow">For the Press</span>
+        <h2 class="section-title">On the record. <em>Ready to talk.</em></h2>
+        <p style="color: var(--ink-mid); font-size: 16px; line-height: 1.65;">
+          Documents, data, and named voices. While Trump dismantles federal criminal-justice reform, the bluest city in the bluest state is quietly dissolving the country's most effective community-based pretrial program. The blue-state firewall is failing — on a tight clock. Reporters welcome.
+        </p>
+        <div class="press-contact">
+          <strong style="color: var(--ink); display: block; margin-bottom: 6px;">Press contact</strong>
+          David Mauroff, CEO<br>
+          San Francisco Pretrial Diversion Project<br>
+          <a href="mailto:press@sfpretrial.org">press@sfpretrial.org</a>
+        </div>
+      </div>
+      <div class="press-list">
+        <a href="#" class="press-item">
+          <div class="press-item-text"><strong>Internal transition memo</strong><span>The directive from the Superior Court · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
+        <a href="#" class="press-item">
+          <div class="press-item-text"><strong>2024 Impact Report</strong><span>Outcomes, demographics, partnerships · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
+        <a href="#" class="press-item">
+          <div class="press-item-text"><strong>SB 129 Year 3 Report (Judicial Council)</strong><span>See footnote 6 — the exemption · PDF</span></div>
+          <span class="press-item-arrow">↗</span>
+        </a>
+        <a href="#" class="press-item">
+          <div class="press-item-text"><strong>Spark Session synthesis</strong><span>March 2026 · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
+        <a href="#" class="press-item">
+          <div class="press-item-text"><strong>Voices on the record</strong><span>David Mauroff · Sandra Fewer · Toney Chaplin (pending)</span></div>
+          <span class="press-item-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FOOTER (navy) ───────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-mark">SF <span>Pretrial</span> Diversion Project</div>
+      <div class="footer-meta" style="margin-top: 10px;">
+        Founded 1976 · NAPSA-accredited · Independent 501(c)(3) · A national model
+      </div>
+    </div>
+    <div class="footer-meta" style="text-align: right;">
+      Built fast, on May 10, 2026.<br>
+      Updated as the situation moves.<br>
+      <a href="https://sfpretrial.org">sfpretrial.org</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ───────────── SUB-NAV ───────────── -->
+<nav class="sub-nav" id="subNav" aria-label="Evidence navigation">
+  <div class="sub-nav-inner">
+    <div class="sn-evidence-label">
+      <span class="sn-evidence-main">The Evidence</span>
+      <span class="sn-evidence-sub">Seven Exhibits</span>
+    </div>
+    <button class="sn-arrow" id="snPrev" aria-label="Previous exhibit">‹</button>
+    <div class="sn-letters" id="snLetters">
+      <a href="#exhibit-a" class="sn-link" data-target="exhibit-a"><span class="ltr">A</span><span class="lbl">Record</span></a>
+      <a href="#exhibit-b" class="sn-link" data-target="exhibit-b"><span class="ltr">B</span><span class="lbl">Math</span></a>
+      <a href="#exhibit-c" class="sn-link" data-target="exhibit-c"><span class="ltr">C</span><span class="lbl">Head to Head</span></a>
+      <a href="#exhibit-d" class="sn-link" data-target="exhibit-d"><span class="ltr">D</span><span class="lbl">Model</span></a>
+      <a href="#exhibit-e" class="sn-link" data-target="exhibit-e"><span class="ltr">E</span><span class="lbl">Casualty</span></a>
+      <a href="#exhibit-f" class="sn-link" data-target="exhibit-f"><span class="ltr">F</span><span class="lbl">The Law</span></a>
+      <a href="#exhibit-g" class="sn-link" data-target="exhibit-g"><span class="ltr">G</span><span class="lbl">Who Decided</span></a>
+    </div>
+    <button class="sn-arrow" id="snNext" aria-label="Next exhibit">›</button>
+    <a href="#act" class="sub-nav-cta">Take Action</a>
+  </div>
+</nav>
+
+<script>
+function pad(n) { return String(n).padStart(2, '0'); }
+function tick() {
+  const target = new Date('2026-07-01T00:00:00-07:00').getTime();
+  const now = Date.now();
+  const diff = Math.max(0, target - now);
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cdDays').textContent = pad(days);
+  document.getElementById('cdHours').textContent = pad(hours);
+  document.getElementById('cdMin').textContent = pad(mins);
+  document.getElementById('cdSec').textContent = pad(secs);
+}
+tick();
+setInterval(tick, 1000);
+
+// Sub-nav: show as user scrolls INTO the Premise section
+const subNav = document.getElementById('subNav');
+let subShown = false;
+const premiseEl = document.getElementById('premise');
+const exhibitIds = ['exhibit-a','exhibit-b','exhibit-c','exhibit-d','exhibit-e','exhibit-f','exhibit-g'];
+let activeIdx = -1;
+
+function updateSubNav() {
+  const premiseTop = premiseEl.getBoundingClientRect().top;
+  const trigger = window.innerHeight * 0.75; // Show when premise top hits 75% from viewport top
+
+  if (premiseTop < trigger && !subShown) {
+    subNav.classList.add('show');
+    subShown = true;
+  } else if (premiseTop >= trigger + 60 && subShown) {
+    subNav.classList.remove('show');
+    subShown = false;
+  }
+
+  // Highlight current exhibit
+  let active = null;
+  let activeI = -1;
+  const triggerLine = window.innerHeight * 0.45;
+  exhibitIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= triggerLine && rect.bottom > 80) {
+      active = id;
+      activeI = i;
+    }
+  });
+  activeIdx = activeI;
+  document.querySelectorAll('.sn-link').forEach(a => {
+    a.classList.toggle('active', a.dataset.target === active);
+  });
+
+  // Arrow disabled states
+  document.getElementById('snPrev').disabled = (activeIdx <= 0);
+  document.getElementById('snNext').disabled = (activeIdx >= exhibitIds.length - 1);
+}
+window.addEventListener('scroll', updateSubNav, { passive: true });
+window.addEventListener('resize', updateSubNav);
+updateSubNav();
+
+// Prev/Next arrows
+function scrollToExhibit(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 56;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+document.getElementById('snPrev').addEventListener('click', () => {
+  if (activeIdx === -1) { scrollToExhibit(exhibitIds[0]); return; }
+  if (activeIdx > 0) scrollToExhibit(exhibitIds[activeIdx - 1]);
+});
+document.getElementById('snNext').addEventListener('click', () => {
+  if (activeIdx === -1) { scrollToExhibit(exhibitIds[0]); return; }
+  if (activeIdx < exhibitIds.length - 1) scrollToExhibit(exhibitIds[activeIdx + 1]);
+});
+
+// Share
+const shareText = "On July 1, San Francisco kills its most effective public safety program — 93% safety rate, 5× cheaper than probation, a national model. Same money, one-third the staff, handed to an armed law enforcement agency. The law they're citing doesn't even apply to SF.";
+const shareUrl = window.location.href;
+function shareTo(target) {
+  const u = encodeURIComponent(shareUrl);
+  const t = encodeURIComponent(shareText);
+  let link = '';
+  if (target === 'twitter') link = `https://twitter.com/intent/tweet?text=${t}&url=${u}`;
+  if (target === 'bluesky') link = `https://bsky.app/intent/compose?text=${t}%20${u}`;
+  if (target === 'linkedin') link = `https://www.linkedin.com/sharing/share-offsite/?url=${u}`;
+  if (target === 'email') link = `mailto:?subject=${encodeURIComponent("SF is about to dissolve its most effective public safety program")}&body=${t}%0A%0A${u}`;
+  window.open(link, '_blank', 'noopener');
+}
+function copyLink() {
+  navigator.clipboard.writeText(shareUrl).then(() => {
+    const btn = document.getElementById('copyBtn');
+    const orig = btn.textContent;
+    btn.textContent = 'Copied ✓';
+    setTimeout(() => { btn.textContent = orig; }, 1800);
+  });
+}
+</script>
+
+</body>
+</html>

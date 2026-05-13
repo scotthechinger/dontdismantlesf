@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Don't Dismantle What Keeps Us Safe in SF</title>
-<meta name="description" content="San Francisco's most effective public safety program — a proven 50-year SF innovation — is being dismantled on July 1, 2026. 93% safety rate. A fraction of the cost of probation. In the bluest city in the bluest state.">
+<meta name="description" content="San Francisco's most effective public safety program — a proven 50-year SF innovation that doubles every city dollar — is being handed to an armed probation department on July 1, 2026. 93% safety rate. 7.7× cheaper for the city than the alternative.">
 <meta property="og:title" content="Don't Dismantle What Keeps Us Safe in SF">
-<meta property="og:description" content="San Francisco's most effective public safety program — proven, audited, 50 years old, a fraction of the cost of probation, one of a handful of independent community-based pretrial programs at this scale in the U.S. — is being dismantled July 1. Quietly.">
+<meta property="og:description" content="San Francisco's most effective public safety program — a 50-year community-based innovation that doubles every city dollar and is 7.7× cheaper than the probation alternative — is being handed to an armed law enforcement agency on July 1. Quietly.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,13 +15,15 @@
 
 <style>
 :root {
+  --paper-light: #FBF8EF;   /* NEW — brightest cream */
   --paper: #F6F3EC;
   --paper-warm: #EDE8DC;
   --paper-deep: #E4DECD;
   --navy: #1F2336;
   --navy-2: #2A2E45;
-  --ink: #14141E;
-  --ink-soft: #22222F;
+  --slate: #3B4364;          /* NEW — lighter slate-blue for variation */
+  --ink: #1F2336;            /* softened from near-black to navy — no harsh black */
+  --ink-soft: #2A2E45;
   --ink-mid: #4A4A5C;
   --ink-light: #7A7A8C;
   --ink-lighter: #A8A8B8;
@@ -70,8 +72,21 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1.1;
+  text-decoration: none;
 }
-.top-mark span { color: var(--accent); }
+.top-mark .tm-accent { color: var(--accent); }
+.top-mark .tm-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+}
 .top-right { display: flex; align-items: center; gap: 10px; }
 .top-evidence {
   font-family: var(--mono);
@@ -126,6 +141,63 @@ img { max-width: 100%; display: block; }
   pointer-events: none;
 }
 .hero-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.hero h1 .asterisk {
+  color: var(--accent-hot);
+  font-style: normal;
+  font-weight: 900;
+  font-size: 0.65em;
+  vertical-align: 0.35em;
+  margin-left: 2px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.hero-top .eyebrow-pill { margin-bottom: 0; }
+.hero-top .countdown {
+  margin-bottom: 0;
+  gap: 6px;
+}
+.hero-top .cd-block { padding: 7px 13px; min-width: 56px; }
+.hero-top .cd-num { font-size: 1.3rem; }
+.hero-top .cd-lbl { font-size: 8.5px; margin-top: 4px; }
+.hero-top .cd-caption { display: none; }
+
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+.action-row .hero-ctas { margin-bottom: 0; }
+.rally-inline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  color: var(--paper);
+  line-height: 1.25;
+  max-width: 420px;
+}
+.rally-inline .ast {
+  color: var(--accent-hot);
+  font-weight: 900;
+  font-style: normal;
+  margin-right: 6px;
+  font-size: 1.05em;
+}
+.rally-inline em {
+  color: var(--accent-hot);
+  font-style: italic;
+  font-weight: 900;
+}
 
 .eyebrow-pill {
   display: inline-flex; align-items: center; gap: 10px;
@@ -246,6 +318,114 @@ img { max-width: 100%; display: block; }
 .btn-ghost { background: transparent; color: var(--paper); border: 1.5px solid rgba(246,243,236,0.35); }
 .btn-ghost:hover { border-color: var(--paper); transform: translateY(-2px); }
 .btn::after { content: '→'; font-size: 16px; }
+
+/* ─── WHAT'S HAPPENING (setup — paper-light, brightest) ─── */
+.whats-happening {
+  background: var(--paper-light);
+  color: var(--ink);
+  padding: 80px 28px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-soft);
+}
+.whats-happening .container { position: relative; z-index: 1; }
+.whats-happening .section-eyebrow { color: var(--accent); }
+.setup-headline {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 36px;
+}
+.setup-headline em { color: var(--accent); font-style: italic; }
+.setup-grid { display: grid; gap: 14px; max-width: 920px; }
+.setup-step {
+  display: flex; align-items: flex-start; gap: 22px;
+  padding: 22px 26px;
+  background: var(--paper-warm);
+  border-radius: 14px;
+  border: 1.5px solid var(--line);
+}
+.setup-step .ss-num {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  padding-top: 2px;
+  min-width: 28px;
+}
+.setup-step p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-mid);
+}
+.setup-step strong { color: var(--ink); font-weight: 700; }
+
+/* ─── PRESERVE CALLOUT (before Act) ─── */
+.preserve-callout {
+  background: rgba(0,0,0,0.20);
+  border: 1px solid rgba(246,243,236,0.32);
+  border-radius: 14px;
+  padding: 22px 32px;
+  margin-bottom: 36px;
+  text-align: center;
+}
+.preserve-callout p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  color: var(--paper);
+  line-height: 1.35;
+}
+.preserve-callout p em { color: var(--paper); font-style: italic; font-weight: 900; }
+
+/* ─── PROCESS FAILURES (Exhibit G) ─── */
+.process-failures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 24px;
+}
+.pf-item {
+  background: rgba(246,243,236,0.04);
+  border: 1px solid rgba(246,243,236,0.18);
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.pf-number {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-hot);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  width: 28px;
+  padding-top: 2px;
+}
+.pf-item p {
+  font-size: 15.5px;
+  color: rgba(246,243,236,0.88);
+  line-height: 1.55;
+}
+.pf-close {
+  margin-top: 36px;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  color: var(--paper);
+  line-height: 1.3;
+  max-width: 880px;
+}
+.pf-close em { color: var(--accent-hot); }
 
 /* ─── TICKER (positives only) ─── */
 .ticker {
@@ -380,29 +560,24 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
 .safest-attribution strong { color: var(--ink); display: block; margin-top: 6px; }
 .opening-eyebrow { color: var(--ink-light); }
 
-/* ─── EXHIBIT A (Record · INK dark) ─── */
-.numbers-section { background: var(--ink); color: var(--paper); padding: 110px 28px; position: relative; overflow: hidden; }
-.numbers-section::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(226,90,46,0.10) 0%, transparent 60%);
-  pointer-events: none;
-}
+/* ─── EXHIBIT A (Record · paper-warm) ─── */
+.numbers-section { background: var(--paper-warm); color: var(--ink); padding: 110px 28px; position: relative; overflow: hidden; border-bottom: 1px solid var(--line-soft); }
 .numbers-section .container { position: relative; z-index: 1; }
-.numbers-section .section-eyebrow { color: var(--accent-hot); }
-.numbers-section .section-title { color: var(--paper); }
-.numbers-section .section-title em { color: var(--accent-hot); }
-.numbers-section .section-lede { color: rgba(246,243,236,0.7); }
+.numbers-section .section-eyebrow { color: var(--accent); }
+.numbers-section .section-title { color: var(--ink); }
+.numbers-section .section-title em { color: var(--accent); }
+.numbers-section .section-lede { color: var(--ink-mid); }
 .numbers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: rgba(246,243,236,0.14);
-  border: 1px solid rgba(246,243,236,0.14);
+  background: var(--line);
+  border: 1px solid var(--line);
   border-radius: 6px;
   overflow: hidden;
 }
 .num-cell {
-  background: var(--ink);
+  background: var(--paper);
   padding: 44px 32px;
   display: flex; flex-direction: column; gap: 12px;
 }
@@ -411,22 +586,22 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
   font-weight: 900;
   font-size: clamp(2.6rem, 4.5vw, 4rem);
   line-height: 1;
-  color: var(--accent-hot);
+  color: var(--accent);
   letter-spacing: -0.03em;
 }
 .num-big .unit { font-size: 0.45em; vertical-align: super; margin-left: 2px; }
 .num-label {
   font-weight: 700;
   font-size: 15px;
-  color: var(--paper);
+  color: var(--ink);
   line-height: 1.3;
 }
 .num-context {
   font-size: 13.5px;
-  color: rgba(246,243,236,0.65);
+  color: var(--ink-mid);
   line-height: 1.55;
 }
-.num-context em { color: var(--accent-hot); font-style: normal; font-weight: 700; }
+.num-context em { color: var(--accent); font-style: normal; font-weight: 700; }
 .numbers-stamp {
   margin-top: 56px;
   text-align: center;
@@ -434,15 +609,15 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
   font-style: italic;
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 700;
-  color: var(--paper);
+  color: var(--ink);
   max-width: 780px;
   margin-left: auto; margin-right: auto;
   line-height: 1.35;
 }
-.numbers-stamp em { color: var(--accent-hot); font-style: italic; }
+.numbers-stamp em { color: var(--accent); font-style: italic; }
 
-/* ─── EXHIBIT B (Math · paper-warm) ─── */
-.math-section { background: var(--paper-warm); padding: 110px 28px; border-bottom: 1px solid var(--line-soft); }
+/* ─── EXHIBIT B (Math · paper-light, brightest) ─── */
+.math-section { background: var(--paper-light); padding: 110px 28px; border-bottom: 1px solid var(--line-soft); }
 .cost-headline {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -555,6 +730,17 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
 }
 .math-stamp em { color: var(--accent); font-style: italic; }
 
+/* ─── SECTION PREFIX (lead-in above titles) ─── */
+.section-prefix {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  color: var(--accent-hot);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
 /* ─── EXHIBIT C (Head to Head · NAVY) ─── */
 .head2head { background: var(--navy); color: var(--paper); padding: 110px 28px; position: relative; overflow: hidden; }
 .head2head::before {
@@ -577,7 +763,7 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
 .compare-header {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
-  background: rgba(0,0,0,0.4);
+  background: rgba(15, 19, 38, 0.55);
   color: var(--paper);
   font-family: var(--mono);
   font-size: 11px;
@@ -614,8 +800,8 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
 .cr-bad { font-family: var(--mono); color: rgba(246,243,236,0.55); font-weight: 500; }
 .cr-bad::before { content: '—'; color: rgba(246,243,236,0.3); margin-right: 10px; flex-shrink: 0; }
 
-/* ─── EXHIBIT D (Model · paper) ─── */
-.national-band { background: var(--paper); color: var(--ink); padding: 100px 28px; border-bottom: 1px solid var(--line-soft); }
+/* ─── EXHIBIT D (Model · paper-warm) ─── */
+.national-band { background: var(--paper-warm); color: var(--ink); padding: 100px 28px; border-bottom: 1px solid var(--line-soft); }
 .national-band-inner { max-width: 1100px; margin: 0 auto; }
 .national-grid {
   display: grid;
@@ -624,7 +810,7 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
   margin-top: 24px;
 }
 .national-card {
-  background: var(--paper-warm);
+  background: var(--paper);
   border: 1.5px solid var(--line);
   border-radius: 14px;
   padding: 30px 28px;
@@ -654,8 +840,8 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
   line-height: 1.55;
 }
 
-/* ─── EXHIBIT E (Casualty · INK) ─── */
-.dead-section { background: var(--ink); padding: 110px 28px; color: var(--paper); }
+/* ─── EXHIBIT E (Casualty · SLATE — lighter dark variation) ─── */
+.dead-section { background: var(--slate); padding: 110px 28px; color: var(--paper); }
 .dead-section .section-eyebrow { color: var(--accent-hot); }
 .dead-section .section-title { color: var(--paper); }
 .dead-section .section-title em { color: var(--accent-hot); }
@@ -818,9 +1004,9 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
 
 .clock-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-bottom: 56px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
 }
 .clock-cell {
   background: rgba(0,0,0,0.16);
@@ -918,8 +1104,8 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
 }
 .share-btn:hover { background: var(--accent); border-color: var(--accent); }
 
-/* ─── PRESS (paper) ─── */
-.press-section { background: var(--paper); padding: 110px 28px; }
+/* ─── PRESS (paper-light) ─── */
+.press-section { background: var(--paper-light); padding: 110px 28px; }
 .press-row {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
@@ -1160,6 +1346,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
   .national-grid { grid-template-columns: 1fr; }
   .dead-list { grid-template-columns: 1fr; }
   .room-grid { grid-template-columns: 1fr; }
+  .process-failures { grid-template-columns: 1fr; }
   .clock-strip { grid-template-columns: 1fr; }
   .act-grid { grid-template-columns: 1fr; }
   .press-row { grid-template-columns: 1fr; gap: 32px; }
@@ -1185,7 +1372,10 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
 
 <!-- ───────────── TOP BAR ───────────── -->
 <header class="top-bar">
-  <a href="#top" class="top-mark">Don't Dismantle <span>What Keeps Us Safe in SF</span></a>
+  <a href="#top" class="top-mark">
+    <span class="tm-main">Don't Dismantle <span class="tm-accent">What Keeps Us Safe in SF</span></span>
+    <span class="tm-tag">Preserve SF Pretrial</span>
+  </a>
   <div class="top-right">
     <a href="#exhibit-a" class="top-evidence">See the Evidence</a>
     <a href="#act" class="top-cta">Take Action</a>
@@ -1195,27 +1385,32 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
 <!-- ───────────── HERO ───────────── -->
 <section class="hero" id="top">
   <div class="hero-inner">
-    <span class="eyebrow-pill"><span class="dot"></span> Live · Decision pending May 27</span>
+    <div class="hero-top">
+      <span class="eyebrow-pill"><span class="dot"></span> Live · Decision pending May 27</span>
+      <div class="countdown" id="countdown">
+        <div class="cd-block"><div class="cd-num" id="cdDays">—</div><div class="cd-lbl">Days</div></div>
+        <div class="cd-block"><div class="cd-num" id="cdHours">—</div><div class="cd-lbl">Hours</div></div>
+        <div class="cd-block"><div class="cd-num" id="cdMin">—</div><div class="cd-lbl">Min</div></div>
+        <div class="cd-block"><div class="cd-num" id="cdSec">—</div><div class="cd-lbl">Sec</div></div>
+      </div>
+    </div>
 
     <h1>
-      On <span class="strike">July 1</span>, San Francisco dismantles its <em>most effective public safety program.</em>
+      On <span class="strike">July 1</span>, San Francisco is poised to dismantle its <em>most effective public safety program.</em><span class="asterisk">*</span>
     </h1>
 
     <p class="hero-sub">
-      <strong>50 years. A 93% public safety rate. A 96% court appearance rate. A fraction of the cost of probation.</strong> SF Pretrial is one of a small handful of independent, community-based pretrial programs operating at this scale in the U.S. — a proven Bay Area public safety innovation — and the city is quietly handing it to an armed law enforcement agency. In the bluest city in the bluest state.
+      <strong>50 years. A 93% public safety rate. A 96% court appearance rate. More than doubles every city dollar.</strong> SF Pretrial is one of a small handful of independent, community-based pretrial programs operating at this scale in the U.S. — a proven Bay Area public safety innovation — and the city is quietly handing the work to the <strong>San Francisco Adult Probation Department</strong>, an armed law enforcement agency. In the bluest city in the bluest state.
     </p>
 
-    <div class="countdown" id="countdown">
-      <div class="cd-block"><div class="cd-num" id="cdDays">—</div><div class="cd-lbl">Days</div></div>
-      <div class="cd-block"><div class="cd-num" id="cdHours">—</div><div class="cd-lbl">Hours</div></div>
-      <div class="cd-block"><div class="cd-num" id="cdMin">—</div><div class="cd-lbl">Min</div></div>
-      <div class="cd-block"><div class="cd-num" id="cdSec">—</div><div class="cd-lbl">Sec</div></div>
-      <div class="cd-caption">until <strong>July 1, 2026</strong> — the day SF Pretrial dissolves.</div>
-    </div>
-
-    <div class="hero-ctas">
-      <a href="#act" class="btn btn-primary">Take action now</a>
-      <a href="#exhibit-a" class="btn btn-ghost">See the evidence</a>
+    <div class="action-row">
+      <div class="hero-ctas">
+        <a href="#act" class="btn btn-primary">Preserve SF Pretrial</a>
+        <a href="#exhibit-a" class="btn btn-ghost">See the evidence</a>
+      </div>
+      <p class="rally-inline">
+        <span class="ast">*</span> There's <em>still time</em> to stop this.
+      </p>
     </div>
   </div>
 </section>
@@ -1230,6 +1425,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
     <strong>1,800</strong> people served daily &nbsp;·&nbsp;
     <strong>1,500+</strong> therapeutic referrals a year &nbsp;·&nbsp;
     <strong>200+</strong> community partnerships &nbsp;·&nbsp;
+    <strong>More than doubles</strong> every city dollar &nbsp;·&nbsp;
     <strong>50</strong> years &nbsp;·&nbsp;
     NAPSA-accredited &nbsp;·&nbsp;
     A 50-year SF innovation &nbsp;·&nbsp;
@@ -1242,6 +1438,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
     <strong>1,800</strong> people served daily &nbsp;·&nbsp;
     <strong>1,500+</strong> therapeutic referrals a year &nbsp;·&nbsp;
     <strong>200+</strong> community partnerships &nbsp;·&nbsp;
+    <strong>More than doubles</strong> every city dollar &nbsp;·&nbsp;
     <strong>50</strong> years &nbsp;·&nbsp;
     NAPSA-accredited &nbsp;·&nbsp;
     A 50-year SF innovation &nbsp;·&nbsp;
@@ -1249,6 +1446,28 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
     A national model &nbsp;·&nbsp;
   </div>
 </div>
+
+<!-- ───────────── WHAT'S HAPPENING (plain-English setup) ───────────── -->
+<section class="whats-happening" id="setup">
+  <div class="container">
+    <span class="section-eyebrow">What's Happening · In Plain English</span>
+    <h2 class="setup-headline">A 50-year community-based public safety program is being <em>handed to an armed probation department.</em></h2>
+    <div class="setup-grid">
+      <div class="setup-step">
+        <div class="ss-num">01</div>
+        <p>For 50 years, the <strong>San Francisco Pretrial Diversion Project (SF Pretrial)</strong> — an independent community-based nonprofit — has handled the city's pretrial services. Supervising people released from jail before trial. Making sure they show up for court. Connecting them with housing, treatment, and stability.</p>
+      </div>
+      <div class="setup-step">
+        <div class="ss-num">02</div>
+        <p>On <strong>July 1, 2026</strong>, the city plans to dissolve SF Pretrial and transfer all of that work to the <strong>San Francisco Adult Probation Department</strong> — an armed law enforcement agency under the Superior Court.</p>
+      </div>
+      <div class="setup-step">
+        <div class="ss-num">03</div>
+        <p>Every comparison on this page is between those two: the <strong>current SF Pretrial program</strong> (50-year community-based nonprofit) and the <strong>proposed replacement</strong> (a sworn probation department).</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ───────────── PREMISE / OPENING STATEMENT ───────────── -->
 <section class="safest-section" id="premise">
@@ -1280,7 +1499,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
 <section class="numbers-section" id="exhibit-a">
   <div class="container">
     <span class="section-eyebrow">Exhibit A · The Record</span>
-    <h2 class="section-title">This is what "safer" <em>actually looks like.</em></h2>
+    <h2 class="section-title">This is what "safer" <em>actually looks like with SF Pretrial.</em></h2>
     <p class="section-lede">Not opinions. Not anecdotes. Audited outcomes from 2023 — the kind decision-makers should have been seeing for years, and somehow haven't.</p>
 
     <div class="numbers-grid">
@@ -1310,9 +1529,9 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
         <div class="num-context">Roughly 70% of everyone released from SF County Jail. The highest-needs population in the system, served better than anywhere else.</div>
       </div>
       <div class="num-cell">
-        <div class="num-big">$12.8M</div>
-        <div class="num-label">vs. $58M for probation</div>
-        <div class="num-context">Comparable probation cost for the same population is more than four times higher. SF Pretrial is <em>also</em> cheaper. By a lot.</div>
+        <div class="num-big">$7.5M</div>
+        <div class="num-label">city contract — leveraged into $15.5M of services</div>
+        <div class="num-context">SF Pretrial doubles every city dollar with federal &amp; private grants, Medi-Cal revenue, and philanthropic funding (105 FTEs in total). Comparable probation supervision for the same population would cost the city <em>~$58M</em> — more than 7× the current investment. None of the leverage transfers.</div>
       </div>
     </div>
 
@@ -1326,42 +1545,42 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
 <section class="math-section" id="exhibit-b">
   <div class="container">
     <span class="section-eyebrow">Exhibit B · The Math</span>
-    <h2 class="section-title">More than four times cheaper. <em>To do better work.</em></h2>
-    <p class="section-lede">Apples-to-apples — community-based pretrial vs. probation supervision — SF Pretrial costs the city a fraction of what comparable probation supervision would.</p>
+    <h2 class="section-title">7.7× cheaper for the city. <em>To do better work.</em></h2>
+    <p class="section-lede">The city pays SF Pretrial $7.5M for pretrial services. SF Pretrial more than doubles that — into $15.5M of total programming, leveraged with grants and Medi-Cal revenue. Comparable probation supervision for the same population would cost the city <strong style="color:var(--ink);">~$58M</strong>. None of the leverage transfers.</p>
 
     <div class="cost-headline">
       <div class="cost-block sfp">
-        <div class="cost-tag">SF Pretrial</div>
-        <div class="cost-big">$7,111</div>
-        <div class="cost-sub">per person · per year</div>
-        <div class="cost-detail">$12.8M annual budget ÷ 1,800 active cases.</div>
+        <div class="cost-tag">What the city pays SF Pretrial</div>
+        <div class="cost-big">$7.5M</div>
+        <div class="cost-sub">per year · pretrial services contract</div>
+        <div class="cost-detail">SF Pretrial leverages this into <strong style="color:var(--accent);">$15.5M</strong> of total annual programming (105 FTEs) — using federal &amp; private grants, Medi-Cal revenue, and philanthropic funding. None of that leverage transfers under probation.</div>
       </div>
-      <div class="cost-arrow">4.5×<span>more expensive</span></div>
+      <div class="cost-arrow">7.7×<span>more expensive for the city</span></div>
       <div class="cost-block">
-        <div class="cost-tag">Comparable probation cost</div>
-        <div class="cost-big">$32,222</div>
-        <div class="cost-sub">per person · per year</div>
-        <div class="cost-detail">~$58M comparable probation cost for the same population. (Source: SF Pretrial budget analysis, 2024.)</div>
+        <div class="cost-tag">Estimated city cost under probation</div>
+        <div class="cost-big">~$58M</div>
+        <div class="cost-sub">per year · same population</div>
+        <div class="cost-detail">Comparable probation supervision for the same caseload. Sworn officers do not bring grant funding. The city would pay essentially the full cost. (Source: SF Pretrial budget analysis, 2024.)</div>
       </div>
     </div>
 
     <div class="savings-strip">
       <div class="savings-cell">
-        <div class="savings-num">~$45M</div>
-        <div class="savings-lbl">Saved every year vs. comparable probation supervision</div>
+        <div class="savings-num">~$50M</div>
+        <div class="savings-lbl">Saved by the city every year vs. probation supervision</div>
       </div>
       <div class="savings-cell">
         <div class="savings-num">630,394</div>
         <div class="savings-lbl">Jail bed days kept off the city's tab in 2023 alone</div>
       </div>
       <div class="savings-cell">
-        <div class="savings-num">$3.5M+</div>
-        <div class="savings-lbl">In federal &amp; private grants matching every city dollar — terminates on transfer</div>
+        <div class="savings-num">$8M+</div>
+        <div class="savings-lbl">In grants, Medi-Cal revenue &amp; philanthropy leveraged on top of every city dollar — terminates on transfer</div>
       </div>
     </div>
 
     <p class="math-stamp">
-      A program that produces <em>better safety outcomes</em> at <em>a fraction of the cost</em> is the kind of result governments are supposed to be looking for, not throwing away.
+      A program that <em>more than doubles every city dollar</em> — and produces <em>better safety outcomes</em> — is the kind of result governments are supposed to be looking for, not throwing away.
     </p>
   </div>
 </section>
@@ -1370,6 +1589,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
 <section class="head2head" id="exhibit-c">
   <div class="container">
     <span class="section-eyebrow">Exhibit C · Head to Head</span>
+    <p class="section-prefix">The Probation Alternative:</p>
     <h2 class="section-title">More money. Fewer people. <em>Worse safety.</em></h2>
     <p class="section-lede">The city is being asked to pay more, to hire fewer people, to deliver worse safety outcomes, on the same population SF Pretrial is already serving better than any probation department in California.</p>
 
@@ -1379,12 +1599,13 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
         <div class="ch-sfp">SF Pretrial</div>
         <div class="ch-apd">Adult Probation</div>
       </div>
-      <div class="compare-row"><div class="cr-label">Annual cost (same caseload)</div><div class="cr-good">$12.8M</div><div class="cr-bad">~$58M</div></div>
-      <div class="compare-row"><div class="cr-label">Cost per person / year</div><div class="cr-good">$7,111</div><div class="cr-bad">$32,222</div></div>
+      <div class="compare-row"><div class="cr-label">What the city pays / year</div><div class="cr-good">$7.5M (contract)</div><div class="cr-bad">~$58M (estimated)</div></div>
+      <div class="compare-row"><div class="cr-label">Total program cost / year</div><div class="cr-good">$15.5M · leveraged with grants &amp; revenue</div><div class="cr-bad">~$58M · city-funded</div></div>
+      <div class="compare-row"><div class="cr-label">Cost per person / year</div><div class="cr-good">$8,611 (total) · $4,167 (city)</div><div class="cr-bad">$32,222</div></div>
       <div class="compare-row"><div class="cr-label">Public safety rate</div><div class="cr-good">93%</div><div class="cr-bad">Lower</div></div>
       <div class="compare-row"><div class="cr-label">Court appearance rate</div><div class="cr-good">96% across 19,000+ dates</div><div class="cr-bad">Lower</div></div>
       <div class="compare-row"><div class="cr-label">Coverage</div><div class="cr-good">24 / 7 / 365</div><div class="cr-bad">TBD · business hours</div></div>
-      <div class="compare-row"><div class="cr-label">Staffing for ~1,800 caseload</div><div class="cr-good">96 full-time</div><div class="cr-bad">27 full-time</div></div>
+      <div class="compare-row"><div class="cr-label">Staffing for ~1,800 caseload</div><div class="cr-good">105 full-time</div><div class="cr-bad">27 full-time</div></div>
       <div class="compare-row"><div class="cr-label">Approach</div><div class="cr-good">Community-based, voluntary</div><div class="cr-bad">Armed law enforcement</div></div>
       <div class="compare-row"><div class="cr-label">Walk-in center</div><div class="cr-good">J:HUB · open to anyone, no charge required</div><div class="cr-bad">None</div></div>
       <div class="compare-row"><div class="cr-label">Staff with lived experience</div><div class="cr-good">Yes — by design</div><div class="cr-bad">No</div></div>
@@ -1393,7 +1614,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
       <div class="compare-row"><div class="cr-label">Primary Caregiver Diversion</div><div class="cr-good">Keeps families together</div><div class="cr-bad">No</div></div>
       <div class="compare-row"><div class="cr-label">Neighborhood Courts (restorative justice)</div><div class="cr-good">Yes</div><div class="cr-bad">Ends</div></div>
       <div class="compare-row"><div class="cr-label">Case-management software</div><div class="cr-good">OpenJustice — other counties want to adopt it</div><div class="cr-bad">Internal / legacy</div></div>
-      <div class="compare-row"><div class="cr-label">Federal &amp; private grants leveraged</div><div class="cr-good">$3.5M+ matching city dollars</div><div class="cr-bad">Terminate on transfer</div></div>
+      <div class="compare-row"><div class="cr-label">Federal &amp; private grants / revenue leveraged</div><div class="cr-good">$8M+ on top of every city dollar</div><div class="cr-bad">Terminate on transfer</div></div>
       <div class="compare-row"><div class="cr-label">Years operating in SF</div><div class="cr-good">50 · NAPSA-accredited</div><div class="cr-bad">New to pretrial</div></div>
       <div class="compare-row"><div class="cr-label">Community partnerships</div><div class="cr-good">200+</div><div class="cr-bad">Built from scratch</div></div>
       <div class="compare-row"><div class="cr-label">Jail bed days saved (2023)</div><div class="cr-good">630,394</div><div class="cr-bad">—</div></div>
@@ -1463,11 +1684,11 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
     </p>
 
     <div class="carveout-doc">
-      <span class="carveout-doc-tag">Footnote 6 · Year 3 Report to the Legislature</span>
+      <span class="carveout-doc-tag">Judicial Council of California · Pretrial Pilot Program Final Report</span>
       <p class="carveout-doc-quote">
-        "San Francisco and Santa Clara counties are excluded from this program because their pretrial programs were established prior to, and operate at a level exceeding, the requirements of SB 129."
+        Per the Judicial Council of California's Pretrial Pilot Program Final Report, San Francisco was excluded from the SB 129 program based on the existing program's scope and pre-existing capacity. The state agency administering the law is on the record that it does not apply to San Francisco.
       </p>
-      <p class="carveout-doc-source">— Judicial Council of California, Pretrial Pilot Program Report</p>
+      <p class="carveout-doc-source">— Source under fact-check; pinpoint citation forthcoming.</p>
     </div>
 
     <p class="carveout-stamp">
@@ -1480,89 +1701,110 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 28px 110px;
   </div>
 </section>
 
-<!-- ───────────── EXHIBIT G · WHO DECIDED (navy) ───────────── -->
+<!-- ───────────── EXHIBIT G · HOW THIS DECISION GOT MADE (navy) ───────────── -->
 <section class="room-section" id="exhibit-g">
   <div class="container">
-    <span class="section-eyebrow">Exhibit G · Who Decided</span>
-    <h2 class="section-title">A backroom call. <em>Without the people in it.</em></h2>
-    <p class="section-lede">SF Pretrial was not invited into substantive discussions. The decision was reached through informal channels and reiterated as final before any formal data request was even made.</p>
+    <span class="section-eyebrow">Exhibit G · How This Decision Got Made</span>
+    <h2 class="section-title">Not at a hearing. <em>Not on the record. Not with SF Pretrial and the communities it serves in the room.</em></h2>
+    <p class="section-lede">A decision this consequential — affecting public safety, the city's budget, and a 50-year SF institution — was made without anyone responsible for the work in the room.</p>
 
-    <div class="room-grid">
-      <div class="room-col">
-        <h3>In the room</h3>
-        <ul>
-          <li>Superior Court of San Francisco</li>
-          <li>Adult Probation Department</li>
-          <li>The Mayor's Office</li>
-          <li>SEIU</li>
-          <li>Judicial Council</li>
-        </ul>
+    <div class="process-failures">
+      <div class="pf-item">
+        <div class="pf-number">01</div>
+        <p>The proposal to dissolve SF Pretrial and transfer its work to Adult Probation was reached through <strong>informal channels</strong> — phone calls, side meetings — among the Superior Court, Adult Probation, and the Mayor's Office.</p>
       </div>
-      <div class="room-col absent">
-        <h3>Not in the room</h3>
-        <ul>
-          <li>SF Pretrial</li>
-          <li>The 96 staff</li>
-          <li>The 1,800 clients</li>
-          <li>Community partners</li>
-          <li>You</li>
-        </ul>
+      <div class="pf-item">
+        <div class="pf-number">02</div>
+        <p>The decision was reiterated as <strong>final</strong> before any formal data request was ever made of SF Pretrial.</p>
+      </div>
+      <div class="pf-item">
+        <div class="pf-number">03</div>
+        <p>SF Pretrial — the organization being dissolved, providing the service for 50 years — was <strong>not invited</strong> into substantive discussions.</p>
+      </div>
+      <div class="pf-item">
+        <div class="pf-number">04</div>
+        <p><strong>No public comment period</strong> preceded the decision.</p>
+      </div>
+      <div class="pf-item">
+        <div class="pf-number">05</div>
+        <p>The <strong>1,800 presumed-innocent people</strong> whose cases are being transferred were not consulted.</p>
+      </div>
+      <div class="pf-item">
+        <div class="pf-number">06</div>
+        <p>The <strong>105 SF Pretrial staff</strong> were not consulted. The <strong>200+ community partner organizations</strong> in SF Pretrial's network were not consulted.</p>
       </div>
     </div>
+
+    <p class="pf-close">
+      The data on SF Pretrial is unchallenged. The legal basis for the transfer doesn't apply. <em>And the process that produced this decision could not survive five minutes of public scrutiny.</em>
+    </p>
   </div>
 </section>
 
 <!-- ───────────── CLOCK + ACT (orange) ───────────── -->
 <section class="act-section" id="act">
   <div class="act-inner">
-    <span class="section-eyebrow">The Clock · Take Action</span>
-    <h2 class="act-headline">There is a window. <em>It closes May 27.</em></h2>
-    <p class="act-sub">Three dates that decide whether SF Pretrial survives. Four things you can do to keep it alive.</p>
+    <span class="section-eyebrow">The Clock · Preserve SF Pretrial</span>
+    <h2 class="act-headline">There is still time. <em>The vote isn't until June.</em></h2>
+    <p class="act-sub">Multiple hearings — May 27, then early June — decide whether SF Pretrial survives. Four things you can do to keep it alive.</p>
 
     <div class="clock-strip">
-      <div class="clock-cell next">
+      <div class="clock-cell">
         <div class="clock-date">May 15, 2026</div>
         <div class="clock-title">Mayor's final budget</div>
-        <p class="clock-desc">The line item for SF Pretrial is decided here, then submitted to the Board.</p>
+        <p class="clock-desc">The Mayor submits his FY26 budget to the Board.</p>
+      </div>
+      <div class="clock-cell next">
+        <div class="clock-date">May 27, 2026</div>
+        <div class="clock-title">Budget &amp; Finance Committee hearing</div>
+        <p class="clock-desc">Public comment on the SF Pretrial contract — on the record. Committee referral to the full Board. <strong>Show up.</strong></p>
       </div>
       <div class="clock-cell">
-        <div class="clock-date">May 27, 2026</div>
-        <div class="clock-title">Board of Supervisors hearing</div>
-        <p class="clock-desc">The Board votes on the SF Pretrial contract. Public comment is on the record. Show up.</p>
+        <div class="clock-date">June 2 or 9</div>
+        <div class="clock-title">Full Board of Supervisors vote</div>
+        <p class="clock-desc">The contract goes to the full Board. Public comment is still open. This is the vote.</p>
       </div>
       <div class="clock-cell">
         <div class="clock-date">July 1, 2026</div>
         <div class="clock-title">Transition takes effect</div>
-        <p class="clock-desc">SF Pretrial dissolves. Cases transfer to Adult Probation. The walk-in center closes.</p>
+        <p class="clock-desc">If nothing changes by then: SF Pretrial dissolves, cases transfer to Adult Probation, the walk-in center closes.</p>
       </div>
+    </div>
+
+    <p style="font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: rgba(246,243,236,0.75); margin-bottom: 36px; max-width: 720px;">
+      Note: Even after the Board votes, the Mayor can put anything back into the final budget. The current City Attorney will void the contract if the Mayor asks. <strong style="color:var(--paper);">The Mayor is the last lever.</strong>
+    </p>
+
+    <div class="preserve-callout">
+      <p>This is <em>preservable.</em> The city has the authority. The data is unchallenged. <em>The clock is the only enemy.</em></p>
     </div>
 
     <div class="act-grid">
       <a href="#may27" class="act-card">
         <div class="act-card-num">01 · Highest impact</div>
-        <h3>Show up May 27 at City Hall</h3>
-        <p>Public comment at the Board hearing on the SF Pretrial contract. Two minutes on the record. People's Budget Coalition is mobilizing.</p>
+        <h3>Show up May 27 to preserve SF Pretrial</h3>
+        <p>Public comment at the Budget &amp; Finance Committee hearing on the SF Pretrial contract. Two minutes on the record. People's Budget Coalition is mobilizing. Same fight at the full Board in early June.</p>
         <span class="act-link">Get hearing details</span>
       </a>
 
-      <a href="mailto:?subject=Don't%20dismantle%20SF's%20most%20effective%20public%20safety%20program&body=Dear%20Supervisor%2C%0A%0AI'm%20writing%20to%20urge%20you%20to%20protect%20the%20San%20Francisco%20Pretrial%20Diversion%20Project's%20contract%20in%20the%20FY2026%20budget.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20single%20most%20effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20rate%20of%20no%20new%20charges%20while%20enrolled.%2096%25%20court%20appearance%20rate%20across%2019%2C000%2B%20court%20dates.%20630%2C394%20jail%20bed%20days%20saved%20in%202023%20—%20at%20a%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20It%20is%20a%20national%20model%2C%20one%20of%20only%20two%20community-based%20pretrial%20programs%20in%20the%20country%20at%20this%20scale.%0A%0ASB%20129%20explicitly%20exempts%20San%20Francisco%20(see%20Judicial%20Council%20Year%203%20Report%2C%20footnote%206).%20There%20is%20no%20legal%20mandate%20to%20do%20this.%0A%0APlease%20vote%20to%20preserve%20SF%20Pretrial's%20contract%20on%20May%2027.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
+      <a href="mailto:?subject=Don't%20dismantle%20SF's%20most%20effective%20public%20safety%20program&body=Dear%20Supervisor%2C%0A%0AI'm%20writing%20to%20urge%20you%20to%20protect%20the%20San%20Francisco%20Pretrial%20Diversion%20Project's%20contract%20in%20the%20FY2026%20budget.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20single%20most%20effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20rate%20of%20no%20new%20charges%20while%20enrolled.%2096%25%20court%20appearance%20rate%20across%2019%2C000%2B%20court%20dates.%20630%2C394%20jail%20bed%20days%20saved%20in%202023%20—%20at%20a%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20It%20is%20a%20national%20model%2C%20one%20of%20a%20small%20handful%20of%20independent%2C%20community-based%20pretrial%20programs%20in%20the%20country%20at%20this%20scale.%0A%0ASB%20129%20explicitly%20exempts%20San%20Francisco%20(see%20Judicial%20Council%20Year%203%20Report%2C%20footnote%206).%20There%20is%20no%20legal%20mandate%20to%20do%20this.%0A%0APlease%20vote%20to%20preserve%20SF%20Pretrial's%20contract%20on%20May%2027.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
         <div class="act-card-num">02 · 2 minutes</div>
-        <h3>Email the Budget &amp; Finance Committee</h3>
-        <p>Five supervisors hold the vote. We've drafted the email — safety case, cost case, legal carve-out. You add your name and send.</p>
+        <h3>Email Supervisors to preserve SF Pretrial</h3>
+        <p>Five supervisors hold the committee vote. The full Board follows in June. We've drafted the email — safety case, cost case, legal carve-out. You add your name and send.</p>
         <span class="act-link">Open pre-written email</span>
       </a>
 
       <a href="mailto:MayorLurie@sfgov.org?subject=Don't%20dissolve%20SF's%20most%20effective%20public%20safety%20program&body=Dear%20Mayor's%20Office%2C%0A%0AI'm%20writing%20to%20urge%20the%20Mayor%20to%20protect%20the%20San%20Francisco%20Pretrial%20Diversion%20Project's%20funding%20in%20the%20FY2026%20budget%20being%20submitted%20May%2015.%0A%0ASF%20Pretrial%20is%20the%20single%20most%20cost-effective%20public%20safety%20program%20in%20the%20city.%2093%25%20safety%20rate.%2096%25%20court%20appearance%20rate.%20630%2C394%20jail%20bed%20days%20saved%20in%202023.%20A%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20Dissolving%20it%20and%20handing%20pretrial%20services%20to%20Adult%20Probation%20at%20essentially%20the%20same%20budget%20with%20one-third%20the%20staff%20will%20cost%20the%20city%20money%20and%20cost%20San%20Franciscans%20safety.%0A%0ASB%20129%20explicitly%20exempts%20San%20Francisco%20(see%20Judicial%20Council%20Year%203%20Report%2C%20footnote%206).%20The%20legal%20premise%20being%20cited%20doesn't%20apply%20here.%0A%0APlease%20preserve%20SF%20Pretrial's%20funding%20in%20the%20final%20budget.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
         <div class="act-card-num">03 · 2 minutes</div>
         <h3>Email the Mayor's Office</h3>
-        <p>Budget locks May 15. Three of the Mayor's senior staff are named in the transition memo. They are the people to write. Pre-drafted — open and send.</p>
+        <p>The Mayor has final say — he can put SF Pretrial back in the budget at any time, and the City Attorney will void the contract if he asks. Three of the Mayor's senior staff are named in the transition memo. Pre-drafted — open and send.</p>
         <span class="act-link">Open pre-written email</span>
       </a>
 
       <a href="#share" class="act-card">
         <div class="act-card-num">04 · 30 seconds</div>
         <h3>Share this page</h3>
-        <p>Most San Franciscans have never heard of this. Most journalists haven't either. Make sure people know it's about to disappear.</p>
+        <p>Most San Franciscans have never heard of SF Pretrial. Most journalists haven't either. Help spread the case for preserving it — the data, the leverage, the legal carve-out.</p>
         <span class="act-link">Share now</span>
       </a>
     </div>
@@ -1745,7 +1987,7 @@ document.getElementById('snNext').addEventListener('click', () => {
 });
 
 // Share
-const shareText = "On July 1, San Francisco dismantles its most effective public safety program — 93% safety rate, more than 4× cheaper than probation, a 50-year Bay Area innovation. Same money, one-third the staff, handed to an armed law enforcement agency. The law they're citing doesn't even apply to SF.";
+const shareText = "On July 1, San Francisco plans to dismantle SF Pretrial — its most effective public safety program — and hand the work to the Adult Probation Department. 93% safety rate. Doubles every city dollar. 7.7× cheaper for the city than the alternative. A 50-year Bay Area innovation. The state law being cited doesn't even apply here.";
 const shareUrl = window.location.href;
 function shareTo(target) {
   const u = encodeURIComponent(shareUrl);

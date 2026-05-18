@@ -1,34 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1F2336"/>
-      <stop offset="60%" stop-color="#1F2336"/>
-      <stop offset="100%" stop-color="#3B4364"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="85%" cy="20%" r="60%">
-      <stop offset="0%" stop-color="#FD5A1E" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#FD5A1E" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1F2336"/>
+  <!-- Subtle orange corner glow -->
+  <circle cx="1180" cy="-20" r="420" fill="#FD5A1E" opacity="0.10"/>
+  <circle cx="1180" cy="-20" r="240" fill="#FD5A1E" opacity="0.10"/>
 
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
+  <!-- H1 — Anton, four lines, properly spaced -->
+  <g font-family="Anton, sans-serif" font-size="76" fill="#F6F3EC" letter-spacing="0.02em">
+    <text x="60" y="132">ON JULY 1, SAN FRANCISCO IS</text>
+    <text x="60" y="226">POISED TO DISMANTLE ITS</text>
+    <text x="60" y="320">MOST UNIQUELY EFFECTIVE</text>
+    <text x="60" y="414">PUBLIC SAFETY PROGRAM.<tspan fill="#FD5A1E" dx="6">*</tspan></text>
+  </g>
 
-  <!-- Brand mark top-left -->
-  <text x="64" y="80" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="22" letter-spacing="3" fill="#F6F3EC">DON'T DISMANTLE <tspan fill="#FD5A1E">WHAT KEEPS US SAFE IN SF</tspan></text>
-  <text x="64" y="108" font-family="Helvetica, sans-serif" font-weight="700" font-size="16" letter-spacing="2.5" fill="#FD5A1E">PRESERVE SF PRETRIAL</text>
+  <!-- Strike-through over JULY 1, -->
+  <line x1="155" y1="106" x2="395" y2="106" stroke="#FD5A1E" stroke-width="6" stroke-linecap="round"/>
 
-  <!-- Headline -->
-  <text x="64" y="232" font-family="Arial Black, Helvetica Neue Condensed Black, Helvetica, sans-serif" font-weight="900" font-size="86" fill="#F6F3EC">ON</text>
-  <text x="170" y="232" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="86" fill="#F6F3EC" text-decoration="line-through" style="text-decoration-color: #FD5A1E; text-decoration-thickness: 8px;">JULY 1,</text>
-  <line x1="170" y1="207" x2="500" y2="207" stroke="#FD5A1E" stroke-width="8"/>
-  <text x="64" y="328" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="86" fill="#F6F3EC">SF IS POISED TO</text>
-  <text x="64" y="424" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="86" fill="#F6F3EC">DISMANTLE ITS MOST</text>
-  <text x="64" y="520" font-family="Arial Black, Helvetica, sans-serif" font-weight="900" font-size="86" fill="#FD5A1E">UNIQUELY EFFECTIVE</text>
-  <line x1="64" y1="535" x2="1080" y2="535" stroke="#FD5A1E" stroke-width="6"/>
-  <text x="64" y="582" font-family="Helvetica, sans-serif" font-weight="700" font-size="22" letter-spacing="2" fill="#F6F3EC">PUBLIC SAFETY PROGRAM.</text>
+  <!-- Orange underlines beneath line 3 and line 4 -->
+  <line x1="60" y1="334" x2="800" y2="334" stroke="#FD5A1E" stroke-width="6" stroke-linecap="round"/>
+  <line x1="60" y1="428" x2="760" y2="428" stroke="#FD5A1E" stroke-width="6" stroke-linecap="round"/>
 
-  <!-- Stat strip -->
-  <rect x="0" y="600" width="1200" height="30" fill="#FD5A1E"/>
-  <text x="600" y="620" text-anchor="middle" font-family="Helvetica, sans-serif" font-weight="700" font-size="13" letter-spacing="2" fill="#F6F3EC">93% PUBLIC SAFETY RATE · 96% COURT APPEARANCE · 50 YEARS · 7.7× CHEAPER FOR THE CITY · NAPSA-ACCREDITED</text>
+  <!-- Rally — Manrope italic, with orange asterisk + underline on "we can stop this." -->
+  <g transform="translate(60, 510)">
+    <text x="0" y="0" font-family="Manrope, sans-serif" font-weight="800" font-size="32" fill="#FD5A1E">*</text>
+    <text x="34" y="0" font-family="Manrope, sans-serif" font-weight="700" font-size="32" fill="#F6F3EC" font-style="italic" transform="skewX(-10)">Together, <tspan font-weight="800" text-decoration="underline">we can stop this.</tspan></text>
+  </g>
+
+  <!-- URL — Manrope -->
+  <text x="60" y="582" font-family="Manrope, sans-serif" font-weight="700" font-size="22" letter-spacing="2.5" fill="#FD5A1E">dontdismantlesf.org</text>
 </svg>

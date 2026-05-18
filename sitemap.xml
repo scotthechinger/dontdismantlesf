@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://dontdismantlesf.org/</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dontdismantlesf.org/og-image.png</image:loc>
+      <image:title>Don't Dismantle What Keeps Us Safe in SF</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dontdismantlesf.org/press/2026-04_Jones_SF_Pretrial_Unique_and_Effective.pdf</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dontdismantlesf.org/press/2025-06-18_Court_Records_Request_to_SF_Pretrial.pdf</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dontdismantlesf.org/press/2025-10-21_Court_Notice_to_Judicial_Council.pdf</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dontdismantlesf.org/press/2026-04-29_Court_Letter_to_Mayor_Lurie.pdf</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

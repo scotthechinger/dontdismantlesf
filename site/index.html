@@ -510,10 +510,15 @@ footer em { color: var(--accent-hot); }
   margin-bottom: 36px;
 }
 .setup-headline em { color: var(--accent); font-style: italic; }
-.setup-grid { display: grid; gap: 14px; max-width: 920px; }
+.setup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  max-width: 1280px;
+}
 .setup-step {
-  display: flex; align-items: flex-start; gap: 22px;
-  padding: 22px 26px;
+  display: flex; align-items: flex-start; gap: 18px;
+  padding: 22px 24px;
   background: var(--paper-warm);
   border-radius: 14px;
   border: 1.5px solid var(--line);
@@ -1870,6 +1875,97 @@ p em { font-style: normal; color: inherit; }
   font-weight: 800;
 }
 
+/* ─── SIGNUP (Constant Contact) — sits between Press and Footer ─── */
+.signup-section {
+  background: var(--paper-warm);
+  padding: 72px 28px;
+  border-top: 1px solid var(--line-soft);
+}
+.signup-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.signup-copy .section-eyebrow {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.signup-headline {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.signup-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-mid);
+  max-width: 480px;
+}
+.signup-form-wrap {
+  background: var(--paper-light);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  min-height: 80px;
+}
+.signup-loading {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-mid);
+  text-align: center;
+  padding: 10px 0;
+}
+/* Restyle the Constant Contact widget to feel native */
+.signup-form-wrap .ctct-inline-form,
+.signup-form-wrap .ctct-form-defaults,
+.signup-form-wrap .ctct-form-container {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-family: var(--sans) !important;
+}
+.signup-form-wrap input[type="text"],
+.signup-form-wrap input[type="email"] {
+  font-family: var(--sans) !important;
+  font-size: 15px !important;
+  padding: 12px 14px !important;
+  border-radius: 8px !important;
+  border: 1.5px solid var(--line) !important;
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+}
+.signup-form-wrap input[type="submit"],
+.signup-form-wrap button[type="submit"] {
+  font-family: var(--sans) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.04em !important;
+  padding: 12px 22px !important;
+  border-radius: 100px !important;
+  background: var(--accent) !important;
+  color: var(--paper) !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background .2s !important;
+}
+.signup-form-wrap input[type="submit"]:hover,
+.signup-form-wrap button[type="submit"]:hover {
+  background: var(--accent-hot) !important;
+}
+@media (max-width: 880px) {
+  .signup-section { padding: 56px 22px; }
+  .signup-inner { grid-template-columns: 1fr; gap: 28px; }
+}
+
 /* ─── HAMBURGER MENU (mobile) ─── */
 .hamburger {
   display: none;
@@ -1943,6 +2039,7 @@ p em { font-style: normal; color: inherit; }
   .top-cta { display: none; }
   .hamburger { display: flex; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .setup-grid { grid-template-columns: 1fr; }
   .cost-headline { grid-template-columns: 1fr; gap: 14px; }
   .cost-arrow { padding: 4px 0; }
   .savings-strip { grid-template-columns: 1fr; }
@@ -2476,6 +2573,13 @@ p em { font-style: normal; color: inherit; }
         <p>Most San Franciscans have never heard of SF Pretrial. Most journalists haven't either. Help spread the case for preserving it — the data, the leverage, the legal carve-out.</p>
         <span class="act-link">Share now</span>
       </a>
+
+      <a href="#signup" class="act-card">
+        <div class="act-card-num">05 · 10 seconds</div>
+        <h3>Get updates</h3>
+        <p>Hearings, vote dates, what to send, where to show up. The campaign in your inbox — only when it matters.</p>
+        <span class="act-link">Sign up</span>
+      </a>
     </div>
 
     <div class="share-block" id="share">
@@ -2540,6 +2644,24 @@ p em { font-style: normal; color: inherit; }
         </a>
       </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── SIGNUP (Constant Contact) ───────────── -->
+<section class="signup-section" id="signup">
+  <div class="signup-inner">
+    <div class="signup-copy">
+      <span class="section-eyebrow">Stay informed</span>
+      <h2 class="signup-headline">Updates as the situation moves.</h2>
+      <p class="signup-sub">Hearings, vote dates, what to send, where to show up. The campaign in your inbox — only when it matters.</p>
+    </div>
+    <div class="signup-form-wrap">
+      <!-- Begin Constant Contact Inline Form Code -->
+      <div class="ctct-inline-form" data-form-id="95d09a3d-5764-4a59-ac26-fe44eaa81a84">
+        <p class="signup-loading">Loading sign-up form…</p>
+      </div>
+      <!-- End Constant Contact Inline Form Code -->
     </div>
   </div>
 </section>
@@ -2796,6 +2918,9 @@ hamburgerMenu.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => setHamburger(false))
 );
 </script>
+
+<!-- Constant Contact signup form widget (renders the .ctct-inline-form div in the signup section) -->
+<script id="signupScript" src="https://static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
 
 </body>
 </html>

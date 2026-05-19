@@ -1404,6 +1404,10 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 30px 110px;
   border-right: 1px solid rgba(246,243,236,0.2);
   flex-shrink: 0;
 }
+/* Sub-nav label swap — desktop default, mobile override below */
+.sn-label-desktop { display: inline; }
+.sn-label-mobile  { display: none; }
+
 .sn-evidence-main {
   font-family: var(--serif);
   font-weight: 900;
@@ -1866,6 +1870,66 @@ p em { font-style: normal; color: inherit; }
   font-weight: 800;
 }
 
+/* ─── HAMBURGER MENU (mobile) ─── */
+.hamburger {
+  display: none;
+  width: 44px; height: 44px;
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px;
+  background: transparent;
+  border: 1.5px solid var(--line);
+  border-radius: 100px;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color .2s, background .2s;
+}
+.hamburger:hover { border-color: var(--ink); background: rgba(0,0,0,0.04); }
+.hamburger span {
+  display: block;
+  width: 18px; height: 2px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: transform .2s, opacity .2s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.hamburger-menu {
+  position: fixed;
+  top: 64px;
+  right: 12px;
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  padding: 10px;
+  z-index: 110;
+  display: none;
+  flex-direction: column;
+  min-width: 240px;
+}
+.hamburger-menu.open { display: flex; }
+.hamburger-menu a {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 14px 16px;
+  border-radius: 10px;
+  transition: background .15s;
+}
+.hamburger-menu a:hover { background: rgba(0,0,0,0.05); }
+.hamburger-menu a.menu-cta {
+  background: var(--accent);
+  color: var(--paper);
+  text-align: center;
+  margin-top: 4px;
+}
+.hamburger-menu a.menu-cta:hover { background: var(--accent-hot); }
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   .sn-link .lbl { display: none; }
@@ -1873,19 +1937,54 @@ p em { font-style: normal; color: inherit; }
 }
 @media (max-width: 880px) {
   section { padding: 70px 22px; }
-  .hero { padding: 36px 22px 48px; min-height: calc(100vh - 50px); }
+  .hero { padding: 36px 22px 48px; min-height: 0; }
   .top-bar { padding: 10px 18px; }
   .top-evidence { display: none; }
+  .top-cta { display: none; }
+  .hamburger { display: flex; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); }
   .cost-headline { grid-template-columns: 1fr; gap: 14px; }
   .cost-arrow { padding: 4px 0; }
   .savings-strip { grid-template-columns: 1fr; }
-  .compare-header, .compare-row { grid-template-columns: 1fr; }
-  .compare-header > div, .compare-row > div { border-right: none; border-bottom: 1px solid rgba(246,243,236,0.08); }
-  .compare-header > div:last-child, .compare-row > div:last-child { border-bottom: none; }
-  .compare-row > div { padding: 12px 20px; }
-  .cr-label { padding-bottom: 4px !important; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(246,243,236,0.55); font-weight: 700; }
-  .cr-good, .cr-bad { padding-top: 0 !important; }
+  /* Comparison table — hide top header row on mobile, label each value */
+  .compare-header { display: none !important; }
+  .compare-row { grid-template-columns: 1fr; }
+  .compare-row > div { border-right: none; border-bottom: 1px solid rgba(246,243,236,0.08); padding: 12px 20px; }
+  .compare-row > div:last-child { border-bottom: none; }
+  .cr-label {
+    padding-bottom: 4px !important;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(246,243,236,0.55);
+    font-weight: 700;
+  }
+  .cr-good, .cr-bad { padding-top: 6px !important; padding-bottom: 12px !important; position: relative; }
+  .cr-good { color: var(--accent) !important; font-weight: 700; }
+  .cr-bad { color: rgba(246,243,236,0.5) !important; font-weight: 600; }
+  .cr-good::before {
+    content: "SF PRETRIAL";
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+    opacity: 0.95;
+  }
+  .cr-bad::before {
+    content: "ADULT PROBATION";
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(246,243,236,0.4);
+    margin-bottom: 4px;
+  }
   .national-grid { grid-template-columns: 1fr; }
   .dead-list { grid-template-columns: 1fr; }
   .room-grid { grid-template-columns: 1fr; }
@@ -1894,11 +1993,26 @@ p em { font-style: normal; color: inherit; }
   .act-grid { grid-template-columns: 1fr; }
   .press-row { grid-template-columns: 1fr; gap: 32px; }
   .footer-inner { flex-direction: column; align-items: flex-start; text-align: left; }
-  .sub-nav { padding: 10px 12px; }
-  .sub-nav-inner { gap: 8px; }
+  /* Sub-nav — all 7 letter buttons visible across, plus Take Action; arrows hidden */
+  .sub-nav { padding: 10px 10px; }
+  .sub-nav-inner { gap: 6px; }
   .sn-evidence-sub { display: none; }
-  .sn-link { padding: 7px 9px; font-size: 10px; }
-  .sn-link .ltr { font-size: 13px; }
+  .sn-arrow { display: none; }
+  .sn-evidence-label { flex-shrink: 0; }
+  .sn-evidence-main { font-size: 11px; }
+  .sn-letters { flex: 1; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; overflow: visible; }
+  .sn-link { padding: 5px 0; font-size: 9px; min-width: 0; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 0; }
+  .sn-link .ltr { font-size: 12px; }
+  .sub-nav-cta { padding: 8px 12px; font-size: 10px; letter-spacing: 0.08em; flex-shrink: 0; }
+  /* Mobile-only label swap */
+  .sn-label-desktop { display: none; }
+  .sn-label-mobile { display: inline; }
+  /* Back-to-top sits ABOVE the subnav on mobile so it doesn't cover Take Action */
+  body.subnav-shown .back-to-top {
+    bottom: 78px;
+    right: 16px;
+    border-color: rgba(31,35,54,0.4);
+  }
   .evidence-marker { gap: 12px; margin-bottom: 36px; }
   .evidence-marker-sub { display: none; }
 }
@@ -1924,14 +2038,24 @@ p em { font-style: normal; color: inherit; }
     <a href="#exhibit-a" class="top-evidence">See the Evidence</a>
     <a href="#press" class="top-evidence top-nav-link">For the Press</a>
     <a href="#act" class="top-cta">Take Action</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<nav class="hamburger-menu" id="hamburgerMenu" aria-hidden="true">
+  <a href="#setup">What's Happening</a>
+  <a href="#exhibit-a">See the Evidence</a>
+  <a href="#press">For the Press</a>
+  <a href="#act" class="menu-cta">Take Action</a>
+</nav>
 
 <!-- ───────────── HERO ───────────── -->
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-top">
-      <span class="eyebrow-pill"><span class="dot"></span> Live · Decision pending May 27</span>
+      <span class="eyebrow-pill"><span class="dot"></span> Live · Decision pending</span>
       <div class="countdown" id="countdown">
         <div class="cd-block"><div class="cd-num" id="cdDays">—</div><div class="cd-lbl">Days</div></div>
         <div class="cd-block"><div class="cd-num" id="cdHours">—</div><div class="cd-lbl">Hours</div></div>
@@ -2394,8 +2518,24 @@ p em { font-style: normal; color: inherit; }
           <div class="press-item-text"><strong>The SF Pretrial Model: Unique and Effective</strong><span>Michael R. Jones, PhD, April 2026 · Independent research case for SF Pretrial · PDF</span></div>
           <span class="press-item-arrow">↓</span>
         </a>
+        <a href="press/SF_Pretrial_Value_Added.pdf" class="press-item" target="_blank" rel="noopener">
+          <div class="press-item-text"><strong>SF Pretrial: Value Added</strong><span>SF Pretrial Diversion Project · The case for SF Pretrial as an indispensable public safety pillar · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
+        <a href="press/2026-04-17_BASF_Letter_of_Support_for_SF_Pretrial.pdf" class="press-item" target="_blank" rel="noopener">
+          <div class="press-item-text"><strong>BASF Letter of Support for SF Pretrial</strong><span>Bar Association of San Francisco, April 17, 2026 · 5,600-member legal community urges Mayor Lurie to preserve SF Pretrial · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
+        <a href="press/2026-04-29_ACLU_NorCal_Public_Safety_Letter_to_Mayor.pdf" class="press-item" target="_blank" rel="noopener">
+          <div class="press-item-text"><strong>ACLU NorCal Public Safety Letter to the Mayor's Office</strong><span>ACLU of Northern California, April 29, 2026 · Public safety policy recommendations to the Mayor's Office · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
         <a href="press/2025-10-21_Court_Notice_to_Judicial_Council.pdf" class="press-item" target="_blank" rel="noopener">
           <div class="press-item-text"><strong>Court notice to the Judicial Council</strong><span>Superior Court of California, October 21, 2025 · Formal notice of the transition to Adult Probation · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
+        <a href="press/Adult_Probation_Budget_Submission_FY27_FY28.pdf" class="press-item" target="_blank" rel="noopener">
+          <div class="press-item-text"><strong>Adult Probation Budget Submission · FY27 &amp; FY28</strong><span>San Francisco Adult Probation Department · The Department's own budget request for pretrial expansion · PDF</span></div>
           <span class="press-item-arrow">↓</span>
         </a>
       </div>
@@ -2424,7 +2564,7 @@ p em { font-style: normal; color: inherit; }
 <nav class="sub-nav" id="subNav" aria-label="Evidence navigation">
   <div class="sub-nav-inner">
     <div class="sn-evidence-label">
-      <span class="sn-evidence-main">The Evidence</span>
+      <span class="sn-evidence-main"><span class="sn-label-desktop">The Evidence</span><span class="sn-label-mobile">Exhibits:</span></span>
       <span class="sn-evidence-sub">Seven Exhibits</span>
     </div>
     <button class="sn-arrow" id="snPrev" aria-label="Previous exhibit">‹</button>
@@ -2630,6 +2770,31 @@ window.addEventListener('load', () => {
     document.querySelector('.hero')?.classList.add('hero-in');
   }, 350);
 });
+
+// Hamburger menu (mobile)
+const hamburgerBtn = document.getElementById('hamburger');
+const hamburgerMenu = document.getElementById('hamburgerMenu');
+function setHamburger(open) {
+  hamburgerBtn.classList.toggle('open', open);
+  hamburgerMenu.classList.toggle('open', open);
+  hamburgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  hamburgerMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+hamburgerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  setHamburger(!hamburgerMenu.classList.contains('open'));
+});
+document.addEventListener('click', (e) => {
+  if (hamburgerMenu.classList.contains('open') &&
+      !hamburgerMenu.contains(e.target) &&
+      e.target !== hamburgerBtn &&
+      !hamburgerBtn.contains(e.target)) {
+    setHamburger(false);
+  }
+});
+hamburgerMenu.querySelectorAll('a').forEach(a =>
+  a.addEventListener('click', () => setHamburger(false))
+);
 </script>
 
 </body>

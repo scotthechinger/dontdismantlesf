@@ -167,6 +167,7 @@ footer em { color: var(--accent-hot); }
 .section-title,
 .carveout-headline,
 .act-headline,
+.action-headline,
 .setup-headline,
 .safest-pull,
 .footer-mark,
@@ -1170,6 +1171,55 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
   opacity: 0.5; pointer-events: none;
 }
 .act-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+
+/* ─── ACTION CENTER (navy) — split from The Clock ─── */
+.action-center {
+  background: var(--navy);
+  color: var(--paper);
+  padding: 90px 28px 110px;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 60px;
+}
+.action-center::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 50% at 90% 0%, rgba(253,90,30,0.10), transparent 70%),
+    radial-gradient(40% 30% at 10% 100%, rgba(253,90,30,0.06), transparent 70%);
+  pointer-events: none;
+}
+.action-center .section-eyebrow {
+  color: var(--accent);
+}
+.action-headline {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin: 14px 0 14px;
+}
+.action-headline em {
+  font-style: normal;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+.action-sub {
+  color: rgba(246,243,236,0.78);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+/* Share block sits inside the navy Action Center — let it use the existing dark styling */
+.action-center .share-block {
+  background: rgba(246,243,236,0.04);
+  border: 1px solid rgba(246,243,236,0.18);
+}
 .act-section .section-eyebrow { color: rgba(246,243,236,0.9); }
 .act-headline {
   font-family: var(--serif);
@@ -1528,6 +1578,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 30px 110px;
 .section-title,
 .carveout-headline,
 .act-headline,
+.action-headline,
 .setup-headline,
 .safest-pull,
 .pf-close,
@@ -1628,6 +1679,7 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 30px 110px;
 .section-title { letter-spacing: 0.02em; font-weight: 400; line-height: 1.0; }
 .carveout-headline { letter-spacing: 0.02em; font-weight: 400; line-height: 1.0; }
 .act-headline { letter-spacing: 0.02em; font-weight: 400; line-height: 1.0; }
+.action-headline { letter-spacing: 0.02em; font-weight: 400; line-height: 1.0; }
 .setup-headline { letter-spacing: 0.02em; font-weight: 400; line-height: 1.05; }
 .safest-pull { letter-spacing: 0.02em; font-weight: 400; line-height: 1.0; }
 .hero h1 { font-weight: 400; letter-spacing: 0.022em; line-height: 1.0; }
@@ -2507,8 +2559,8 @@ p em { font-style: normal; color: inherit; }
   </div>
 </section>
 
-<!-- ───────────── CLOCK + ACT (orange) ───────────── -->
-<section class="act-section" id="act">
+<!-- ───────────── THE CLOCK (orange) ───────────── -->
+<section class="act-section" id="clock">
   <div class="act-inner">
     <span class="section-eyebrow">The Clock · Approve SF Pretrial's foundational contract</span>
     <h2 class="act-headline">There is still time. <em>The vote isn't until June.</em></h2>
@@ -2544,6 +2596,15 @@ p em { font-style: normal; color: inherit; }
     <div class="preserve-callout">
       <p>This is <em>preservable.</em> The Mayor and City have the authority. The data is unchallenged. <em>The clock is the only enemy.</em></p>
     </div>
+  </div>
+</section>
+
+<!-- ───────────── ACTION CENTER (navy) ───────────── -->
+<section class="action-center" id="act">
+  <div class="act-inner">
+    <span class="section-eyebrow">Take Action</span>
+    <h2 class="action-headline">Six ways. <em>Pick one</em>. <em>Send it</em>.</h2>
+    <p class="action-sub">This is what closes the clock above. Each takes between thirty seconds and two minutes.</p>
 
     <div class="act-grid">
       <a href="mailto:daniel.lurie@sfgov.org?subject=Don't%20dismantle%20SF's%20most%20uniquely%20effective%20public%20safety%20program&body=Dear%20Mayor's%20Office%2C%0A%0AI'm%20writing%20to%20urge%20the%20Mayor%20to%20deny%20San%20Francisco%20Adult%20Probation's%20budget%20request%20and%20the%20subsequent%20elimination%20of%20the%20San%20Francisco%20Pretrial%20Diversion%20Project.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20most%20uniquely%20cost-effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20safety%20rate.%2096%25%20court%20appearance%20rate.%20630%2C394%20jail%20bed%20days%20saved%20in%202023.%20A%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20Dismantling%20it%20and%20handing%20pretrial%20services%20to%20Adult%20Probation%20at%20essentially%20the%20same%20budget%20with%20one-third%20the%20staff%20will%20cost%20the%20city%20money%20and%20cost%20San%20Franciscans%20safety.%20As%20Adult%20Probation%20begins%20full%20implementation%2C%20that%20budget%20will%20balloon.%0A%0ASB%20129%20includes%20a%20named%20carve-out%20allowing%20San%20Francisco%20to%20contract%20with%20the%20existing%20pretrial%20services%20office%20—%20not%20a%20probation%20department.%20There%20is%20no%20legal%20mandate%20for%20this%20transfer.%0A%0AThe%20Mayor%20has%20committed%20to%20shrinking%20the%20deficit%20and%20size%20of%20city%20government%20—%20and%20funding%20a%20probation%20expansion%20goes%20against%20his%20public%20statements.%0A%0APlease%20preserve%20SF%20Pretrial%20by%20approving%20their%20contract%20and%20denying%20Adult%20Probation's%20request.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
@@ -2579,6 +2640,14 @@ p em { font-style: normal; color: inherit; }
         <h3>Get updates</h3>
         <p>Hearings, vote dates, what to send, where to show up. The campaign in your inbox — only when it matters.</p>
         <span class="act-link">Sign up</span>
+      </a>
+
+      <!-- TODO: replace href="#" with the actual donate URL once it's live -->
+      <a href="#" class="act-card" target="_blank" rel="noopener">
+        <div class="act-card-num">06 · Fuel the fight</div>
+        <h3>Donate</h3>
+        <p>This campaign for safety in SF is unfunded. Donations increase our power and capacity to win this fight — while still doing the work.</p>
+        <span class="act-link">Donate here</span>
       </a>
     </div>
 
@@ -2846,6 +2915,7 @@ const revealTargets = [
   '.section-title',
   '.setup-headline',
   '.act-headline',
+  '.action-headline',
   '.carveout-headline',
   '.setup-grid > *',
   '.act-card',
@@ -2920,6 +2990,10 @@ hamburgerMenu.querySelectorAll('a').forEach(a =>
 </script>
 
 <!-- Constant Contact signup form widget (renders the .ctct-inline-form div in the signup section) -->
+<!-- TODO: REPLACE _ctct_m value with David's actual Constant Contact account tracking ID (from CC universal code) -->
+<script>
+  var _ctct_m = "REPLACE_WITH_CTCT_ACCOUNT_ID";
+</script>
 <script id="signupScript" src="https://static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
 
 </body>

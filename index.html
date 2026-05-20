@@ -2934,7 +2934,7 @@ p em { font-style: normal; color: inherit; }
         <span class="act-link">Open pre-written email</span>
       </a>
 
-      <a href="#may27" class="act-card">
+      <a href="hearing.ics" download class="act-card" data-hearing-modal>
         <div class="act-card-num">02 · Highest visibility</div>
         <h3>Show up May 27 to preserve SF Pretrial</h3>
         <p>Public comment at the Budget &amp; Finance Committee hearing on the SF Pretrial contract. Two minutes on the record. People's Budget Coalition is mobilizing. Same fight at the full Board in early June.</p>
@@ -3128,6 +3128,31 @@ p em { font-style: normal; color: inherit; }
       <summary>Preview the full message</summary>
       <pre id="emBody"></pre>
     </details>
+  </div>
+</div>
+
+<!-- ───────────── HEARING ACTION MODAL ───────────── -->
+<div class="email-modal" id="hearingModal" aria-hidden="true">
+  <div class="email-modal-backdrop" data-hearing-close></div>
+  <div class="email-modal-panel" role="dialog" aria-modal="true" aria-labelledby="hmTitle">
+    <button class="email-modal-close" data-hearing-close aria-label="Close">×</button>
+    <span class="email-modal-eyebrow">02 · Highest visibility</span>
+    <h3 class="email-modal-title" id="hmTitle">Show up for the hearing</h3>
+    <p class="email-modal-sub">Two minutes of public comment, on the record. Save the date so you don't miss it.</p>
+
+    <div class="email-modal-meta">
+      <div class="emf-row"><span class="emf-label">What</span><span class="emf-value">Board of Supervisors Budget &amp; Finance Committee — SF Pretrial hearing</span></div>
+      <div class="emf-row"><span class="emf-label">When</span><span class="emf-value">May 27, 2026 · Committee convenes 10:00 AM</span></div>
+      <div class="emf-row"><span class="emf-label">Where</span><span class="emf-value">City Hall, Legislative Chamber</span></div>
+      <div class="emf-row"><span class="emf-label">Agenda</span><span class="emf-value">Not posted yet — exact time for the SF Pretrial item TBD</span></div>
+    </div>
+
+    <div class="email-modal-actions">
+      <a class="em-btn em-btn-primary" id="hmGoogle" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <a class="em-btn" id="hmIcs" href="hearing.ics" download>Add to Apple / Outlook calendar</a>
+      <button class="em-btn" id="hmCopy" type="button">Copy the details</button>
+    </div>
+    <p class="email-modal-hint">The committee convenes at 10:00 AM, but the exact time the SF Pretrial item is heard isn't posted yet. Plan to arrive at 10:00 — we'll update this as soon as we know.</p>
   </div>
 </div>
 
@@ -3435,6 +3460,74 @@ emailModal.querySelectorAll('[data-email-close]').forEach(el =>
 );
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && emailModal.classList.contains('open')) closeEmailModal();
+});
+
+// ─── Hearing action modal (add to calendar) ───
+const hearingModal = document.getElementById('hearingModal');
+const hmGoogle = document.getElementById('hmGoogle');
+const hmCopy   = document.getElementById('hmCopy');
+let hmCopyTimer = null;
+
+const hearingEvent = {
+  title: "Take Action for SF Pretrial — Budget & Finance Committee Hearing",
+  // Committee convenes 10:00 AM Pacific, May 27, 2026. 4-hour window in UTC
+  // (PDT = UTC-7) since the exact time the SF Pretrial item is heard is TBD.
+  startUTC: "20260527T170000Z",
+  endUTC:   "20260527T210000Z",
+  location: "City Hall, Legislative Chamber, 1 Dr Carlton B Goodlett Pl, San Francisco, CA 94102",
+  details: "San Francisco Board of Supervisors Budget & Finance Committee hearing on the SF Pretrial contract. Public comment on the record — two minutes each. The committee convenes at 10:00 AM; the exact time the SF Pretrial item is heard is not posted yet — plan to arrive at 10:00. Confirm at sfbos.org. More: https://dontdismantlesf.org"
+};
+
+hmGoogle.href = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+  + "&text="     + encodeURIComponent(hearingEvent.title)
+  + "&dates="    + hearingEvent.startUTC + "/" + hearingEvent.endUTC
+  + "&location=" + encodeURIComponent(hearingEvent.location)
+  + "&details="  + encodeURIComponent(hearingEvent.details);
+
+const hearingCopyText =
+  "Take Action for SF Pretrial — Hearing\n" +
+  "Board of Supervisors Budget & Finance Committee\n" +
+  "City Hall, Legislative Chamber\n" +
+  "May 27, 2026 · Committee convenes 10:00 AM\n" +
+  "Exact time for the SF Pretrial item TBD — plan to arrive at 10:00\n" +
+  "dontdismantlesf.org";
+
+hmCopy.addEventListener('click', () => {
+  navigator.clipboard.writeText(hearingCopyText).then(() => {
+    hmCopy.textContent = 'Copied ✓';
+    hmCopy.classList.add('copied');
+    clearTimeout(hmCopyTimer);
+    hmCopyTimer = setTimeout(() => {
+      hmCopy.textContent = 'Copy the details';
+      hmCopy.classList.remove('copied');
+    }, 4000);
+  });
+});
+
+function openHearingModal() {
+  hmCopy.textContent = 'Copy the details';
+  hmCopy.classList.remove('copied');
+  hearingModal.classList.add('open');
+  hearingModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeHearingModal() {
+  hearingModal.classList.remove('open');
+  hearingModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-hearing-modal]').forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    openHearingModal();
+  });
+});
+hearingModal.querySelectorAll('[data-hearing-close]').forEach(el =>
+  el.addEventListener('click', closeHearingModal)
+);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && hearingModal.classList.contains('open')) closeHearingModal();
 });
 </script>
 

@@ -1573,6 +1573,103 @@ footer { background: var(--navy); color: var(--paper); padding: 56px 30px 110px;
 }
 .sub-nav-cta:hover { background: var(--accent-hot); transform: translateY(-1px); }
 
+/* ─── SUB-NAV · DESKTOP FLUSH REDESIGN (≥881px) ─── */
+@media (min-width: 881px) {
+  .sub-nav { padding: 0; }
+  .sub-nav-inner {
+    max-width: none;
+    margin: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    height: 56px;
+  }
+
+  /* LEFT — "Exhibits" label + prev/next arrows, flush group */
+  .sn-left {
+    display: flex;
+    align-items: stretch;
+    flex-shrink: 0;
+  }
+  .sn-evidence-main {
+    display: flex;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-hot);
+    padding: 0 18px;
+  }
+  .sn-arrow {
+    width: 46px;
+    height: auto;
+    border-radius: 0;
+    border: none;
+    border-left: 1px solid rgba(246,243,236,0.12);
+    background: transparent;
+    color: rgba(246,243,236,0.72);
+    font-size: 18px;
+    padding-bottom: 2px;
+  }
+  .sn-arrow:hover:not(:disabled) {
+    background: rgba(246,243,236,0.07);
+    border-color: rgba(246,243,236,0.12);
+    color: var(--paper);
+  }
+  .sn-arrow:disabled { opacity: 0.22; }
+
+  /* MIDDLE — flush exhibit tabs, evenly distributed */
+  .sn-letters {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-left: 1px solid rgba(246,243,236,0.12);
+    padding: 0;
+    overflow: visible;
+  }
+  .sn-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 0;
+    border-right: 1px solid rgba(246,243,236,0.12);
+    padding: 0 8px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(246,243,236,0.62);
+  }
+  .sn-link::after { display: none; }
+  .sn-link .lbl { display: inline; }
+  .sn-link .ltr { font-size: 13px; }
+  .sn-link:hover { background: rgba(246,243,236,0.06); color: var(--paper); }
+  .sn-link.active {
+    background: var(--accent);
+    color: var(--paper);
+    box-shadow: none;
+  }
+
+  /* RIGHT — Take Action, flush rectangular button */
+  .sub-nav-cta {
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    border-left: 1px solid rgba(0,0,0,0.18);
+    padding: 0 30px;
+    margin: 0;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .sub-nav-cta:hover { background: var(--accent-hot); transform: none; }
+}
+
 /* ─── DIRECTION B OVERRIDES (Anton + Manrope, SF Giants orange, underline emphasis) ─── */
 /* Drop italic everywhere Anton replaces a serif — Anton has no italic axis */
 .section-title,
@@ -1975,6 +2072,19 @@ p em { font-style: normal; color: inherit; }
   text-align: center;
   padding: 10px 0;
 }
+/* Hide the floating Google reCAPTCHA badge (disclosure text shown under the form instead) */
+.grecaptcha-badge { visibility: hidden; }
+.signup-recaptcha-note {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+  margin-top: 12px;
+}
+.signup-recaptcha-note a {
+  color: var(--ink-mid);
+  text-decoration: underline;
+}
+.signup-recaptcha-note a:hover { color: var(--accent); }
 /* Restyle the Constant Contact widget to feel native */
 .signup-form-wrap .ctct-inline-form,
 .signup-form-wrap .ctct-form-defaults,
@@ -2145,9 +2255,8 @@ p em { font-style: normal; color: inherit; }
   /* Sub-nav — all 7 letter buttons visible across, plus Take Action; arrows hidden */
   .sub-nav { padding: 10px 10px; }
   .sub-nav-inner { gap: 6px; }
-  .sn-evidence-sub { display: none; }
   .sn-arrow { display: none; }
-  .sn-evidence-label { flex-shrink: 0; }
+  .sn-left { flex-shrink: 0; display: flex; align-items: center; }
   .sn-evidence-main { font-size: 11px; }
   .sn-letters { flex: 1; display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; overflow: visible; }
   .sn-link { padding: 5px 0; font-size: 9px; min-width: 0; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 0; }
@@ -2729,6 +2838,7 @@ p em { font-style: normal; color: inherit; }
         <p class="signup-loading">Loading sign-up form…</p>
       </div>
       <!-- End Constant Contact Inline Form Code -->
+      <p class="signup-recaptcha-note">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</p>
     </div>
   </div>
 </section>
@@ -2752,21 +2862,20 @@ p em { font-style: normal; color: inherit; }
 <!-- ───────────── SUB-NAV ───────────── -->
 <nav class="sub-nav" id="subNav" aria-label="Evidence navigation">
   <div class="sub-nav-inner">
-    <div class="sn-evidence-label">
-      <span class="sn-evidence-main"><span class="sn-label-desktop">The Evidence</span><span class="sn-label-mobile">Exhibits:</span></span>
-      <span class="sn-evidence-sub">Seven Exhibits</span>
+    <div class="sn-left">
+      <span class="sn-evidence-main"><span class="sn-label-desktop">Exhibits</span><span class="sn-label-mobile">Exhibits:</span></span>
+      <button class="sn-arrow" id="snPrev" aria-label="Previous exhibit">‹</button>
+      <button class="sn-arrow" id="snNext" aria-label="Next exhibit">›</button>
     </div>
-    <button class="sn-arrow" id="snPrev" aria-label="Previous exhibit">‹</button>
     <div class="sn-letters" id="snLetters">
       <a href="#exhibit-a" class="sn-link" data-target="exhibit-a"><span class="ltr">A</span><span class="lbl">Record</span></a>
       <a href="#exhibit-b" class="sn-link" data-target="exhibit-b"><span class="ltr">B</span><span class="lbl">Math</span></a>
-      <a href="#exhibit-c" class="sn-link" data-target="exhibit-c"><span class="ltr">C</span><span class="lbl">Head to Head</span></a>
+      <a href="#exhibit-c" class="sn-link" data-target="exhibit-c"><span class="ltr">C</span><span class="lbl">Matchup</span></a>
       <a href="#exhibit-d" class="sn-link" data-target="exhibit-d"><span class="ltr">D</span><span class="lbl">Model</span></a>
       <a href="#exhibit-e" class="sn-link" data-target="exhibit-e"><span class="ltr">E</span><span class="lbl">Casualty</span></a>
-      <a href="#exhibit-f" class="sn-link" data-target="exhibit-f"><span class="ltr">F</span><span class="lbl">The Law</span></a>
-      <a href="#exhibit-g" class="sn-link" data-target="exhibit-g"><span class="ltr">G</span><span class="lbl">Who Decided</span></a>
+      <a href="#exhibit-f" class="sn-link" data-target="exhibit-f"><span class="ltr">F</span><span class="lbl">Law</span></a>
+      <a href="#exhibit-g" class="sn-link" data-target="exhibit-g"><span class="ltr">G</span><span class="lbl">Process</span></a>
     </div>
-    <button class="sn-arrow" id="snNext" aria-label="Next exhibit">›</button>
     <a href="#act" class="sub-nav-cta">Take Action</a>
   </div>
 </nav>

@@ -1377,6 +1377,50 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
 }
 .press-item-text span { color: var(--ink-mid); font-size: 13px; }
 .press-item-arrow { font-family: var(--mono); color: var(--accent); font-size: 18px; flex-shrink: 0; }
+/* Press release — featured download in the left column */
+.press-release {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 26px 0 4px;
+  padding: 18px 20px;
+  background: var(--paper-warm);
+  border: 1.5px solid var(--accent);
+  border-radius: 12px;
+  transition: transform .2s, box-shadow .2s;
+}
+.press-release:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.press-release-text { display: flex; flex-direction: column; gap: 5px; }
+.press-release-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.press-release-text strong {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.32;
+  font-weight: 700;
+}
+.press-release-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-mid);
+}
+.press-release-arrow {
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
 .press-contact {
   margin-top: 28px; padding-top: 28px;
   border-top: 1px solid var(--line);
@@ -2791,6 +2835,14 @@ p em { font-style: normal; color: inherit; }
         <p style="color: var(--ink-mid); font-size: 16px; line-height: 1.65;">
           Documents, data, and named voices. While Trump dismantles federal criminal-justice reform, the bluest city in the bluest state is quietly dissolving one of the country's most uniquely effective community-based pretrial programs. The blue-state firewall is failing — on a tight clock. Reporters welcome.
         </p>
+        <a href="press/2026-05-20_SF_Pretrial_Press_Release.pdf" class="press-release" target="_blank" rel="noopener">
+          <div class="press-release-text">
+            <span class="press-release-tag">Press Release</span>
+            <strong>San Francisco Moves to Dissolve One of the Country's Most Effective Community-Based Pretrial Programs</strong>
+            <span class="press-release-meta">For immediate release · May 20, 2026 · PDF</span>
+          </div>
+          <span class="press-release-arrow">↓</span>
+        </a>
         <div class="press-contact">
           <strong style="color: var(--ink); display: block; margin-bottom: 6px;">Press contact</strong>
           David Mauroff, CEO<br>

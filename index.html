@@ -2178,6 +2178,167 @@ p em { font-style: normal; color: inherit; }
   .signup-inner { grid-template-columns: 1fr; gap: 28px; }
 }
 
+/* ─── EMAIL ACTION MODAL ─── */
+.email-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.email-modal.open { display: flex; }
+.email-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15,18,30,0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.email-modal-panel {
+  position: relative;
+  background: var(--paper-light);
+  border-radius: 18px;
+  border: 1.5px solid var(--line);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+  max-width: 480px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 32px 30px 28px;
+  animation: em-pop .25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes em-pop {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.email-modal-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--ink-mid);
+  font-size: 22px; line-height: 1;
+  cursor: pointer;
+  transition: all .2s;
+}
+.email-modal-close:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.email-modal-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.email-modal-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 8px 0 6px;
+}
+.email-modal-sub {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.email-modal-meta {
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+.emf-row { display: flex; gap: 10px; font-size: 13px; line-height: 1.5; }
+.emf-row + .emf-row { margin-top: 6px; }
+.emf-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  flex-shrink: 0;
+  width: 54px;
+  padding-top: 2px;
+}
+.emf-value { color: var(--ink); font-weight: 600; }
+.email-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.em-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  transition: all .2s;
+  text-align: center;
+}
+.em-btn:hover { border-color: var(--ink); background: rgba(0,0,0,0.03); }
+.em-btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+.em-btn-primary:hover { background: var(--accent-hot); border-color: var(--accent-hot); color: var(--paper); }
+.em-btn.copied {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--paper);
+}
+.email-modal-hint {
+  font-size: 12px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin-top: 14px;
+  text-align: center;
+}
+.email-modal-preview {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.email-modal-preview summary {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+}
+.email-modal-preview pre {
+  margin-top: 12px;
+  white-space: pre-wrap;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-mid);
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+}
+
 /* ─── HAMBURGER MENU (mobile) ─── */
 .hamburger {
   display: none;
@@ -2766,7 +2927,7 @@ p em { font-style: normal; color: inherit; }
     <p class="action-sub">This is what closes the clock above. Each takes between thirty seconds and two minutes.</p>
 
     <div class="act-grid">
-      <a href="mailto:daniel.lurie@sfgov.org?subject=Don't%20dismantle%20SF's%20most%20uniquely%20effective%20public%20safety%20program&body=Dear%20Mayor's%20Office%2C%0A%0AI'm%20writing%20to%20urge%20the%20Mayor%20to%20deny%20San%20Francisco%20Adult%20Probation's%20budget%20request%20and%20the%20subsequent%20elimination%20of%20the%20San%20Francisco%20Pretrial%20Diversion%20Project.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20most%20uniquely%20cost-effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20safety%20rate.%2096%25%20court%20appearance%20rate.%20630%2C394%20jail%20bed%20days%20saved%20in%202023.%20A%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20Dismantling%20it%20and%20handing%20pretrial%20services%20to%20Adult%20Probation%20at%20essentially%20the%20same%20budget%20with%20one-third%20the%20staff%20will%20cost%20the%20city%20money%20and%20cost%20San%20Franciscans%20safety.%20As%20Adult%20Probation%20begins%20full%20implementation%2C%20that%20budget%20will%20balloon.%0A%0ASB%20129%20includes%20a%20named%20carve-out%20allowing%20San%20Francisco%20to%20contract%20with%20the%20existing%20pretrial%20services%20office%20—%20not%20a%20probation%20department.%20There%20is%20no%20legal%20mandate%20for%20this%20transfer.%0A%0AThe%20Mayor%20has%20committed%20to%20shrinking%20the%20deficit%20and%20size%20of%20city%20government%20—%20and%20funding%20a%20probation%20expansion%20goes%20against%20his%20public%20statements.%0A%0APlease%20preserve%20SF%20Pretrial%20by%20approving%20their%20contract%20and%20denying%20Adult%20Probation's%20request.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
+      <a href="mailto:daniel.lurie@sfgov.org?subject=Don't%20dismantle%20SF's%20most%20uniquely%20effective%20public%20safety%20program&body=Dear%20Mayor's%20Office%2C%0A%0AI'm%20writing%20to%20urge%20the%20Mayor%20to%20deny%20San%20Francisco%20Adult%20Probation's%20budget%20request%20and%20the%20subsequent%20elimination%20of%20the%20San%20Francisco%20Pretrial%20Diversion%20Project.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20most%20uniquely%20cost-effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20safety%20rate.%2096%25%20court%20appearance%20rate.%20630%2C394%20jail%20bed%20days%20saved%20in%202023.%20A%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20Dismantling%20it%20and%20handing%20pretrial%20services%20to%20Adult%20Probation%20at%20essentially%20the%20same%20budget%20with%20one-third%20the%20staff%20will%20cost%20the%20city%20money%20and%20cost%20San%20Franciscans%20safety.%20As%20Adult%20Probation%20begins%20full%20implementation%2C%20that%20budget%20will%20balloon.%0A%0ASB%20129%20includes%20a%20named%20carve-out%20allowing%20San%20Francisco%20to%20contract%20with%20the%20existing%20pretrial%20services%20office%20—%20not%20a%20probation%20department.%20There%20is%20no%20legal%20mandate%20for%20this%20transfer.%0A%0AThe%20Mayor%20has%20committed%20to%20shrinking%20the%20deficit%20and%20size%20of%20city%20government%20—%20and%20funding%20a%20probation%20expansion%20goes%20against%20his%20public%20statements.%0A%0APlease%20preserve%20SF%20Pretrial%20by%20approving%20their%20contract%20and%20denying%20Adult%20Probation's%20request.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card" data-email-modal="mayor">
         <div class="act-card-num">01 · The last lever</div>
         <h3>Email the Mayor's Office</h3>
         <p>The Mayor has final say — he can remove the Adult Probation request at any time. Hold him to his word: shrink the government and cut costs. Funding Adult Probation is the exact opposite. Three of the Mayor's senior staff are named in the transition memo. Pre-drafted — open and send.</p>
@@ -2780,7 +2941,7 @@ p em { font-style: normal; color: inherit; }
         <span class="act-link">Get hearing details</span>
       </a>
 
-      <a href="mailto:?subject=Don't%20dismantle%20SF's%20most%20uniquely%20effective%20public%20safety%20program&body=Dear%20Supervisor%2C%0A%0AI'm%20writing%20to%20urge%20you%20to%20approve%20the%20San%20Francisco%20Pretrial%20Diversion%20Project's%20contract%20and%20deny%20Adult%20Probation's%20budget%20request%20to%20eliminate%20SF%20Pretrial.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20most%20uniquely%20effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20rate%20of%20no%20new%20charges%20while%20enrolled.%2096%25%20court%20appearance%20rate%20across%2019%2C000%2B%20court%20dates.%20630%2C394%20jail%20bed%20days%20saved%20in%202023%20—%20at%20a%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20It%20is%20a%20national%20model%2C%20one%20of%20a%20small%20handful%20of%20independent%2C%20community-based%20pretrial%20programs%20in%20the%20country%20at%20this%20scale%20—%20backed%20by%20the%20San%20Francisco%20Sheriff's%20Office.%0A%0ASB%20129%20includes%20a%20named%20carve-out%20allowing%20San%20Francisco%20to%20contract%20with%20the%20existing%20pretrial%20services%20office%20—%20not%20a%20probation%20department.%20There%20is%20no%20legal%20mandate%20for%20this%20transfer.%0A%0AFunding%20Adult%20Probation%20expands%20the%20city's%20budget%20deficit%20and%20government%20footprint%20—%20and%20will%20cost%20more%20money%20in%20the%20future.%0A%0APlease%20vote%20to%20preserve%20SF%20Pretrial's%20contract%20on%20May%2027%20and%20the%20follow-up%20full%20Board%20hearing.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card">
+      <a href="mailto:?subject=Don't%20dismantle%20SF's%20most%20uniquely%20effective%20public%20safety%20program&body=Dear%20Supervisor%2C%0A%0AI'm%20writing%20to%20urge%20you%20to%20approve%20the%20San%20Francisco%20Pretrial%20Diversion%20Project's%20contract%20and%20deny%20Adult%20Probation's%20budget%20request%20to%20eliminate%20SF%20Pretrial.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20most%20uniquely%20effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20rate%20of%20no%20new%20charges%20while%20enrolled.%2096%25%20court%20appearance%20rate%20across%2019%2C000%2B%20court%20dates.%20630%2C394%20jail%20bed%20days%20saved%20in%202023%20—%20at%20a%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20It%20is%20a%20national%20model%2C%20one%20of%20a%20small%20handful%20of%20independent%2C%20community-based%20pretrial%20programs%20in%20the%20country%20at%20this%20scale%20—%20backed%20by%20the%20San%20Francisco%20Sheriff's%20Office.%0A%0ASB%20129%20includes%20a%20named%20carve-out%20allowing%20San%20Francisco%20to%20contract%20with%20the%20existing%20pretrial%20services%20office%20—%20not%20a%20probation%20department.%20There%20is%20no%20legal%20mandate%20for%20this%20transfer.%0A%0AFunding%20Adult%20Probation%20expands%20the%20city's%20budget%20deficit%20and%20government%20footprint%20—%20and%20will%20cost%20more%20money%20in%20the%20future.%0A%0APlease%20vote%20to%20preserve%20SF%20Pretrial's%20contract%20on%20May%2027%20and%20the%20follow-up%20full%20Board%20hearing.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card" data-email-modal="supervisors">
         <div class="act-card-num">03 · 2 minutes</div>
         <h3>Email Supervisors to preserve SF Pretrial's foundational contract</h3>
         <p>Five supervisors hold the committee vote. The full Board follows in June. We've drafted the email — safety case, cost case, legal carve-out. You add your name and send.</p>
@@ -2941,6 +3102,34 @@ p em { font-style: normal; color: inherit; }
 
 <div class="scroll-progress" id="scrollProgress"></div>
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- ───────────── EMAIL ACTION MODAL ───────────── -->
+<div class="email-modal" id="emailModal" aria-hidden="true">
+  <div class="email-modal-backdrop" data-email-close></div>
+  <div class="email-modal-panel" role="dialog" aria-modal="true" aria-labelledby="emTitle">
+    <button class="email-modal-close" data-email-close aria-label="Close">×</button>
+    <span class="email-modal-eyebrow" id="emTag">Pre-written email</span>
+    <h3 class="email-modal-title" id="emTitle">Email</h3>
+    <p class="email-modal-sub">It's already written — just pick how you want to send it.</p>
+
+    <div class="email-modal-meta">
+      <div class="emf-row" id="emToRow"><span class="emf-label">To</span><span class="emf-value" id="emTo"></span></div>
+      <div class="emf-row"><span class="emf-label">Subject</span><span class="emf-value" id="emSubject"></span></div>
+    </div>
+
+    <div class="email-modal-actions">
+      <a class="em-btn em-btn-primary" id="emGmail" target="_blank" rel="noopener">Open in Gmail</a>
+      <a class="em-btn" id="emMailto">Open in your mail app</a>
+      <button class="em-btn" id="emCopy" type="button">Copy the email</button>
+    </div>
+    <p class="email-modal-hint">Using Outlook, Yahoo, ProtonMail or anything else? Hit <strong>Copy the email</strong>, then paste it into a new message.</p>
+
+    <details class="email-modal-preview">
+      <summary>Preview the full message</summary>
+      <pre id="emBody"></pre>
+    </details>
+  </div>
+</div>
 
 <script>
 function pad(n) { return String(n).padStart(2, '0'); }
@@ -3153,6 +3342,100 @@ document.addEventListener('click', (e) => {
 hamburgerMenu.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => setHamburger(false))
 );
+
+// ─── Email action modal ───
+const emailData = {
+  mayor: {
+    tag: "01 · The last lever",
+    title: "Email the Mayor's Office",
+    to: "daniel.lurie@sfgov.org",
+    subject: "Don't dismantle SF's most uniquely effective public safety program",
+    body: "Dear Mayor's Office,\n\nI'm writing to urge the Mayor to deny San Francisco Adult Probation's budget request and the subsequent elimination of the San Francisco Pretrial Diversion Project.\n\nSF Pretrial is one of the most uniquely cost-effective public safety programs in the city. 93% safety rate. 96% court appearance rate. 630,394 jail bed days saved in 2023. A fraction of the cost of comparable probation. Dismantling it and handing pretrial services to Adult Probation at essentially the same budget with one-third the staff will cost the city money and cost San Franciscans safety. As Adult Probation begins full implementation, that budget will balloon.\n\nSB 129 includes a named carve-out allowing San Francisco to contract with the existing pretrial services office — not a probation department. There is no legal mandate for this transfer.\n\nThe Mayor has committed to shrinking the deficit and size of city government — and funding a probation expansion goes against his public statements.\n\nPlease preserve SF Pretrial by approving their contract and denying Adult Probation's request.\n\nThank you,\n[Your name]"
+  },
+  supervisors: {
+    tag: "03 · 2 minutes",
+    title: "Email the Board of Supervisors",
+    to: "",
+    subject: "Don't dismantle SF's most uniquely effective public safety program",
+    body: "Dear Supervisor,\n\nI'm writing to urge you to approve the San Francisco Pretrial Diversion Project's contract and deny Adult Probation's budget request to eliminate SF Pretrial.\n\nSF Pretrial is one of the most uniquely effective public safety programs in the city. 93% rate of no new charges while enrolled. 96% court appearance rate across 19,000+ court dates. 630,394 jail bed days saved in 2023 — at a fraction of the cost of comparable probation. It is a national model, one of a small handful of independent, community-based pretrial programs in the country at this scale — backed by the San Francisco Sheriff's Office.\n\nSB 129 includes a named carve-out allowing San Francisco to contract with the existing pretrial services office — not a probation department. There is no legal mandate for this transfer.\n\nFunding Adult Probation expands the city's budget deficit and government footprint — and will cost more money in the future.\n\nPlease vote to preserve SF Pretrial's contract on May 27 and the follow-up full Board hearing.\n\nThank you,\n[Your name]"
+  }
+};
+
+const emailModal    = document.getElementById('emailModal');
+const emTag         = document.getElementById('emTag');
+const emTitle       = document.getElementById('emTitle');
+const emToRow       = document.getElementById('emToRow');
+const emTo          = document.getElementById('emTo');
+const emSubject     = document.getElementById('emSubject');
+const emBody        = document.getElementById('emBody');
+const emGmail       = document.getElementById('emGmail');
+const emMailto      = document.getElementById('emMailto');
+const emCopy        = document.getElementById('emCopy');
+let emCopyTimer = null;
+
+function openEmailModal(key) {
+  const d = emailData[key];
+  if (!d) return;
+  emTag.textContent = d.tag;
+  emTitle.textContent = d.title;
+  emSubject.textContent = d.subject;
+  emBody.textContent = d.body;
+
+  if (d.to) {
+    emTo.textContent = d.to;
+    emToRow.style.display = '';
+  } else {
+    emToRow.style.display = 'none';
+  }
+
+  const su = encodeURIComponent(d.subject);
+  const bo = encodeURIComponent(d.body);
+  const to = encodeURIComponent(d.to);
+  emGmail.href  = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${su}&body=${bo}`;
+  emMailto.href = `mailto:${d.to}?subject=${su}&body=${bo}`;
+
+  // Reset copy button
+  emCopy.textContent = 'Copy the email';
+  emCopy.classList.remove('copied');
+
+  emCopy.onclick = () => {
+    const text = (d.to ? 'To: ' + d.to + '\n' : '') +
+                 'Subject: ' + d.subject + '\n\n' + d.body;
+    navigator.clipboard.writeText(text).then(() => {
+      emCopy.textContent = 'Copied ✓ — now paste into a new email';
+      emCopy.classList.add('copied');
+      clearTimeout(emCopyTimer);
+      emCopyTimer = setTimeout(() => {
+        emCopy.textContent = 'Copy the email';
+        emCopy.classList.remove('copied');
+      }, 4000);
+    });
+  };
+
+  emailModal.classList.add('open');
+  emailModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeEmailModal() {
+  emailModal.classList.remove('open');
+  emailModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+// Intercept clicks on the two email action cards
+document.querySelectorAll('[data-email-modal]').forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    openEmailModal(card.getAttribute('data-email-modal'));
+  });
+});
+// Close on backdrop / × / Escape
+emailModal.querySelectorAll('[data-email-close]').forEach(el =>
+  el.addEventListener('click', closeEmailModal)
+);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && emailModal.classList.contains('open')) closeEmailModal();
+});
 </script>
 
 <!-- Constant Contact Active Forms — universal code -->

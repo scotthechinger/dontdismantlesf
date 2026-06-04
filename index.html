@@ -2943,21 +2943,21 @@ p em { font-style: normal; color: inherit; }
         <span class="act-link">Open pre-written email</span>
       </a>
 
-      <a href="#share" class="act-card">
+      <a href="#share" class="act-card" data-track="card_share">
         <div class="act-card-num">04 · 30 seconds</div>
         <h3>Share this page</h3>
         <p>Most San Franciscans have never heard of SF Pretrial. Most journalists haven't either. Help spread the case for preserving it — the data, the leverage, the legal carve-out.</p>
         <span class="act-link">Share now</span>
       </a>
 
-      <a href="#signup" class="act-card">
+      <a href="#signup" class="act-card" data-track="card_signup">
         <div class="act-card-num">05 · 10 seconds</div>
         <h3>Get updates</h3>
         <p>Hearings, vote dates, what to send, where to show up. The campaign in your inbox — only when it matters.</p>
         <span class="act-link">Sign up</span>
       </a>
 
-      <a href="https://pro.gofundme.com/give/333488/#!/donation/checkout" class="act-card" target="_blank" rel="noopener">
+      <a href="https://pro.gofundme.com/give/333488/#!/donation/checkout" class="act-card" target="_blank" rel="noopener" data-track="card_donate">
         <div class="act-card-num">06 · Fuel the fight</div>
         <h3>Donate</h3>
         <p>This campaign for safety in SF is unfunded. Donations increase our power and capacity to win this fight — while still doing the work.</p>
@@ -3127,6 +3127,18 @@ p em { font-style: normal; color: inherit; }
 </div>
 
 <script>
+// ─── Silent click counters (counterapi.dev — obfuscated namespace, no UI display) ───
+// Read totals at https://api.counterapi.dev/v1/dd-actions-7k2x/<counter>/
+const CC_NS = 'dd-actions-7k2x';
+function trackAction(name) {
+  if (!name) return;
+  try {
+    const url = `https://api.counterapi.dev/v1/${CC_NS}/${encodeURIComponent(name)}/up`;
+    // keepalive lets the request finish even if the page navigates away (mailto, gmail, share)
+    fetch(url, { method: 'GET', mode: 'no-cors', keepalive: true, credentials: 'omit' }).catch(() => {});
+  } catch (e) { /* silent */ }
+}
+
 function pad(n) { return String(n).padStart(2, '0'); }
 function tick() {
   const target = new Date('2026-07-01T00:00:00-07:00').getTime();
@@ -3216,6 +3228,7 @@ const shareText = "On July 1, San Francisco plans to dismantle SF Pretrial — i
 // Canonical share URL — keeps shares clean and consistent, regardless of where the file is opened from.
 const shareUrl = 'https://dontdismantlesf.org/';
 function shareTo(target) {
+  trackAction('share_' + target);
   const u = encodeURIComponent(shareUrl);
   const t = encodeURIComponent(shareText);
   let link = '';
@@ -3226,6 +3239,7 @@ function shareTo(target) {
   window.open(link, '_blank', 'noopener');
 }
 function copyLink() {
+  trackAction('share_copy');
   navigator.clipboard.writeText(shareUrl).then(() => {
     const btn = document.getElementById('copyBtn');
     const orig = btn.textContent;
@@ -3233,6 +3247,11 @@ function copyLink() {
     setTimeout(() => { btn.textContent = orig; }, 1800);
   });
 }
+
+// Track non-modal action cards: share-card, signup-card, donate-card
+document.querySelectorAll('[data-track]').forEach(el => {
+  el.addEventListener('click', () => trackAction(el.getAttribute('data-track')));
+});
 
 // Back-to-top button
 const backToTopBtn = document.getElementById('backToTop');
@@ -3381,9 +3400,14 @@ const emMailto      = document.getElementById('emMailto');
 const emCopy        = document.getElementById('emCopy');
 let emCopyTimer = null;
 
+let currentEmailKey = null;
+
 function openEmailModal(key) {
   const d = emailData[key];
   if (!d) return;
+  currentEmailKey = key;
+  trackAction(key + '_open');
+
   emTag.textContent = d.tag;
   emTitle.textContent = d.title;
   emSubject.textContent = d.subject;
@@ -3415,6 +3439,7 @@ function openEmailModal(key) {
   emCopy.classList.remove('copied');
 
   emCopy.onclick = () => {
+    trackAction(key + '_copy');
     const text = (d.to ? 'To: ' + d.to + '\n' : '') +
                  (d.cc ? 'Cc: ' + d.cc + '\n' : '') +
                  'Subject: ' + d.subject + '\n\n' + d.body;
@@ -3433,6 +3458,10 @@ function openEmailModal(key) {
   emailModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
+
+// Track Gmail and mailto button clicks (set once — currentEmailKey is updated on each modal open)
+emGmail.addEventListener('click', () => { if (currentEmailKey) trackAction(currentEmailKey + '_gmail'); });
+emMailto.addEventListener('click', () => { if (currentEmailKey) trackAction(currentEmailKey + '_mailto'); });
 function closeEmailModal() {
   emailModal.classList.remove('open');
   emailModal.setAttribute('aria-hidden', 'true');

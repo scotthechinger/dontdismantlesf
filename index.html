@@ -2339,6 +2339,210 @@ p em { font-style: normal; color: inherit; }
   padding: 14px;
 }
 
+/* ─── URGENCY BLOCK (between What's Happening and The Evidence) ─── */
+.urgency-block {
+  background: var(--paper-warm);
+  color: var(--ink);
+  padding: 64px 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.urgency-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: left;
+}
+.urgency-eyebrow {
+  display: inline-block;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.urgency-headline {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 5.5vw, 64px);
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+.urgency-headline em {
+  color: var(--accent);
+  font-style: normal;
+}
+.urgency-body {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  max-width: 720px;
+  margin: 0 0 28px;
+}
+.urgency-body strong { color: var(--ink); }
+.urgency-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.urgency-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent);
+  color: var(--paper-light);
+  padding: 16px 28px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  text-decoration: none;
+}
+.urgency-primary::after { content: '→'; font-size: 18px; }
+.urgency-primary:hover { background: var(--ink); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(31,35,54,0.18); }
+.urgency-secondary-line {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-mid);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.urgency-secondary-line span.label {
+  font-weight: 600;
+  color: var(--ink-mid);
+  margin-right: 4px;
+}
+.urgency-pill {
+  display: inline-flex; align-items: center;
+  padding: 8px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.urgency-pill:hover { background: var(--ink); color: var(--paper-light); }
+.urgency-tertiary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-mid);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid var(--ink-mid);
+  padding-bottom: 2px;
+  transition: color .15s, border-color .15s, gap .15s;
+}
+.urgency-tertiary::after { content: '↓'; font-size: 14px; }
+.urgency-tertiary:hover { color: var(--accent); border-color: var(--accent); gap: 10px; }
+@media (max-width: 720px) {
+  .urgency-block { padding: 48px 22px; }
+  .urgency-primary { width: 100%; justify-content: center; padding: 18px 24px; }
+  .urgency-secondary-line { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .urgency-secondary-line .pills-row { display: flex; gap: 8px; flex-wrap: wrap; }
+}
+
+/* ─── SEND-ALL MODAL — three stacked office sections ─── */
+.send-all-intro {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  margin: 0 0 18px;
+}
+.send-all-section {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 14px;
+  background: var(--paper-light);
+  transition: opacity .25s, border-color .25s;
+}
+.send-all-section.used {
+  border-color: rgba(31,35,54,0.18);
+  background: transparent;
+}
+.send-all-section.used .send-all-header { opacity: 0.6; }
+.send-all-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.send-all-num {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.send-all-section.used .send-all-num { color: var(--ink-mid); }
+.send-all-section.used .send-all-num::after { content: ' ✓'; color: var(--accent); }
+.send-all-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  color: var(--ink);
+  line-height: 1.05;
+}
+.send-all-recipients {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-mid);
+  margin: 0 0 12px;
+  line-height: 1.45;
+}
+.send-all-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.send-all-actions .em-btn { padding: 9px 14px; font-size: 12px; }
+.send-all-progress {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  font-weight: 700;
+  margin-top: 6px;
+  text-align: center;
+}
+.send-all-progress strong { color: var(--accent); }
+@media (max-width: 720px) {
+  .send-all-actions .em-btn { flex: 1 1 auto; text-align: center; justify-content: center; }
+}
+
 /* ─── HAMBURGER MENU (mobile) ─── */
 .hamburger {
   display: none;
@@ -2506,7 +2710,7 @@ p em { font-style: normal; color: inherit; }
     <a href="#setup" class="top-evidence top-nav-link">What's Happening</a>
     <a href="#premise" class="top-evidence">See the Evidence</a>
     <a href="#press" class="top-evidence top-nav-link">For the Press</a>
-    <a href="#act" class="top-cta">Take Action</a>
+    <a href="#act" class="top-cta" data-open-all>Send Letters</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -2517,7 +2721,7 @@ p em { font-style: normal; color: inherit; }
   <a href="#setup">What's Happening</a>
   <a href="#premise">See the Evidence</a>
   <a href="#press">For the Press</a>
-  <a href="#act" class="menu-cta">Take Action</a>
+  <a href="#act" class="menu-cta" data-open-all>Send Letters</a>
 </nav>
 
 <!-- ───────────── HERO ───────────── -->
@@ -2606,6 +2810,32 @@ p em { font-style: normal; color: inherit; }
         <p>Every comparison on this page is between those two: the <strong>current SF Pretrial program</strong> (50-year community-based nonprofit) and the <strong>proposed replacement</strong> (a sworn probation department without pretrial experience).</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ───────────── URGENCY BLOCK · TAKE ACTION ───────────── -->
+<section class="urgency-block" id="urgency">
+  <div class="urgency-inner">
+    <span class="urgency-eyebrow">Take Action Now</span>
+    <h2 class="urgency-headline">We are being heard. <em>We need more of you.</em></h2>
+    <p class="urgency-body">
+      Letters are landing. Pressure is building inside the Mayor's Office, the Board of Supervisors, and the Court. The June 12 budget hearing is the next on-the-record moment — and the volume of voices is what closes the gap between "noted" and "no." <strong>We've made it easy.</strong>
+    </p>
+
+    <div class="urgency-cta-row">
+      <button class="urgency-primary" type="button" data-open-all>Send all three emails</button>
+    </div>
+
+    <div class="urgency-secondary-line">
+      <span class="label">Or send to just one office:</span>
+      <span class="pills-row">
+        <button class="urgency-pill" type="button" data-open-single="mayor">Mayor</button>
+        <button class="urgency-pill" type="button" data-open-single="supervisors">Board</button>
+        <button class="urgency-pill" type="button" data-open-single="judiciary">Court</button>
+      </span>
+    </div>
+
+    <a href="#act" class="urgency-tertiary">Visit action center for more</a>
   </div>
 </section>
 
@@ -3126,6 +3356,61 @@ p em { font-style: normal; color: inherit; }
   </div>
 </div>
 
+<!-- ───────────── SEND-ALL-THREE MODAL ───────────── -->
+<div class="email-modal" id="allModal" aria-hidden="true">
+  <div class="email-modal-backdrop" data-all-close></div>
+  <div class="email-modal-panel" role="dialog" aria-modal="true" aria-labelledby="allTitle">
+    <button class="email-modal-close" data-all-close aria-label="Close">×</button>
+    <span class="email-modal-eyebrow">Send all three</span>
+    <h3 class="email-modal-title" id="allTitle">Three offices. <em>One ask.</em></h3>
+    <p class="send-all-intro">
+      We've drafted all three emails. Each is specific to its recipient. Open each one in your preferred mail tool and send. Each opens in a new tab — come back here for the next.
+    </p>
+
+    <div class="send-all-section" data-all-key="mayor">
+      <div class="send-all-header">
+        <span class="send-all-num">01 · Mayor</span>
+      </div>
+      <h4 class="send-all-title">Email the Mayor's Office</h4>
+      <p class="send-all-recipients" id="all_mayor_to">—</p>
+      <div class="send-all-actions">
+        <a class="em-btn em-btn-primary" data-all-send="mayor" data-all-mode="gmail" target="_blank" rel="noopener">Open in Gmail</a>
+        <a class="em-btn" data-all-send="mayor" data-all-mode="mailto">Mail app</a>
+        <button class="em-btn" data-all-send="mayor" data-all-mode="copy" type="button">Copy</button>
+      </div>
+    </div>
+
+    <div class="send-all-section" data-all-key="supervisors">
+      <div class="send-all-header">
+        <span class="send-all-num">02 · Board of Supervisors</span>
+      </div>
+      <h4 class="send-all-title">Email the Board of Supervisors</h4>
+      <p class="send-all-recipients" id="all_supervisors_to">—</p>
+      <div class="send-all-actions">
+        <a class="em-btn em-btn-primary" data-all-send="supervisors" data-all-mode="gmail" target="_blank" rel="noopener">Open in Gmail</a>
+        <a class="em-btn" data-all-send="supervisors" data-all-mode="mailto">Mail app</a>
+        <button class="em-btn" data-all-send="supervisors" data-all-mode="copy" type="button">Copy</button>
+      </div>
+    </div>
+
+    <div class="send-all-section" data-all-key="judiciary">
+      <div class="send-all-header">
+        <span class="send-all-num">03 · Court</span>
+      </div>
+      <h4 class="send-all-title">Email the Court's judicial leadership</h4>
+      <p class="send-all-recipients" id="all_judiciary_to">—</p>
+      <div class="send-all-actions">
+        <a class="em-btn em-btn-primary" data-all-send="judiciary" data-all-mode="gmail" target="_blank" rel="noopener">Open in Gmail</a>
+        <a class="em-btn" data-all-send="judiciary" data-all-mode="mailto">Mail app</a>
+        <button class="em-btn" data-all-send="judiciary" data-all-mode="copy" type="button">Copy</button>
+      </div>
+    </div>
+
+    <p class="send-all-progress"><strong id="allProgress">0</strong> of 3 started</p>
+    <p class="email-modal-hint">Using Outlook, Yahoo, ProtonMail or anything else? Hit <strong>Copy</strong> on each, then paste into a new message.</p>
+  </div>
+</div>
+
 <script>
 // ─── Silent click counters (counterapi.dev — obfuscated namespace, no UI display) ───
 // Read totals at https://api.counterapi.dev/v1/dd-actions-7k2x/<counter>/
@@ -3364,7 +3649,7 @@ const emailData = {
     title: "Email the Mayor's Office",
     to: "daniel.lurie@sfgov.org",
     cc: "camilaj@sfpretrial.org,davidm@sfpretrial.org",
-    toDisplay: "Mayor's Office (SF Pretrial leadership cc'd)",
+    toDisplay: "Mayor's Office",
     subject: "Don't dismantle SF's most uniquely effective public safety program",
     body: "Dear Mayor's Office,\n\nI'm writing to urge the Mayor to deny San Francisco Adult Probation's budget request and the subsequent elimination of the San Francisco Pretrial Diversion Project.\n\nSF Pretrial is one of the most uniquely cost-effective public safety programs in the city. 93% safety rate. 96% court appearance rate. 630,394 jail bed days saved in 2023. A fraction of the cost of comparable probation. Dismantling it and handing pretrial services to Adult Probation at essentially the same budget with one-third the staff will cost the city money and cost San Franciscans safety. As Adult Probation begins full implementation, that budget will balloon.\n\nAB 102 includes a named carve-out allowing San Francisco to contract with the existing pretrial services office — not a probation department. There is no legal mandate for this transfer.\n\nThe Mayor has committed to shrinking the deficit and size of city government — and funding a probation expansion goes against his public statements.\n\nPlease preserve SF Pretrial by approving their contract and denying Adult Probation's request.\n\nThank you,\n[Your name]"
   },
@@ -3373,7 +3658,7 @@ const emailData = {
     title: "Email the Board of Supervisors",
     to: "connie.chan@sfgov.org,Stephen.Sherrill@sfgov.org,Danny.Sauter@sfgov.org,Alan.Wong@sfgov.org,Bilal.Mahmood@sfgov.org,Matt.Dorsey@sfgov.org,Myrna.Melgar@sfgov.org,Rafael.Mandelman@sfgov.org,Jackie.Fielder@sfgov.org,Shamann.Walton@sfgov.org,Chyanne.Chen@sfgov.org",
     cc: "board.of.supervisors@sfgov.org,Frances.Hsieh@sfgov.org,amy.lee5@sfgov.org,tita.bell@sfgov.org,WongStaff@sfgov.org,dominica.donovan@sfgov.org,tracy.gallardo@sfgov.org,jackie.prager@sfgov.org,Raynell.Cooper@sfgov.org,Sam.Logan@sfgov.org,William.Macfie@sfgov.org,Lauren.l.Chung@sfgov.org,Renil.Bejoy@sfgov.org,sasha.gaona@sfgov.org,Jennifer.Fieber@sfgov.org,Tiff.Lee@sfgov.org,Jessica.Cen@sfgov.org,camilaj@sfpretrial.org,davidm@sfpretrial.org",
-    toDisplay: "All 11 members of the Board of Supervisors (Budget & Finance Committee aides + SF Pretrial leadership cc'd)",
+    toDisplay: "All 11 members of the Board of Supervisors",
     subject: "Don't dismantle SF's most uniquely effective public safety program",
     body: "Dear Supervisor,\n\nI'm writing to urge you to approve the San Francisco Pretrial Diversion Project's contract and deny Adult Probation's budget request to eliminate SF Pretrial.\n\nSF Pretrial is one of the most uniquely effective public safety programs in the city. 93% rate of no new charges while enrolled. 96% court appearance rate across 19,000+ court dates. 630,394 jail bed days saved in 2023 — at a fraction of the cost of comparable probation. It is a national model, one of a small handful of independent, community-based pretrial programs in the country at this scale — backed by the San Francisco Sheriff's Office.\n\nAB 102 includes a named carve-out allowing San Francisco to contract with the existing pretrial services office — not a probation department. There is no legal mandate for this transfer.\n\nFunding Adult Probation expands the city's budget deficit and government footprint — and will cost more money in the future.\n\nPlease vote to preserve SF Pretrial's contract at the June 12 budget hearing.\n\nThank you,\n[Your name]"
   },
@@ -3382,7 +3667,7 @@ const emailData = {
     title: "Email the Court's judicial leadership",
     to: "reast@sftc.org,CHite@sftc.org",
     cc: "BRiley@sftc.org,camilaj@sfpretrial.org,davidm@sfpretrial.org",
-    toDisplay: "Presiding Judge Rochelle C. East and Assistant Presiding Judge Christopher C. Hite (Brandon E. Riley, CEO + SF Pretrial leadership cc'd)",
+    toDisplay: "Presiding Judge Rochelle C. East and Assistant Presiding Judge Christopher C. Hite",
     subject: "Preserve SF Pretrial — 50 years of partnership with the Court",
     body: "Dear Presiding Judge Rochelle C. East and Assistant Presiding Judge Christopher C. Hite;\n\nI am reaching out to you in support of the San Francisco Pretrial Diversion Project. In your judicial leadership roles, you can prevent the dismantling of SF Pretrial.\n\nSF Pretrial has been an indispensable pillar of San Francisco's public safety response for 50 years. The organization was accredited by the National Association of Pretrial Services Agencies (NAPSA) and is one of the few agencies nationwide to achieve that distinction. Further, it received the National Criminal Justice Association's Outstanding Program Award.\n\nGerald White, who for years led our judicial services team and played an outsized role in defining the culture and practice of that department, received one of NAPSA's highest individual honors, the Bruce Beaudin Award. The department he shaped is the one that works most closely with judges and court personnel every day. SF Pretrial has been selected repeatedly to present innovative practices at national conferences and has published scholarly research on pretrial justice. These are not self-assessments. They are recognitions conferred by the field's leading professional organizations.\n\nOne of our central concerns relates to what our city will lose if Adult Probation steps into this role. If SF Pretrial no longer receives the foundational funding through the current pretrial services contract, the agency will be eliminated and the City and County will lose an array of additional supports and specialized services provided within the current model. Critically, the current pretrial services contract has a high value proposition for the City and County: based on the existing pipeline of clients in ACM and ICR, we have brought in an additional $8M in annual grant funds that support increased client resources and expanded services. While these resources are currently integrated under our model and readily available to our clients, the following services will be lost:\n\n- Care Navigators and peer staff with lived experience and the community trust to reach clients in encampments, SROs, and spaces where law enforcement personnel are not as welcome. Access in these spaces is relationship-based and it does not transfer easily.\n- The judicial services team and its embedded relationships with judges and court personnel, built over decades and embodying a standard of practice that both SF Pretrial and court personnel have cultivated in collaboration with one another.\n- The In-Custody Referral program, which provides a post-arraignment pathway for more serious cases and a rigorous individualized assessment process unavailable under a standard supervision model.\n- On-demand stabilization housing for our most vulnerable clients and the Justice-Involved Access Point that transitions people into permanent housing.\n- Thousands of hours of onsite clinical services for clients with acute needs and behavioral health support groups including Anger Management and Thinking for a Change.\n- Enhanced Care Management, a program connecting people to critical medical services that generates approximately $400k annually in revenue.\n- A 24/7/365 operating model that Probation doesn't have. Not just the policy, but the staffing model, shift coverage, and institutional knowledge that makes Buffin compliance possible. That compliance record took years to build.\n- Partnerships with over 150 community organizations around the Bay Area that contribute to creating thoughtful and impactful treatment plans.\n- The Pretrial Pathways Initiative, which leveraged millions in private investment to improve health outcomes for SF Pretrial's most vulnerable clients.\n- 105 employees, many with lived experience and deep community ties, whose roles cannot be replicated through civil service hiring.\n- A proprietary data management system, OpenJustice, designed specifically for pretrial operations and capturing client and caseload data in ways no off-the-shelf product can replicate.\n\nSF Pretrial receives $7.5 million for 64 positions from the Sheriff's Office and Adult Probation is requesting $12.7 million for 27 positions. The Mayor's Budget Office has acknowledged that the amount for Probation will increase. In a period of serious budget constraints, the Superior Court would be endorsing a more expensive alternative that delivers less. Adult Probation is not equipped to reach clients in SROs, homeless encampments and other spaces where Probation is not welcome. The consequences will be unmistakable and unavoidable in the community.\n\nMeanwhile, SF Pretrial has strengthened its financial position through increased private, state, and federal investment, including support from the Department of Justice and Governor's Office of Economic and Business Development.\n\nSF Pretrial's Board of Directors and leadership have requested a meeting with the Superior Court. That request went unanswered. We urge you to respect 50 years of partnership. Before dismantling what helps keep San Francisco safe, please engage in a collaborative process that benefits all of San Francisco.\n\nRespectfully,\n[Your name]"
   }
@@ -3481,6 +3766,103 @@ emailModal.querySelectorAll('[data-email-close]').forEach(el =>
 );
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && emailModal.classList.contains('open')) closeEmailModal();
+});
+
+// ─── Send-all-three modal ───
+const allModal = document.getElementById('allModal');
+const allProgressEl = document.getElementById('allProgress');
+const sectionsUsed = new Set();
+
+function buildSendUrls(key) {
+  const d = emailData[key];
+  const su = encodeURIComponent(d.subject);
+  const bo = encodeURIComponent(d.body);
+  const to = encodeURIComponent(d.to || '');
+  const ccEnc = d.cc ? encodeURIComponent(d.cc) : '';
+  let gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${su}&body=${bo}`;
+  if (ccEnc) gmail += `&cc=${ccEnc}`;
+  let mailto = `mailto:${d.to || ''}?subject=${su}&body=${bo}`;
+  if (ccEnc) mailto += `&cc=${ccEnc}`;
+  return { gmail, mailto };
+}
+
+function markSectionUsed(key) {
+  if (sectionsUsed.has(key)) return;
+  sectionsUsed.add(key);
+  const sec = document.querySelector(`.send-all-section[data-all-key="${key}"]`);
+  if (sec) sec.classList.add('used');
+  allProgressEl.textContent = sectionsUsed.size;
+}
+
+function openAllModal() {
+  // Reset progress on open
+  sectionsUsed.clear();
+  allProgressEl.textContent = '0';
+  document.querySelectorAll('.send-all-section').forEach(s => s.classList.remove('used'));
+
+  // Populate recipient lines from emailData (uses toDisplay so the modal shows what we tell users)
+  ['mayor', 'supervisors', 'judiciary'].forEach(key => {
+    const d = emailData[key];
+    document.getElementById(`all_${key}_to`).textContent = d.toDisplay || d.to;
+    const { gmail, mailto } = buildSendUrls(key);
+    document.querySelector(`[data-all-send="${key}"][data-all-mode="gmail"]`).href = gmail;
+    document.querySelector(`[data-all-send="${key}"][data-all-mode="mailto"]`).href = mailto;
+  });
+
+  trackAction('all_open');
+  allModal.classList.add('open');
+  allModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAllModal() {
+  allModal.classList.remove('open');
+  allModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+// Wire urgency block buttons + header "Send Letters" CTA
+document.querySelectorAll('[data-open-all]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openAllModal();
+  });
+});
+document.querySelectorAll('[data-open-single]').forEach(btn => {
+  btn.addEventListener('click', () => openEmailModal(btn.getAttribute('data-open-single')));
+});
+
+// Wire per-section send buttons inside the all-modal
+document.querySelectorAll('[data-all-send]').forEach(el => {
+  el.addEventListener('click', (e) => {
+    const key = el.getAttribute('data-all-send');
+    const mode = el.getAttribute('data-all-mode');
+    trackAction(`${key}_${mode}`);  // reuses existing per-email counters
+    markSectionUsed(key);
+
+    if (mode === 'copy') {
+      e.preventDefault();
+      const d = emailData[key];
+      const text = (d.to ? 'To: ' + d.to + '\n' : '') +
+                   (d.cc ? 'Cc: ' + d.cc + '\n' : '') +
+                   'Subject: ' + d.subject + '\n\n' + d.body;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = el.textContent;
+        el.textContent = '✓ Copied';
+        el.classList.add('copied');
+        setTimeout(() => { el.textContent = orig; el.classList.remove('copied'); }, 3500);
+      });
+    }
+    // For gmail/mailto, default anchor navigation handles the open.
+  });
+});
+
+// Close on backdrop / × / Escape
+allModal.querySelectorAll('[data-all-close]').forEach(el =>
+  el.addEventListener('click', closeAllModal)
+);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && allModal.classList.contains('open')) closeAllModal();
 });
 
 </script>

@@ -284,6 +284,16 @@ h2 {
   <button class="reload-btn" onclick="loadAll()">↻ Refresh</button>
 </header>
 
+<!-- SEND ALL THREE -->
+<section class="email-section loading">
+  <h2>Send all three (urgency block)</h2>
+  <p class="section-sub">How many people opened the "Send all three" modal from the urgency block above The Evidence. Per-office sends from inside this modal feed into the same Gmail / Mailto / Copy counters below.</p>
+  <div class="send-total">
+    <span class="label">Modal opened</span>
+    <span class="num" id="all_open">—</span>
+  </div>
+</section>
+
 <!-- EMAIL ACTIONS -->
 <section class="email-section loading">
   <h2>Email the Mayor</h2>
@@ -407,6 +417,7 @@ document.getElementById('gateForm').addEventListener('submit', async (e) => {
 <script>
 const NS = 'dd-actions-7k2x';
 const counters = [
+  'all_open',
   'mayor_open', 'mayor_gmail', 'mayor_mailto', 'mayor_copy',
   'supervisors_open', 'supervisors_gmail', 'supervisors_mailto', 'supervisors_copy',
   'judiciary_open', 'judiciary_gmail', 'judiciary_mailto', 'judiciary_copy',

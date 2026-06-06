@@ -3865,6 +3865,23 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && allModal.classList.contains('open')) closeAllModal();
 });
 
+// ─── Deep-link: open the Send-All-Three modal directly via URL hash ───
+// Supports: #send, #send-letters
+// On load: scroll to the urgency block (so closing the modal lands the
+// user there), then open the modal. The hash is cleared so the back
+// button and refresh don't auto-reopen.
+(function deepLinkOpen() {
+  const h = window.location.hash;
+  if (h === '#send' || h === '#send-letters') {
+    setTimeout(() => {
+      const target = document.getElementById('urgency');
+      if (target) target.scrollIntoView({ block: 'start' });
+      openAllModal();
+      try { history.replaceState(null, '', window.location.pathname); } catch (e) {}
+    }, 80);
+  }
+})();
+
 </script>
 
 <!-- Constant Contact Active Forms — universal code -->

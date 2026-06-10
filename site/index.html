@@ -188,9 +188,87 @@ footer em { color: var(--accent-hot); }
   letter-spacing: 0;
 }
 
+/* ─── ALERT RIBBON (sticky-stacked with topbar — "do this Friday") ─── */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 110;
+}
+.alert-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--ink);
+  color: var(--paper-light);
+  padding: 11px 22px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  transition: background .15s, color .15s;
+}
+.alert-ribbon:hover { background: var(--accent); color: var(--paper-light); }
+.alert-ribbon:hover .alert-ribbon-tag,
+.alert-ribbon:hover .alert-ribbon-action { color: var(--paper-light); }
+.alert-ribbon-pulse {
+  width: 9px; height: 9px; border-radius: 100px;
+  background: var(--accent);
+  animation: rally-pulse 1.6s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.alert-ribbon:hover .alert-ribbon-pulse { background: var(--paper-light); }
+.alert-ribbon-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+  white-space: nowrap;
+  transition: color .15s;
+}
+.alert-ribbon-text {
+  color: var(--paper-light);
+  white-space: nowrap;
+  font-weight: 600;
+}
+.alert-ribbon-text strong { font-weight: 800; }
+.alert-ribbon-action {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+  padding-left: 14px;
+  border-left: 1px solid rgba(251,248,239,0.28);
+  color: var(--accent);
+  transition: color .15s;
+}
+@media (max-width: 720px) {
+  .alert-ribbon {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    padding: 8px 14px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.35;
+  }
+  .alert-ribbon-text { white-space: normal; }
+  .alert-ribbon-tag { font-size: 10px; letter-spacing: 0.18em; }
+  .alert-ribbon-action {
+    border-left: none;
+    padding-left: 0;
+    font-size: 10px;
+    width: 100%;
+  }
+}
+
+/* Stack the top-bar BELOW the alert ribbon (which is z-index 110, top:0) */
+
 /* ─── TOP BAR ─── */
 .top-bar {
-  position: sticky; top: 0; z-index: 100;
   background: rgba(246,243,236,0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -635,7 +713,12 @@ footer em { color: var(--accent-hot); }
 }
 
 /* ─── SECTIONS ─── */
-section { padding: 100px 28px; scroll-margin-top: 60px; }
+section { padding: 100px 28px; scroll-margin-top: 120px; }
+.rally-feature { scroll-margin-top: 120px; }
+@media (max-width: 720px) {
+  section { scroll-margin-top: 140px; }
+  .rally-feature { scroll-margin-top: 140px; }
+}
 .container { max-width: 1100px; margin: 0 auto; }
 .container-narrow { max-width: 820px; margin: 0 auto; }
 
@@ -1179,7 +1262,7 @@ section { padding: 100px 28px; scroll-margin-top: 60px; }
   padding: 90px 28px 110px;
   position: relative;
   overflow: hidden;
-  scroll-margin-top: 60px;
+  scroll-margin-top: 120px;
 }
 .action-center::before {
   content: ''; position: absolute; inset: 0;
@@ -2074,6 +2157,341 @@ p em { font-style: normal; color: inherit; }
   font-weight: 800;
 }
 
+/* ─── RALLY FEATURE BANNER (inside Action Center, above act-grid) ─── */
+.rally-feature {
+  background: var(--paper-light);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  position: relative;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.rally-tag-strip {
+  background: var(--accent);
+  padding: 9px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.rally-tag-pulse {
+  width: 8px; height: 8px; border-radius: 100px;
+  background: var(--paper-light);
+  animation: rally-pulse 1.6s ease-in-out infinite;
+}
+@keyframes rally-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.rally-tag {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-light);
+}
+.rally-content {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 32px;
+  padding: 26px 28px 24px;
+  align-items: start;
+}
+.rally-left h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  margin: 0 0 12px;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.0;
+}
+.rally-left h3 em { color: var(--accent); font-style: normal; border-bottom: 4px solid var(--accent); }
+.rally-pull {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.55;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.rally-asks {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+.rally-asks li {
+  list-style: none;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 4px;
+}
+.rally-asks li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+.rally-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rally-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--paper-light);
+  padding: 11px 18px;
+  border-radius: 100px;
+  border: 2px solid var(--accent);
+  transition: all .15s;
+  text-decoration: none;
+}
+.rally-cta:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-1px); }
+.rally-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--ink);
+  padding: 11px 18px;
+  border-radius: 100px;
+  border: 2px solid var(--ink);
+  transition: all .15s;
+  text-decoration: none;
+}
+.rally-cta-outline:hover { background: var(--ink); color: var(--paper-light); }
+.rally-schedule {
+  background: var(--paper-warm);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex; flex-direction: column;
+  gap: 12px;
+}
+.rally-schedule-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 2px;
+}
+.rally-time {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 14px;
+  align-items: baseline;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(31,35,54,0.08);
+}
+.rally-time:last-child { border-bottom: none; padding-bottom: 0; }
+.rally-hour {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.rally-event {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+@media (max-width: 720px) {
+  .rally-content { grid-template-columns: 1fr; gap: 18px; padding: 22px 22px 20px; }
+  .rally-schedule { padding: 16px 18px; }
+  .rally-cta-row { flex-direction: column; align-items: stretch; }
+  .rally-cta, .rally-cta-outline { justify-content: center; }
+}
+
+/* ─── NEWS + LETTERS OF SUPPORT (paper-warm; between Action Center and Press) ─── */
+.news-section {
+  background: var(--paper-warm);
+  padding: 96px 28px;
+  position: relative;
+}
+.news-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-top: 36px;
+  align-items: start;
+}
+.news-col { display: flex; flex-direction: column; min-width: 0; }
+.news-col-label {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.news-list .press-item {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px 18px 56px;
+  min-height: 240px;
+  position: relative;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.news-list .press-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 14px 32px rgba(31,35,54,0.10);
+}
+.news-list .press-item-text {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.news-list .press-item-text strong {
+  font-size: 1rem;
+  line-height: 1.22;
+  margin: 4px 0 2px;
+}
+.news-list .press-item-text > span:last-of-type {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-mid);
+  margin-top: auto;
+  padding-top: 6px;
+}
+.news-list .press-item-arrow {
+  position: absolute;
+  bottom: 16px;
+  right: 18px;
+  font-size: 20px;
+}
+.news-list .news-pull-quote {
+  font-size: 15px;
+  line-height: 1.3;
+  margin: 8px 0 4px;
+  padding: 4px 0 4px 10px;
+  border-left: 3px solid var(--accent);
+}
+.news-list .news-pull-quote-source {
+  font-size: 10px;
+  padding-left: 10px;
+  letter-spacing: 0.08em;
+}
+.news-item-tag {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+}
+.news-pull-quote {
+  display: block;
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+  margin: 10px 0 4px;
+  padding: 4px 0 4px 14px;
+  border-left: 3px solid var(--accent);
+  font-weight: 400;
+}
+.news-pull-quote-source {
+  display: block;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin: 0 0 6px;
+  padding-left: 14px;
+}
+.news-billboard-quote {
+  margin-top: 56px;
+  padding: 38px 44px 32px;
+  background: var(--paper-light);
+  border-left: 5px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  max-width: 920px;
+}
+.news-billboard-quote-mark {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--accent);
+  font-size: 78px;
+  line-height: 0.6;
+  margin-bottom: 6px;
+  display: block;
+}
+.news-billboard-quote-text {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+.news-billboard-quote-text em {
+  color: var(--accent);
+  font-style: normal;
+  border-bottom: 4px solid var(--accent);
+}
+.news-billboard-quote-source {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  display: block;
+}
+.news-billboard-quote-source a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 720px) {
+  .news-billboard-quote { padding: 28px 22px 24px; margin-top: 32px; }
+  .news-billboard-quote-mark { font-size: 60px; }
+}
+@media (max-width: 720px) {
+  .news-row { grid-template-columns: 1fr; gap: 32px; }
+  .news-section { padding: 60px 22px; }
+}
+
 /* ─── SIGNUP (Constant Contact) — sits between Press and Footer ─── */
 .signup-section {
   background: var(--paper-warm);
@@ -2700,6 +3118,16 @@ p em { font-style: normal; color: inherit; }
 </head>
 <body>
 
+<!-- ───────────── STICKY HEADER (alert ribbon + top bar) ───────────── -->
+<div class="sticky-header">
+
+<a class="alert-ribbon" href="#rally">
+  <span class="alert-ribbon-pulse" aria-hidden="true"></span>
+  <span class="alert-ribbon-tag">Join us this Friday</span>
+  <span class="alert-ribbon-text">June 12 · <strong>Rally at City Hall</strong> · 9 AM on the steps</span>
+  <span class="alert-ribbon-action">Get the details ↓</span>
+</a>
+
 <!-- ───────────── TOP BAR ───────────── -->
 <header class="top-bar">
   <a href="#top" class="top-mark">
@@ -2716,6 +3144,8 @@ p em { font-style: normal; color: inherit; }
     </button>
   </div>
 </header>
+
+</div><!-- /.sticky-header -->
 
 <nav class="hamburger-menu" id="hamburgerMenu" aria-hidden="true">
   <a href="#setup">What's Happening</a>
@@ -3123,9 +3553,9 @@ p em { font-style: normal; color: inherit; }
         <p class="clock-desc">The Mayor submits his FY26 budget to the Board.</p>
       </div>
       <div class="clock-cell next">
-        <div class="clock-date">June 12, 2026</div>
-        <div class="clock-title">Board of Supervisors budget hearing</div>
-        <p class="clock-desc">The Court, Probation and Sheriff budgets will be heard. <strong class="navy-pop">Reach Supervisors before they sit down. Call out an unnecessary decision and Probation. Advocate for SF Pretrial.</strong></p>
+        <div class="clock-date">Friday, June 12, 2026</div>
+        <div class="clock-title">Rally + budget hearing at City Hall</div>
+        <p class="clock-desc"><strong class="navy-pop">9 AM rally on the steps. 10 AM hearing begins. 1:30 PM public comment.</strong> The Court, Probation and Sheriff budgets will be heard. Reach Supervisors before they sit down. <strong class="navy-pop">Show up. Be visible. Advocate for SF Pretrial.</strong></p>
       </div>
       <div class="clock-cell">
         <div class="clock-date">July 1, 2026</div>
@@ -3148,8 +3578,45 @@ p em { font-style: normal; color: inherit; }
 <section class="action-center" id="act">
   <div class="act-inner">
     <span class="section-eyebrow">Take Action</span>
-    <h2 class="action-headline">Six ways. <em>Pick one</em>. <em>Send it</em>.</h2>
-    <p class="action-sub">This is what closes the clock above. Each takes between thirty seconds and two minutes.</p>
+    <h2 class="action-headline">Show up Friday. <em>Then keep sending.</em></h2>
+    <p class="action-sub">June 12 is the budget hearing — and the rally on the City Hall steps that morning is the most visible moment we'll get. Everything else here keeps the pressure on between now and then.</p>
+
+    <!-- ───── Rally feature banner ───── -->
+    <div class="rally-feature" id="rally">
+      <div class="rally-tag-strip">
+        <span class="rally-tag-pulse"></span>
+        <span class="rally-tag">This Friday · June 12 · City Hall</span>
+      </div>
+      <div class="rally-content">
+        <div class="rally-left">
+          <h3>Show up at City Hall. <em>Our voices need to be heard.</em></h3>
+          <p class="rally-pull">The Board of Supervisors will hear the budget. The line of presence on the steps is what they walk past on the way in.</p>
+          <ul class="rally-asks">
+            <li>Don't approve $7.4M for Probation pretrial services.</li>
+            <li>Probation-led pretrial doesn't work — let the Board know why.</li>
+          </ul>
+          <div class="rally-cta-row">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Show%20Up%20for%20SF%20Pretrial%20%E2%80%94%20Rally%20%2B%20Budget%20Hearing&dates=20260612T160000Z/20260612T220000Z&location=City%20Hall%2C%201%20Dr%20Carlton%20B%20Goodlett%20Pl%2C%20San%20Francisco%2C%20CA%2094102&details=Rally%20on%20the%20steps%20of%20City%20Hall%20in%20support%20of%20SF%20Pretrial.%209%20AM%20rally%20on%20City%20Hall%20steps.%2010%20AM%20Board%20of%20Supervisors%20budget%20hearing%20begins.%201%3A30%20PM%20public%20comment.%20Don%27t%20approve%20%247.4M%20for%20Probation%20pretrial%20services.%20More%3A%20https%3A%2F%2Fdontdismantlesf.org" target="_blank" rel="noopener" class="rally-cta">Add to Google Calendar</a>
+            <a href="rally.ics" download class="rally-cta-outline">Apple / Outlook</a>
+          </div>
+        </div>
+        <div class="rally-schedule">
+          <span class="rally-schedule-label">Friday, June 12 · City Hall</span>
+          <div class="rally-time">
+            <span class="rally-hour">9 AM</span>
+            <span class="rally-event">Rally on City Hall steps</span>
+          </div>
+          <div class="rally-time">
+            <span class="rally-hour">10 AM</span>
+            <span class="rally-event">Budget hearing begins</span>
+          </div>
+          <div class="rally-time">
+            <span class="rally-hour">1:30 PM</span>
+            <span class="rally-event">Public comment</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="act-grid">
       <a href="mailto:daniel.lurie@sfgov.org?cc=camilaj@sfpretrial.org,davidm@sfpretrial.org&subject=Don't%20dismantle%20SF's%20most%20uniquely%20effective%20public%20safety%20program&body=Dear%20Mayor's%20Office%2C%0A%0AI'm%20writing%20to%20urge%20the%20Mayor%20to%20deny%20San%20Francisco%20Adult%20Probation's%20budget%20request%20and%20the%20subsequent%20elimination%20of%20the%20San%20Francisco%20Pretrial%20Diversion%20Project.%0A%0ASF%20Pretrial%20is%20one%20of%20the%20most%20uniquely%20cost-effective%20public%20safety%20programs%20in%20the%20city.%2093%25%20safety%20rate.%2096%25%20court%20appearance%20rate%20across%2019%2C000%2B%20court%20dates.%20630%2C394%20jail%20bed%20days%20saved%20in%202023.%20A%20fraction%20of%20the%20cost%20of%20comparable%20probation.%20Dismantling%20it%20and%20handing%20pretrial%20services%20to%20Adult%20Probation%20at%20essentially%20the%20same%20budget%20with%20one-third%20the%20staff%20will%20cost%20the%20city%20money%20and%20cost%20San%20Franciscans%20safety.%20As%20Adult%20Probation%20begins%20full%20implementation%2C%20that%20budget%20will%20balloon.%0A%0AAB%20102%20includes%20a%20named%20carve-out%20allowing%20San%20Francisco%20to%20contract%20with%20the%20existing%20pretrial%20services%20office%20—%20not%20a%20probation%20department.%20There%20is%20no%20legal%20mandate%20for%20this%20transfer.%0A%0AThe%20Mayor%20has%20committed%20to%20shrinking%20the%20deficit%20and%20size%20of%20city%20government%20—%20and%20funding%20a%20probation%20expansion%20goes%20against%20his%20public%20statements.%0A%0APlease%20preserve%20SF%20Pretrial%20by%20approving%20their%20contract%20and%20denying%20Adult%20Probation's%20request.%0A%0AThank%20you%2C%0A%5BYour%20name%5D" class="act-card" data-email-modal="mayor">
@@ -3211,6 +3678,63 @@ p em { font-style: normal; color: inherit; }
   </div>
 </section>
 
+<!-- ───────────── NEWS + LETTERS OF SUPPORT (paper-warm) ───────────── -->
+<section class="news-section" id="news">
+  <div class="container">
+    <span class="section-eyebrow">In the news</span>
+    <h2 class="section-title">Reporters are <em>catching up.</em></h2>
+    <p style="color: var(--ink-mid); font-size: 16px; line-height: 1.65; max-width: 880px;">
+      The case is breaking into the open. Major SF newsrooms are covering it. The "quiet" part of this is over.
+    </p>
+
+    <div class="news-row">
+      <div class="news-col">
+        <div class="news-col-label">Recent Coverage</div>
+        <div class="news-list">
+          <a href="https://missionlocal.org/2026/06/court-data-pretrial-services-challenge/" class="press-item" target="_blank" rel="noopener">
+            <div class="press-item-text">
+              <span class="news-item-tag">Mission Local · Article</span>
+              <strong>San Francisco court questions success rates of nonprofit pretrial program it seeks to replace.</strong>
+              <span>Abigail Vân Neely · June 10, 2026 · "Nonprofit fights back as Board of Supervisors committee votes Wednesday on whether to replace it with in-house service."</span>
+            </div>
+            <span class="press-item-arrow">↗</span>
+          </a>
+          <a href="https://sfstandard.com/2026/06/08/nonprofit-keeps-95-clients-jail-court-sf-courts-want-kill/" class="press-item" target="_blank" rel="noopener">
+            <div class="press-item-text">
+              <span class="news-item-tag">SF Standard · Article</span>
+              <strong>A nonprofit keeps 95% of clients out of jail and in court. SF courts want to kill it.</strong>
+              <span>Jonah Owen Lamb · June 8, 2026 · "Judges, sheriffs, and the SF Bar Association are pushing back on what critics call a power grab dressed up as reform."</span>
+            </div>
+            <span class="press-item-arrow">↗</span>
+          </a>
+          <a href="https://www.ktvu.com/video/fmc-uafd8qd9vvf58ozo" class="press-item" target="_blank" rel="noopener">
+            <div class="press-item-text">
+              <span class="news-item-tag">KTVU Fox 2 · Video</span>
+              <strong>KTVU coverage of SF Pretrial</strong>
+              <span>KTVU Fox 2 · TV segment</span>
+            </div>
+            <span class="press-item-arrow">↗</span>
+          </a>
+          <a href="https://missionlocal.org/2026/03/sf-budget-cuts-probation-pre-trial-services/" class="press-item" target="_blank" rel="noopener">
+            <div class="press-item-text">
+              <span class="news-item-tag">Mission Local · Article</span>
+              <strong>As Lurie calls for budget cuts, S.F. probation seeks $12M for service that already exists.</strong>
+              <span>Abigail Vân Neely · March 4, 2026 · "The San Francisco probation department submitted a budget proposal to provide the same services a city-contracted nonprofit already does."</span>
+            </div>
+            <span class="press-item-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-billboard-quote">
+      <span class="news-billboard-quote-mark" aria-hidden="true">“</span>
+      <p class="news-billboard-quote-text">The takeover of pretrial supervision <em>has apparently coalesced behind closed doors.</em></p>
+      <span class="news-billboard-quote-source">— ACLU letter to the Board of Supervisors, cited in <a href="https://missionlocal.org/2026/06/court-data-pretrial-services-challenge/" target="_blank" rel="noopener">Mission Local</a> · June 10, 2026</span>
+    </div>
+  </div>
+</section>
+
 <!-- ───────────── PRESS (paper) ───────────── -->
 <section class="press-section" id="press">
   <div class="container">
@@ -3239,6 +3763,14 @@ p em { font-style: normal; color: inherit; }
       <div class="press-docs-col">
       <div class="press-docs-label">Background Documents</div>
       <div class="press-list">
+        <a href="press/2026-06_ACLU_Letter_of_Support_for_SF_Pretrial.pdf" class="press-item" target="_blank" rel="noopener">
+          <div class="press-item-text"><strong>ACLU Letter of Support for SF Pretrial</strong><span>American Civil Liberties Union · June 2026 · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
+        <a href="press/2026-06_APPR_Letter_of_Support_for_SF_Pretrial.pdf" class="press-item" target="_blank" rel="noopener">
+          <div class="press-item-text"><strong>APPR Letter of Support for SF Pretrial</strong><span>Association of Pretrial Professionals (APPR) · June 2026 · PDF</span></div>
+          <span class="press-item-arrow">↓</span>
+        </a>
         <a href="press/2026-04_Jones_SF_Pretrial_Unique_and_Effective.pdf" class="press-item" target="_blank" rel="noopener">
           <div class="press-item-text"><strong>The SF Pretrial Model: Unique and Effective</strong><span>Michael R. Jones, PhD, April 2026 · Independent research case for SF Pretrial · PDF</span></div>
           <span class="press-item-arrow">↓</span>

@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dont Dismantle SF//Rally + Budget Hearing//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:sf-pretrial-rally-20260612@dontdismantlesf.org
+DTSTAMP:20260610T000000Z
+DTSTART:20260612T160000Z
+DTEND:20260612T220000Z
+SUMMARY:Show Up for SF Pretrial - Rally + Budget Hearing
+LOCATION:City Hall\, 1 Dr Carlton B Goodlett Pl\, San Francisco\, CA 94102
+DESCRIPTION:Rally on the steps of City Hall in support of SF Pretrial. 9:00 AM rally on City Hall steps. 10:00 AM Board of Supervisors budget hearing begins. 1:30 PM public comment. Don't approve $7.4M for Probation pretrial services. More: https://dontdismantlesf.org
+URL:https://dontdismantlesf.org
+END:VEVENT
+END:VCALENDAR

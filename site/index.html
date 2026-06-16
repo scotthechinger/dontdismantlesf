@@ -2829,6 +2829,329 @@ p em { font-style: normal; color: inherit; }
   padding: 14px;
 }
 
+/* ─── LETTERS OF SUPPORT (between Urgency Block and Premise) ─── */
+.letters-section {
+  background: var(--ink);
+  color: var(--paper-light);
+  padding: 96px 28px 100px;
+  position: relative;
+  overflow: hidden;
+}
+.letters-inner { max-width: 1180px; margin: 0 auto; }
+.letters-eyebrow {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+  display: block;
+}
+.letters-headline {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  color: var(--paper-light);
+}
+.letters-headline em {
+  color: var(--accent);
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 5px;
+  text-underline-offset: 6px;
+}
+.letters-sub {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(251,248,239,0.78);
+  max-width: 780px;
+  margin: 0 0 44px;
+}
+.letters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.letter-card {
+  background: var(--paper-light);
+  border-radius: 14px;
+  padding: 28px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform .2s, box-shadow .2s;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+.letter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.22);
+}
+.letter-scope {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.letter-mark {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 42px;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+}
+.letter-name {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin: 14px 0 14px;
+  line-height: 1.35;
+  min-height: 2.7em;
+}
+.letter-divider { height: 1px; background: var(--line); margin-bottom: 12px; }
+.letter-desc {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+  flex-grow: 1;
+  margin: 0 0 16px;
+}
+.letter-cta {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap .15s;
+}
+.letter-cta::after { content: '↓'; font-size: 14px; }
+.letter-card:hover .letter-cta { gap: 10px; }
+/* Sheriff featured card — sits above the 7-card grid */
+.sheriff-feature-card {
+  display: block;
+  background: var(--paper-light);
+  border-radius: 16px;
+  padding: 0;
+  margin: 0 0 42px;
+  text-decoration: none;
+  color: var(--ink);
+  overflow: hidden;
+  position: relative;
+  border: 2px solid var(--accent);
+  transition: transform .2s, box-shadow .2s;
+}
+.sheriff-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.28);
+}
+.sheriff-feature-tag {
+  background: var(--accent);
+  color: var(--paper-light);
+  padding: 11px 26px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sheriff-feature-tag-pulse {
+  width: 9px; height: 9px; border-radius: 100px;
+  background: var(--paper-light);
+  animation: rally-pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.sheriff-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 32px;
+  padding: 32px 36px;
+  align-items: start;
+}
+.sheriff-feature-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 4.4vw, 56px);
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.sheriff-feature-org {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 18px;
+}
+.sheriff-feature-context {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  margin: 0 0 18px;
+}
+.sheriff-feature-cta {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap .15s;
+}
+.sheriff-feature-card:hover .sheriff-feature-cta { gap: 10px; }
+.sheriff-feature-right {
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 22px;
+}
+.sheriff-feature-quote-mark {
+  font-family: var(--serif);
+  color: var(--accent);
+  font-size: 64px;
+  line-height: 0.5;
+  display: block;
+  margin-bottom: 8px;
+}
+.sheriff-feature-quote {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+.sheriff-feature-quote em {
+  color: var(--accent);
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+}
+.letters-grid-label {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(251,248,239,0.65);
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(251,248,239,0.18);
+}
+
+/* Bottom action footer — drives to Action Center */
+.letters-action-footer {
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(251,248,239,0.18);
+  text-align: center;
+}
+.letters-action-headline {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--paper-light);
+  margin: 0 0 12px;
+}
+.letters-action-headline em {
+  color: var(--accent);
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+}
+.letters-action-body {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(251,248,239,0.75);
+  max-width: 720px;
+  margin: 0 auto 22px;
+}
+.letters-action-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  color: var(--paper-light);
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background .15s, transform .15s, box-shadow .15s;
+}
+.letters-action-cta:hover {
+  background: var(--paper-light);
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 880px) {
+  .sheriff-feature-grid { grid-template-columns: 1fr; gap: 22px; padding: 26px 22px; }
+  .sheriff-feature-right { border-left: none; border-top: 3px solid var(--accent); padding: 16px 0 0; }
+  .sheriff-feature-tag { padding: 9px 20px; font-size: 10px; }
+}
+
+/* Center the 7th orphan card in the bottom row of the 3-col grid */
+.letter-card-orphan { grid-column: 2 / 3; }
+@media (max-width: 980px) {
+  .letters-grid { grid-template-columns: repeat(2, 1fr); }
+  .letter-card-orphan { grid-column: auto; }
+}
+@media (max-width: 600px) {
+  .letters-section { padding: 64px 22px 72px; }
+  .letters-grid { grid-template-columns: 1fr; }
+  .letter-card { min-height: auto; padding: 24px 22px 22px; }
+  .letter-mark { font-size: 38px; }
+}
+
 /* ─── URGENCY BLOCK (between What's Happening and The Evidence) ─── */
 .urgency-block {
   background: var(--paper-warm);
@@ -3199,8 +3522,9 @@ p em { font-style: normal; color: inherit; }
   <div class="top-right">
     <a href="#setup" class="top-evidence top-nav-link">What's Happening</a>
     <a href="#premise" class="top-evidence">See the Evidence</a>
+    <a href="#urgency" class="top-evidence top-nav-link">Our Supporters</a>
     <a href="#press" class="top-evidence top-nav-link">For the Press</a>
-    <a href="#act" class="top-cta" data-open-all>Send Letters</a>
+    <a href="#act" class="top-cta">Take Action</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -3210,8 +3534,9 @@ p em { font-style: normal; color: inherit; }
 <nav class="hamburger-menu" id="hamburgerMenu" aria-hidden="true">
   <a href="#setup">What's Happening</a>
   <a href="#premise">See the Evidence</a>
+  <a href="#urgency">Our Supporters</a>
   <a href="#press">For the Press</a>
-  <a href="#act" class="menu-cta" data-open-all>Send Letters</a>
+  <a href="#act" class="menu-cta">Take Action</a>
 </nav>
 
 <!-- ───────────── HERO ───────────── -->
@@ -3303,29 +3628,110 @@ p em { font-style: normal; color: inherit; }
   </div>
 </section>
 
-<!-- ───────────── URGENCY BLOCK · TAKE ACTION ───────────── -->
-<section class="urgency-block" id="urgency">
-  <div class="urgency-inner">
-    <span class="urgency-eyebrow">Take Action Now</span>
-    <h2 class="urgency-headline">The Sheriff just sided with us. <em>The fight isn't over.</em></h2>
-    <p class="urgency-body">
-      Pressure is building. The <a href="https://sfstandard.com/2026/06/12/sf-court-pretrial-diversion-metrics-sheriff/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-weight: 700;">SF Sheriff publicly refuted the court's attempt to undermine SF Pretrial's data</a>. The committee heard the case June 12 — and the full Board still has to vote. The volume of voices is what closes the gap between "noted" and "no." <strong>We've made it easy.</strong>
+<!-- ───────────── LETTERS OF SUPPORT (navy) ───────────── -->
+<section class="letters-section" id="urgency">
+  <div class="letters-inner">
+    <span class="letters-eyebrow">Support · National · Statewide · Local</span>
+    <h2 class="letters-headline">The Sheriff just sided with us. <em>The field stands with us.</em></h2>
+    <p class="letters-sub">
+      San Francisco Sheriff Paul Miyamoto put his full-throated support on the record. So has the country's foremost civil-liberties organization. So have the leading pretrial research and policy organizations in the United States. So has the local legal community closest to this work. Eight voices. One conclusion.
     </p>
 
-    <div class="urgency-cta-row">
-      <button class="urgency-primary" type="button" data-open-all>Send all three emails</button>
+    <!-- Sheriff Miyamoto featured card -->
+    <a href="https://sfstandard.com/2026/06/12/sf-court-pretrial-diversion-metrics-sheriff/" target="_blank" rel="noopener" class="sheriff-feature-card">
+      <div class="sheriff-feature-tag">
+        <span class="sheriff-feature-tag-pulse"></span>
+        <span>Featured · San Francisco · June 12, 2026</span>
+      </div>
+      <div class="sheriff-feature-grid">
+        <div class="sheriff-feature-left">
+          <div class="sheriff-feature-name">Sheriff Paul Miyamoto</div>
+          <div class="sheriff-feature-org">San Francisco Sheriff's Department</div>
+          <p class="sheriff-feature-context">In a letter to city officials, the SF Sheriff publicly refuted the Superior Court's attempt to undermine SF Pretrial's data — noting the court's analysis "failed to use national standards." Reported by The SF Standard.</p>
+          <span class="sheriff-feature-cta">Read the SF Standard story →</span>
+        </div>
+        <div class="sheriff-feature-right">
+          <span class="sheriff-feature-quote-mark" aria-hidden="true">“</span>
+          <p class="sheriff-feature-quote">Transparency requires more than the publication of data. It requires a shared understanding of what is being measured, how it is being measured, and <em>whether the metrics being compared are, in fact, measuring the same outcomes.</em></p>
+        </div>
+      </div>
+    </a>
+
+    <div class="letters-grid-label">And these organizations stand with SF Pretrial:</div>
+
+    <div class="letters-grid">
+
+      <a href="press/2026-06_ACLU_Letter_of_Support_for_SF_Pretrial.pdf" class="letter-card" target="_blank" rel="noopener">
+        <div class="letter-scope">National</div>
+        <div class="letter-mark">ACLU</div>
+        <div class="letter-name">American Civil Liberties Union</div>
+        <div class="letter-divider"></div>
+        <p class="letter-desc">The country's foremost civil-liberties organization on the record in defense of SF Pretrial's foundational contract.</p>
+        <span class="letter-cta">Read the letter</span>
+      </a>
+
+      <a href="press/2026-06-11_Vera_Institute_Letter_to_SF_BOS.pdf" class="letter-card" target="_blank" rel="noopener">
+        <div class="letter-scope">National</div>
+        <div class="letter-mark">Vera</div>
+        <div class="letter-name">Vera Institute of Justice</div>
+        <div class="letter-divider"></div>
+        <p class="letter-desc">A national leader in criminal-justice research and policy writes the Board of Supervisors to preserve SF Pretrial.</p>
+        <span class="letter-cta">Read the letter</span>
+      </a>
+
+      <a href="press/2026-04-17_BASF_Letter_of_Support_for_SF_Pretrial.pdf" class="letter-card" target="_blank" rel="noopener">
+        <div class="letter-scope">Local</div>
+        <div class="letter-mark">BASF</div>
+        <div class="letter-name">Bar Association of San Francisco</div>
+        <div class="letter-divider"></div>
+        <p class="letter-desc">The 5,600-member legal community of San Francisco — the lawyers closest to this work — urges Mayor Lurie to preserve SF Pretrial.</p>
+        <span class="letter-cta">Read the letter</span>
+      </a>
+
+      <a href="press/2026-06_APPR_Letter_of_Support_for_SF_Pretrial.pdf" class="letter-card" target="_blank" rel="noopener">
+        <div class="letter-scope">National</div>
+        <div class="letter-mark">CEPP</div>
+        <div class="letter-name">Center for Effective Public Policy</div>
+        <div class="letter-divider"></div>
+        <p class="letter-desc">The national authority on pretrial policy research backs SF Pretrial's model as a national standard worth preserving.</p>
+        <span class="letter-cta">Read the letter</span>
+      </a>
+
+      <a href="press/2026-04-29_ACLU_NorCal_Public_Safety_Letter_to_Mayor.pdf" class="letter-card" target="_blank" rel="noopener">
+        <div class="letter-scope">Statewide</div>
+        <div class="letter-mark">ACLU NorCal</div>
+        <div class="letter-name">ACLU of Northern California</div>
+        <div class="letter-divider"></div>
+        <p class="letter-desc">California's civil-liberties organization sends public-safety policy recommendations to the Mayor's Office.</p>
+        <span class="letter-cta">Read the letter</span>
+      </a>
+
+      <a href="press/2026-06_Care_First_California_Letter_of_Support.pdf" class="letter-card" target="_blank" rel="noopener">
+        <div class="letter-scope">Statewide</div>
+        <div class="letter-mark">Care First</div>
+        <div class="letter-name">Care First California</div>
+        <div class="letter-divider"></div>
+        <p class="letter-desc">California's statewide coalition for community-based public safety stands with SF Pretrial.</p>
+        <span class="letter-cta">Read the letter</span>
+      </a>
+
+      <a href="press/2026-06_NAPSA_Letter_of_Support_for_SF_Pretrial.pdf" target="_blank" rel="noopener" class="letter-card letter-card-orphan">
+        <div class="letter-scope">National · Accreditor</div>
+        <div class="letter-mark">NAPSA</div>
+        <div class="letter-name">National Association of Pretrial Services Agencies</div>
+        <div class="letter-divider"></div>
+        <p class="letter-desc">The accreditation body for pretrial-services programs nationally — the body that accredited SF Pretrial itself — on the record.</p>
+        <span class="letter-cta">Read the letter</span>
+      </a>
+
     </div>
 
-    <div class="urgency-secondary-line">
-      <span class="label">Or send to just one office:</span>
-      <span class="pills-row">
-        <button class="urgency-pill" type="button" data-open-single="mayor">Mayor</button>
-        <button class="urgency-pill" type="button" data-open-single="supervisors">Board</button>
-        <button class="urgency-pill" type="button" data-open-single="judiciary">Court</button>
-      </span>
+    <div class="letters-action-footer">
+      <p class="letters-action-headline">Add your voice. <em>The full Board still has to vote.</em></p>
+      <p class="letters-action-body">The Sheriff. ACLU. Vera. BASF. CEPP. ACLU NorCal. Care First California. NAPSA. The Action Center is where you join them.</p>
+      <a href="#act" class="letters-action-cta">Visit the Action Center ↓</a>
     </div>
 
-    <a href="#act" class="urgency-tertiary">Visit action center for more</a>
   </div>
 </section>
 
@@ -3808,28 +4214,12 @@ p em { font-style: normal; color: inherit; }
       <div class="press-docs-col">
       <div class="press-docs-label">Background Documents</div>
       <div class="press-list">
-        <a href="press/2026-06_ACLU_Letter_of_Support_for_SF_Pretrial.pdf" class="press-item" target="_blank" rel="noopener">
-          <div class="press-item-text"><strong>ACLU Letter of Support for SF Pretrial</strong><span>American Civil Liberties Union · June 2026 · PDF</span></div>
-          <span class="press-item-arrow">↓</span>
-        </a>
-        <a href="press/2026-06_APPR_Letter_of_Support_for_SF_Pretrial.pdf" class="press-item" target="_blank" rel="noopener">
-          <div class="press-item-text"><strong>APPR Letter of Support for SF Pretrial</strong><span>Association of Pretrial Professionals (APPR) · June 2026 · PDF</span></div>
-          <span class="press-item-arrow">↓</span>
-        </a>
         <a href="press/2026-04_Jones_SF_Pretrial_Unique_and_Effective.pdf" class="press-item" target="_blank" rel="noopener">
           <div class="press-item-text"><strong>The SF Pretrial Model: Unique and Effective</strong><span>Michael R. Jones, PhD, April 2026 · Independent research case for SF Pretrial · PDF</span></div>
           <span class="press-item-arrow">↓</span>
         </a>
         <a href="press/SF_Pretrial_Value_Added.pdf" class="press-item" target="_blank" rel="noopener">
           <div class="press-item-text"><strong>SF Pretrial: Value Added</strong><span>SF Pretrial Diversion Project · The case for SF Pretrial as an indispensable public safety pillar · PDF</span></div>
-          <span class="press-item-arrow">↓</span>
-        </a>
-        <a href="press/2026-04-17_BASF_Letter_of_Support_for_SF_Pretrial.pdf" class="press-item" target="_blank" rel="noopener">
-          <div class="press-item-text"><strong>BASF Letter of Support for SF Pretrial</strong><span>Bar Association of San Francisco, April 17, 2026 · 5,600-member legal community urges Mayor Lurie to preserve SF Pretrial · PDF</span></div>
-          <span class="press-item-arrow">↓</span>
-        </a>
-        <a href="press/2026-04-29_ACLU_NorCal_Public_Safety_Letter_to_Mayor.pdf" class="press-item" target="_blank" rel="noopener">
-          <div class="press-item-text"><strong>ACLU NorCal Public Safety Letter to the Mayor's Office</strong><span>ACLU of Northern California, April 29, 2026 · Public safety policy recommendations to the Mayor's Office · PDF</span></div>
           <span class="press-item-arrow">↓</span>
         </a>
         <a href="press/2025-10-21_Court_Notice_to_Judicial_Council.pdf" class="press-item" target="_blank" rel="noopener">
